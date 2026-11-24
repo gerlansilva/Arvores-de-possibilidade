@@ -10,6 +10,8 @@ Na tela inicial há **Orientações para o professor** (como conduzir cada módu
 
 ![Página de orientações](docs/capturas/09-orientacoes.png)
 
+**Versão web:** <https://arvoredepossibilidade.pages.dev/> (roda no navegador, sem instalar; as sessões ficam guardadas no navegador, então use "Salvar cópia" para levá-las a outro lugar).
+
 ## Baixar e instalar
 
 Os instaladores ficam na página de [Releases](../../releases) (ou em *Actions → Gerar aplicativos*, se o release ainda for rascunho).
