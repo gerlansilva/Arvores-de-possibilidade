@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EXEMPLOS, type ExemploDoArbol } from "../../data/exemplos-arbol";
 import { apagarArvore, guardarArvore, marcarCaminhos, useBiblioteca, type ArvoreSalva } from "../../state/arvores";
 import { ArbolCriar } from "./ArbolCriar";
@@ -20,14 +20,26 @@ type Props = {
   /** Seção em que abre; o menu lateral remonta a tela ao trocar de seção. */
   secao: SecaoDoArbol;
   aoPainel: () => void;
+  /** Avisa qual seção está aberta, para o F5 voltar à mesma tela. */
+  aoSecao?: (secao: SecaoDoArbol) => void;
 };
 
 /** O Árbol: criar, ver exemplos, recuperar da biblioteca e instruções. */
-export function Arbol({ secao, aoPainel }: Props) {
+export function Arbol({ secao, aoPainel, aoSecao }: Props) {
   const [tela, setTela] = useState<Tela>(() =>
     typeof secao === "object" ? { v: "ver-salva", id: secao.ver } : { v: secao },
   );
+  const [avisoBib, setAvisoBib] = useState("");
   const biblioteca = useBiblioteca();
+  useEffect(() => {
+    if (tela.v !== "ver-salva") setAvisoBib("");
+    if (!aoSecao) return;
+    if (tela.v === "ver-salva") aoSecao({ ver: tela.id });
+    else if (tela.v === "ver-exemplo") aoSecao("exemplos");
+    else aoSecao(tela.v);
+    // Só quando a tela interna muda.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tela]);
   const marcasDoExemplo = useRef<string[]>([]);
   const inicio = aoPainel;
 
@@ -55,6 +67,7 @@ export function Arbol({ secao, aoPainel }: Props) {
         key={arvore.id + arvore.niveis.map((n) => n.elementos.join("|")).join("/")}
         def={arvore}
         marcadasIniciais={arvore.marcadas}
+        avisoInicial={avisoBib}
         aoMudarMarcas={(m) => marcarCaminhos(arvore.id, m)}
         aoInicio={inicio}
         aoModificar={() => setTela({ v: "criar", editarId: arvore.id })}
@@ -81,6 +94,7 @@ export function Arbol({ secao, aoPainel }: Props) {
         aoInicio={() => setTela({ v: "exemplos" })}
         aoGuardarNaBiblioteca={() => {
           const id = guardarArvore({ nome: ex.nome, niveis: ex.niveis }, marcasDoExemplo.current);
+          setAvisoBib("Guardada na biblioteca.");
           setTela({ v: "ver-salva", id });
         }}
       />

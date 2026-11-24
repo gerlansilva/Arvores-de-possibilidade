@@ -26,21 +26,21 @@ type Rota =
   | { tela: "editor"; editandoId?: string }
   | { tela: "mesa" | "colecao" | "arvore" | "registro"; sessaoId: string };
 
-type Aba = { tela: "mesa" | "colecao" | "arvore" | "registro"; nome: string };
+type Aba = { tela: "mesa" | "colecao" | "arvore" | "registro"; nome: string; icone?: NomeDeIcone };
 
 /** Sessões novas têm as quatro etapas; sessões antigas de Interpretar mantêm as duas que já tinham. */
 function abasDaSessao(sessao: Sessao | undefined): Aba[] {
   if (sessao?.modo === "interpretar") {
     return [
-      { tela: "mesa", nome: "Interpretar" },
-      { tela: "registro", nome: "Registro" },
+      { tela: "mesa", nome: "Interpretar", icone: "aba-montar" },
+      { tela: "registro", nome: "Registro", icone: "aba-registro" },
     ];
   }
   return [
-    { tela: "mesa", nome: "Montar" },
-    { tela: "colecao", nome: "Coleção" },
-    { tela: "arvore", nome: "Árvore" },
-    { tela: "registro", nome: "Registro" },
+    { tela: "mesa", nome: "Montar", icone: "aba-montar" },
+    { tela: "colecao", nome: "Coleção", icone: "aba-colecao" },
+    { tela: "arvore", nome: "Árvore", icone: "aba-arvore" },
+    { tela: "registro", nome: "Registro", icone: "aba-registro" },
   ];
 }
 
@@ -64,6 +64,23 @@ export default function App() {
   const biblioteca = useBiblioteca();
   const falhaAoGravar = useFalhaAoGravar();
   const [rota, setRotaBruta] = useState<Rota>(rotaSalva);
+  const [menuRecolhido, setMenuRecolhido] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem("mesa-menu-recolhido") === "1";
+    } catch {
+      return false;
+    }
+  });
+  const alternarMenu = () => {
+    setMenuRecolhido((v) => {
+      try {
+        localStorage.setItem("mesa-menu-recolhido", v ? "0" : "1");
+      } catch {
+        /* sem armazenamento: vale só nesta sessão */
+      }
+      return !v;
+    });
+  };
   const setRota = (r: Rota) => {
     setRotaBruta(r);
     try {
@@ -145,21 +162,21 @@ export default function App() {
   const itens: { grupo: string; itens: { id: string; icone: NomeDeIcone; nome: string; ativo: boolean; ir: () => void; contador?: number }[] }[] = [
     {
       grupo: "",
-      itens: [{ id: "painel", icone: "casa", nome: "Início", ativo: rota.tela === "painel", ir: painel }],
+      itens: [{ id: "painel", icone: "inicio", nome: "Início", ativo: rota.tela === "painel", ir: painel }],
     },
     {
       grupo: "Atividades",
       itens: [
         {
           id: "atividades",
-          icone: "figurinhas",
+          icone: "atividades",
           nome: "Atividades",
           ativo: rota.tela === "inicio" || Boolean(sessao),
           ir: () => setRota({ tela: "inicio" }),
         },
         {
           id: "nova",
-          icone: "mais",
+          icone: "nova-atividade",
           nome: "Nova atividade",
           ativo: rota.tela === "editor",
           ir: () => setRota({ tela: "editor" }),
@@ -169,24 +186,24 @@ export default function App() {
     {
       grupo: "Árvore livre",
       itens: [
-        { id: "criar", icone: "arvore", nome: "Criar uma árvore", ativo: secaoDoArbol === "criar", ir: () => irParaArbol(setRota, "criar") },
-        { id: "exemplos", icone: "livro", nome: "Exemplos", ativo: secaoDoArbol === "exemplos", ir: () => irParaArbol(setRota, "exemplos") },
+        { id: "criar", icone: "aba-arvore", nome: "Criar uma árvore", ativo: secaoDoArbol === "criar", ir: () => irParaArbol(setRota, "criar") },
+        { id: "exemplos", icone: "exemplos", nome: "Exemplos", ativo: secaoDoArbol === "exemplos", ir: () => irParaArbol(setRota, "exemplos") },
         {
           id: "biblioteca",
-          icone: "abrir",
+          icone: "biblioteca",
           nome: "Biblioteca",
           contador: biblioteca.length,
           ativo: secaoDoArbol === "biblioteca" || typeof secaoDoArbol === "object",
           ir: () => irParaArbol(setRota, "biblioteca"),
         },
-        { id: "como", icone: "info", nome: "Passo a passo", ativo: secaoDoArbol === "instrucoes", ir: () => irParaArbol(setRota, "instrucoes") },
+        { id: "como", icone: "passos", nome: "Passo a passo", ativo: secaoDoArbol === "instrucoes", ir: () => irParaArbol(setRota, "instrucoes") },
       ],
     },
     {
       grupo: "Para o professor",
       itens: [
-        { id: "orient", icone: "professor", nome: "Orientações", ativo: rota.tela === "orientacoes", ir: () => setRota({ tela: "orientacoes" }) },
-        { id: "sobre", icone: "ajuda", nome: "Sobre", ativo: rota.tela === "sobre", ir: () => setRota({ tela: "sobre" }) },
+        { id: "orient", icone: "orientacoes", nome: "Orientações", ativo: rota.tela === "orientacoes", ir: () => setRota({ tela: "orientacoes" }) },
+        { id: "sobre", icone: "sobre", nome: "Sobre", ativo: rota.tela === "sobre", ir: () => setRota({ tela: "sobre" }) },
       ],
     },
   ];
@@ -202,7 +219,7 @@ export default function App() {
       </a>
 
       {rota.tela !== "entrada" && (
-        <aside className="lateral nao-imprimir">
+        <aside className={`lateral nao-imprimir${menuRecolhido ? " recolhida" : ""}`}>
           <button className="marca" onClick={painel} title="Ir para o início" aria-label="Árvore de possibilidades — ir para o início">
             <LogoArvore tamanho={26} />
             <span>
@@ -214,7 +231,7 @@ export default function App() {
               <div key={i} className="lateral-grupo">
                 {g.grupo && <p className="lateral-titulo">{g.grupo}</p>}
                 {g.itens.map((it) => (
-                  <button key={it.id} className="lateral-item" aria-current={it.ativo ? "page" : undefined} onClick={it.ir}>
+                  <button key={it.id} className="lateral-item" title={menuRecolhido ? it.nome : undefined} aria-label={it.nome} aria-current={it.ativo ? "page" : undefined} onClick={it.ir}>
                     <Icone nome={it.icone} />
                     <span>{it.nome}</span>
                     {it.contador ? <span className="lateral-contador">{it.contador}</span> : null}
@@ -223,6 +240,20 @@ export default function App() {
               </div>
             ))}
           </nav>
+          <button
+            className="lateral-item lateral-recolher"
+            onClick={alternarMenu}
+            aria-expanded={!menuRecolhido}
+            aria-label={menuRecolhido ? "Mostrar menu" : "Recolher menu"}
+            title={menuRecolhido ? "Mostrar o menu" : "Recolher o menu"}
+          >
+            <svg className="icone" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+              <path d="M9.5 4.5v15" />
+              <path d={menuRecolhido ? "M13.5 9.5l3 2.5-3 2.5" : "M16.5 9.5l-3 2.5 3 2.5"} />
+            </svg>
+            <span>{menuRecolhido ? "Mostrar menu" : "Recolher menu"}</span>
+          </button>
           <p className="lateral-rodape">Dados só neste computador. Nada é enviado.</p>
         </aside>
       )}
@@ -250,6 +281,7 @@ export default function App() {
                   aria-current={rota.tela === aba.tela ? "page" : undefined}
                   onClick={() => setRota({ tela: aba.tela, sessaoId: sessao.id })}
                 >
+                  {aba.icone && <Icone nome={aba.icone} tamanho={20} />}
                   {aba.nome}
                   {aba.tela === "colecao" && sessao.montagens.length > 0 && (
                     <span className="aba-contador">{sessao.montagens.length}</span>
@@ -300,7 +332,7 @@ export default function App() {
             />
           )}
 
-          {rota.tela === "arbol" && <Arbol key={rota.n} secao={rota.secao} aoPainel={painel} />}
+          {rota.tela === "arbol" && <Arbol key={rota.n} secao={rota.secao} aoPainel={painel} aoSecao={(s) => setRota({ tela: "arbol", secao: s, n: rota.n })} />}
 
           {rota.tela === "inicio" && (
             <Inicio

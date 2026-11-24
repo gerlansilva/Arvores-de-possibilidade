@@ -268,3 +268,50 @@ button.arbol-folha-no[data-vermelho="sim"]:hover { background: #f3d3ca; }
 .lateral .marca em, .entrada h1 .entrada-nome-fraco, .arbol-menu h1 em { color: var(--acento); }
 .arvore-vazia-ramo { border-top-color: var(--ramo); }
 .no.raiz .nome { font-family: var(--fonte); }
+
+/* ícones das abas da sessão: ao lado do texto, nunca no lugar dele */
+.aba-sessao { display: inline-flex; align-items: center; gap: 8px; }
+.aba-sessao .icone { flex: none; opacity: .75; }
+.aba-sessao[aria-current="page"] .icone { opacity: 1; color: var(--acento); }
+
+/* --- menu lateral recolhível: mais área para as árvores --- */
+.lateral { transition: width 140ms ease; }
+.lateral-recolher { margin-top: auto; color: var(--texto-2); }
+.lateral-recolher + .lateral-rodape { margin-top: 0; }
+.lateral.recolhida { width: 64px; padding-inline: 8px; align-items: center; }
+.lateral.recolhida .marca { padding: 6px 4px 12px; justify-content: center; }
+.lateral.recolhida .marca span, .lateral.recolhida .lateral-titulo, .lateral.recolhida .lateral-item span,
+.lateral.recolhida .lateral-rodape { display: none !important; }
+.lateral.recolhida .lateral-item { justify-content: center; padding: 0; width: 46px; }
+.lateral.recolhida .lateral-item[aria-current="page"]::before { left: -8px; }
+.lateral.recolhida .lateral-grupo + .lateral-grupo { border-top: 1px solid var(--linha); padding-top: 8px; }
+@media (max-width: 960px) { .lateral-recolher { display: none; } }
+
+/* --- tela de entrada: o nome e uma árvore de verdade --- */
+.tela-entrada { background: #fff; }
+.entrada { max-width: 1180px; width: 100%; padding: 32px 64px 72px; gap: 72px; justify-content: space-between; align-items: center; }
+.entrada-texto { flex: 0 1 460px; gap: 20px; }
+.entrada h1 { font-family: var(--fonte-serif); font-size: clamp(46px, 5vw, 66px); line-height: 1.02; letter-spacing: -0.02em; }
+.entrada h1 span { display: block; }
+.entrada h1 .entrada-nome-fraco { color: var(--terra); font-weight: 500; }
+.entrada-texto p { font-size: 1.15rem; line-height: 1.5; color: var(--texto-2); }
+.entrada-exemplo { flex: 1 1 0; min-width: 0; max-width: 580px; margin: 0; display: grid; gap: 14px; justify-items: center; }
+.entrada-exemplo svg { width: 100%; height: auto; overflow: visible; }
+.entrada-exemplo .ex-ramos path { fill: none; stroke: var(--ramo, #7f9285); stroke-width: 3; stroke-linecap: round; }
+.entrada-exemplo .ex-raiz { fill: var(--terra-forte, #1e3b2f); }
+.entrada-exemplo .ex-meio { fill: #fff; stroke: var(--terra, #2f5a45); stroke-width: 2.5; }
+.entrada-exemplo .ex-folha { fill: #eef3ec; stroke: var(--ramo, #7f9285); stroke-width: 2; }
+.entrada-exemplo .ex-texto { font-family: var(--fonte); font-size: 19px; font-weight: 600; text-anchor: middle; fill: var(--texto, #1b2f25); }
+.entrada-exemplo .ex-texto-raiz { fill: #fff; font-family: var(--fonte-serif); font-size: 21px; font-weight: 700; }
+.entrada-exemplo figcaption { font-size: .95rem; color: var(--texto-2, #2e4a3c); font-weight: 500; }
+@media (max-width: 1000px) { .entrada { flex-direction: column-reverse; gap: 28px; padding: 24px 24px 64px; } .entrada-exemplo { max-width: 460px; } }
+
+/* --- entrada centralizada: um eixo só --- */
+.entrada { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 22px; max-width: 760px; padding: 24px 32px 72px; }
+.entrada-texto { flex: none; max-width: none; justify-items: center; gap: 12px; }
+.entrada h1 { font-size: clamp(40px, 4.6vw, 56px); }
+.entrada h1 span { display: inline; }
+.entrada-texto p { font-size: 1.1rem; margin: 0; }
+.entrada-exemplo { flex: none; width: min(100%, 500px); gap: 8px; }
+.entrada-acoes { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin: 4px 0 0; }
+.entrada .botao.grande { height: 48px; min-height: 48px; padding: 0 26px; font-size: 1rem; margin: 0; }

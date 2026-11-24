@@ -30,6 +30,8 @@ type Props = {
   aoApagar?: () => void;
   /** Só para exemplos: copia para a biblioteca. */
   aoGuardarNaBiblioteca?: () => void;
+  /** Mensagem que já abre na barra de estado (ex.: depois de guardar na biblioteca). */
+  avisoInicial?: string;
 };
 
 const ZOOMS = [0.5, 0.65, 0.8, 1, 1.25, 1.5];
@@ -50,6 +52,7 @@ export function ArbolVer({
   aoModificar,
   aoApagar,
   aoGuardarNaBiblioteca,
+  avisoInicial,
 }: Props) {
   const [marcadas, setMarcadas] = useState<Set<string>>(() => new Set(marcadasIniciais));
   const [zoom, setZoom] = useState(3);
@@ -58,7 +61,7 @@ export function ArbolVer({
   const [ficha, setFicha] = useState(false);
   const [resposta, setResposta] = useState(false);
   const [apagando, setApagando] = useState(false);
-  const [aviso, setAviso] = useState("");
+  const [aviso, setAviso] = useState(avisoInicial ?? "");
   const primeiraVez = useRef(true);
 
   const total = totalDeCaminhos(def.niveis);
@@ -246,7 +249,7 @@ export function ArbolVer({
             </p>
           ) : visao === "tabela" ? (
             <table className="arbol-tabela">
-              <caption className="sr-only">Todas as possibilidades. Toque numa linha para pintá-la de vermelho.</caption>
+              <caption className="sr-only">Todas as possibilidades. Use o botão Pintar para pintar uma linha de vermelho.</caption>
               <thead>
                 <tr>
                   <th scope="col">Nº</th>
