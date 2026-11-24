@@ -368,3 +368,30 @@ button.arbol-folha-no[data-vermelho="sim"]:hover { background: #f3d3ca; }
 .painel-acao.destaque:hover { background: var(--acento-forte); box-shadow: 0 12px 28px rgba(30, 59, 47, .30); }
 .painel-situacao-arte, .grupo-situacao .atividade-arte { background: #f4f7f3; border-radius: 10px; }
 @media (prefers-reduced-motion: reduce) { .painel-acao, .painel-situacao, .painel-item, .grupo-situacao .atividade, .arbol-cartao { transition: none; } .painel-acao:hover, .painel-situacao:hover, .painel-item:hover, .grupo-situacao .atividade:hover, .arbol-cartao:hover { transform: none; } }
+
+/* --- nome Quantos Jeitos --- */
+.marca-nome { display: grid; gap: 1px; text-align: left; }
+.marca-nome b { font-family: var(--fonte-serif); font-size: 19px; line-height: 1.05; font-weight: 700; color: var(--terra-forte); letter-spacing: -.01em; }
+.marca-nome small { font-family: var(--fonte); font-size: 11.5px; font-weight: 600; color: var(--texto-3); letter-spacing: .02em; }
+.lateral.recolhida .marca-nome { display: none !important; }
+.entrada-sub { font-size: .95rem !important; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--texto-3) !important; margin: -4px 0 6px !important; }
+.entrada h1 { font-size: clamp(52px, 6vw, 76px); }
+.entrada-texto > svg { margin-bottom: 4px; }
+.lateral .marca .marca-nome, .app-sessao .lateral .marca .marca-nome { display: grid; }
+
+/* entrada sem a árvore de exemplo: tudo num eixo, com respiro */
+.entrada { gap: 30px; }
+.entrada-texto { gap: 14px; }
+.entrada-texto > svg { margin-bottom: 10px; }
+.entrada-texto p:not(.entrada-sub) { font-size: 1.2rem; margin-top: 8px; }
+.entrada .botao.grande { height: 52px; min-height: 52px; padding: 0 30px; }
+
+/* --- janela "quem vai fazer?" --- */
+.pedir-nome-fundo { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: rgba(27, 47, 37, .38); }
+.pedir-nome { width: min(460px, calc(100vw - 40px)); display: grid; gap: 10px; padding: 26px 28px 22px; background: #fff; border-radius: 16px; box-shadow: 0 24px 60px rgba(27, 47, 37, .35); }
+.pedir-nome h2 { font-family: var(--fonte-serif); font-size: 1.5rem; line-height: 1.15; color: var(--terra-forte); }
+.pedir-nome label { font-weight: 600; margin-top: 4px; }
+.pedir-nome input { height: 48px; padding: 0 14px; font-size: 1.05rem; border: 1.5px solid var(--borda-controle); border-radius: 10px; background: #fff; color: var(--texto); }
+.pedir-nome input:focus { outline: none; box-shadow: var(--foco); border-color: var(--acento); }
+.pedir-nome-acoes { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+@media print { .pedir-nome-fundo { display: none; } }

@@ -1,4 +1,4 @@
-# Árvore de possibilidades
+# Quantos Jeitos (árvores de possibilidades)
 
 Ambiente de investigação combinatória para os anos iniciais. Une duas ideias: **montar possibilidades
 com figurinhas** e **ver a árvore completa do problema**, como no Árbol (Aguirre, 2005; Azevedo, Costa e
@@ -66,8 +66,8 @@ Requisitos: Node 20+, Rust 1.77+ e as ferramentas de linha de comando do Xcode.
 
 O build de produção gera:
 
-- `src-tauri/target/release/bundle/macos/Árvore de possibilidades.app`
-- `src-tauri/target/release/bundle/dmg/Árvore de possibilidades_0.1.0_aarch64.dmg`
+- `src-tauri/target/release/bundle/macos/Quantos Jeitos.app`
+- `src-tauri/target/release/bundle/dmg/Quantos Jeitos_0.1.0_aarch64.dmg`
 
 O pacote é local e não notarizado; em outro Mac, o Gatekeeper pede confirmação
 para abrir.

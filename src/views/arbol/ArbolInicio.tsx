@@ -27,7 +27,7 @@ export function ArbolInicio({
           <LogoArvore tamanho={120} />
         </div>
         <h1>
-          <span>Árvore</span> <em>de possibilidades</em>
+          <span>Quantos</span> <em>Jeitos</em>
         </h1>
         <p className="arbol-menu-frase">
           Defina os níveis e os elementos de um problema e veja todas as possibilidades em uma

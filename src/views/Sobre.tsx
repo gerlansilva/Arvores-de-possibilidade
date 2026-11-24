@@ -11,7 +11,7 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
         <header>
           <h1>Sobre</h1>
           <p className="texto-lead">
-            A Árvore de possibilidades reúne duas ideias: montar possibilidades com figurinhas e ver a
+            O Quantos Jeitos reúne duas ideias: montar possibilidades com figurinhas e ver a
             árvore completa do problema, como no Árbol, pintando de vermelho as que valem.
           </p>
         </header>

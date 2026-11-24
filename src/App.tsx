@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { ATIVIDADES, type Atividade } from "./data/activities";
-import { useEstado, criarSessao, useFalhaAoGravar, type Modo, type Sessao } from "./state/store";
+import { useEstado, criarSessao, identificarSessao, useFalhaAoGravar, type Modo, type Sessao } from "./state/store";
 import { Entrada } from "./views/Entrada";
 import { Inicio } from "./views/Inicio";
 import { Mesa } from "./views/Mesa";
@@ -16,6 +16,7 @@ import { ArvoreCompleta } from "./views/ArvoreCompleta";
 import { useBiblioteca } from "./state/arvores";
 import { Icone, type NomeDeIcone } from "./components/Icone";
 import { LogoArvore } from "./components/LogoArvore";
+import { PedirNome } from "./components/PedirNome";
 
 type Rota =
   | { tela: "entrada" }
@@ -44,9 +45,18 @@ function abasDaSessao(sessao: Sessao | undefined): Aba[] {
   ];
 }
 
-/** Depois de recarregar a página, volta para a tela em que o professor estava. */
+/**
+ * O programa sempre abre na tela inicial. Só ao recarregar a página (F5) volta
+ * para a tela em que o professor estava; abrir de novo, reabrir a aba ou
+ * reiniciar o aplicativo começa pela Entrada.
+ */
 function rotaSalva(): Rota {
   try {
+    const navegacao = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
+    if (navegacao && navegacao.type !== "reload") {
+      sessionStorage.removeItem("mesa-rota");
+      return { tela: "entrada" };
+    }
     const r = JSON.parse(sessionStorage.getItem("mesa-rota") ?? "null") as Rota | null;
     if (r && typeof r.tela === "string") return r;
   } catch {
@@ -107,15 +117,22 @@ export default function App() {
 
   useEffect(() => {
     document.title = sessao
-      ? `${sessao.atividade.titulo} · Árvore de possibilidades`
-      : "Árvore de possibilidades";
+      ? `${sessao.atividade.titulo} · Quantos Jeitos`
+      : "Quantos Jeitos";
   }, [rota, sessao]);
 
   useEffect(() => {
     document.getElementById("conteudo")?.focus();
   }, [rota]);
 
+  const [pedindoNome, setPedindoNome] = useState<{ atividade: Atividade; modo: Modo } | null>(null);
+
   function comecar(atividade: Atividade, modo: Modo = "construir") {
+    setPedindoNome({ atividade, modo });
+  }
+
+  function comecarComNome(atividade: Atividade, modo: Modo, nome: string) {
+    setPedindoNome(null);
     // Uma sessão sem nada dentro não vira outra: repetir "Começar" reabre a
     // mesma, em vez de acumular sessões vazias na estante.
     const vazia = estado.sessoes.find(
@@ -130,10 +147,11 @@ export default function App() {
         !s.explicacao.trim(),
     );
     if (vazia) {
+      if (nome) identificarSessao(vazia.id, nome);
       setRota({ tela: "mesa", sessaoId: vazia.id });
       return;
     }
-    const nova = criarSessao(atividade, "", modo);
+    const nova = criarSessao(atividade, nome, modo);
     setRota({ tela: "mesa", sessaoId: nova.id });
   }
 
@@ -214,16 +232,24 @@ export default function App() {
         sessao ? " app-sessao" : ""
       }`}
     >
+      {pedindoNome && (
+        <PedirNome
+          titulo={pedindoNome.atividade.titulo}
+          aoConfirmar={(nome) => comecarComNome(pedindoNome.atividade, pedindoNome.modo, nome)}
+          aoCancelar={() => setPedindoNome(null)}
+        />
+      )}
       <a className="pular" href="#conteudo">
         Pular para o conteúdo
       </a>
 
       {rota.tela !== "entrada" && (
         <aside className={`lateral nao-imprimir${menuRecolhido ? " recolhida" : ""}`}>
-          <button className="marca" onClick={painel} title="Ir para o início" aria-label="Árvore de possibilidades — ir para o início">
-            <LogoArvore tamanho={26} />
-            <span>
-              Árvore <em>de possibilidades</em>
+          <button className="marca" onClick={painel} title="Ir para o início" aria-label="Quantos Jeitos — ir para o início">
+            <LogoArvore tamanho={34} />
+            <span className="marca-nome">
+              <b>Quantos Jeitos</b>
+              <small>árvores de possibilidades</small>
             </span>
           </button>
           <nav className="lateral-menu" aria-label="Menu do programa">

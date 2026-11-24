@@ -37,7 +37,7 @@ export function Painel({ atividades, sessoes, arvores, aoAtividades, aoCriar, ao
 
   return (
     <main className="tela tela-painel" id="conteudo" tabIndex={-1}>
-      <h1 className="sr-only">Árvore de possibilidades</h1>
+      <h1 className="sr-only">Quantos Jeitos</h1>
 
       <section className="painel-secao" aria-labelledby="p-comecar">
         <h2 id="p-comecar">Comece por aqui</h2>
