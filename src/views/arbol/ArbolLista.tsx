@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { totalDeCaminhos } from "../../engine/arbol";
-import type { ExemploDoArbol } from "../../data/exemplos-arbol";
+import { SITUACOES, type ExemploDoArbol } from "../../data/exemplos-arbol";
 import { exportarJson, importarJson } from "../../lib/arquivo";
 import { exportarBiblioteca, importarBiblioteca, type ArvoreSalva } from "../../state/arvores";
 
@@ -29,21 +29,30 @@ export function ArbolExemplos({ exemplos, aoAbrir, aoVoltar }: PropsExemplos) {
         </div>
       </header>
       <p className="arbol-lista-ajuda">
-        Quatro problemas de tipos diferentes. A árvore mostra todas as possibilidades; pinte as que valem.
+        A árvore mostra todas as possibilidades; pinte as que valem. Os exemplos estão em quatro situações.
       </p>
-      <ul className="arbol-cartoes">
-        {exemplos.map((e) => (
-          <li key={e.id} className="arbol-cartao">
-            <span className="arbol-tipo">{e.tipo}</span>
-            <h2>{e.nome}</h2>
-            <p>{e.enunciado}</p>
-            <p className="arbol-niveis">{descricao(e.niveis)}</p>
-            <button className="botao primario" onClick={() => aoAbrir(e)} aria-label={`Abrir o exemplo ${e.nome}`}>
-              Abrir
-            </button>
-          </li>
-        ))}
-      </ul>
+      {SITUACOES.map((sit) => {
+        const doTipo = exemplos.filter((e) => e.tipo === sit.tipo);
+        if (doTipo.length === 0) return null;
+        return (
+          <section key={sit.tipo} className="arbol-situacao" aria-labelledby={`sit-${sit.tipo}`}>
+            <h2 id={`sit-${sit.tipo}`}>{sit.titulo}</h2>
+            <p className="arbol-situacao-ideia">{sit.ideia}</p>
+            <ul className="arbol-cartoes">
+              {doTipo.map((e) => (
+                <li key={e.id} className="arbol-cartao">
+                  <h3>{e.nome}</h3>
+                  <p>{e.enunciado}</p>
+                  <p className="arbol-niveis">{descricao(e.niveis)}</p>
+                  <button className="botao primario" onClick={() => aoAbrir(e)} aria-label={`Abrir o exemplo ${e.nome}`}>
+                    Abrir
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
     </main>
   );
 }

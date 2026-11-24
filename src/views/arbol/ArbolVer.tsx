@@ -6,12 +6,17 @@ import {
   diagramar,
   noEstaMarcado,
   rotulosDoCaminho,
+  todasAsFolhas,
   totalDeCaminhos,
   type DefinicaoDoArbol,
 } from "../../engine/arbol";
 
+export type FichaDoProfessor = { situacao: string; regra: string; validas: number; perguntas: string[] };
+
 type Props = {
   def: DefinicaoDoArbol;
+  /** Só para exemplos: situação, regra e quantos caminhos valem. */
+  professor?: FichaDoProfessor;
   enunciado?: string;
   marcadasIniciais: string[];
   /** Chamado a cada mudança da pintura; quem guarda é o pai. */
@@ -33,6 +38,7 @@ const ZOOMS = [0.5, 0.65, 0.8, 1, 1.25, 1.5];
  */
 export function ArbolVer({
   def,
+  professor,
   enunciado,
   marcadasIniciais,
   aoMudarMarcas,
@@ -44,6 +50,9 @@ export function ArbolVer({
   const [marcadas, setMarcadas] = useState<Set<string>>(() => new Set(marcadasIniciais));
   const [zoom, setZoom] = useState(3);
   const [ajuda, setAjuda] = useState(false);
+  const [visao, setVisao] = useState<"arvore" | "tabela">("arvore");
+  const [ficha, setFicha] = useState(false);
+  const [resposta, setResposta] = useState(false);
   const [apagando, setApagando] = useState(false);
   const [aviso, setAviso] = useState("");
   const primeiraVez = useRef(true);
@@ -118,6 +127,11 @@ export function ArbolVer({
           <button className="botao" aria-pressed={ajuda} onClick={() => setAjuda((a) => !a)}>
             Ajuda
           </button>
+          {professor && (
+            <button className="botao" aria-pressed={ficha} onClick={() => setFicha((f) => !f)}>
+              Professor
+            </button>
+          )}
           <button className="botao" onClick={imprimir}>
             Imprimir
           </button>
@@ -136,10 +150,43 @@ export function ArbolVer({
         </p>
       )}
 
+      {professor && ficha && (
+        <section className="arbol-ficha nao-imprimir" aria-label="Ficha do professor">
+          <h2>Para o professor</h2>
+          <p>
+            <strong>Situação:</strong> {professor.situacao}. <strong>Caminhos na árvore:</strong> {total}.
+          </p>
+          <p>
+            <strong>Perguntas para mediar:</strong> {professor.perguntas.join(" ")}
+          </p>
+          {resposta ? (
+            <p>
+              <strong>Valem {professor.validas}.</strong> {professor.regra} Pintadas agora: {marcadas.size}.
+            </p>
+          ) : (
+            <button className="botao" onClick={() => setResposta(true)}>
+              Mostrar quantas valem
+            </button>
+          )}
+        </section>
+      )}
+
       {enunciado && <p className="arbol-enunciado">{enunciado}</p>}
+
+      {!grande && (
+        <div className="arbol-visoes nao-imprimir" role="group" aria-label="Ver como">
+          <button className="botao" aria-pressed={visao === "arvore"} onClick={() => setVisao("arvore")}>
+            Árvore
+          </button>
+          <button className="botao" aria-pressed={visao === "tabela"} onClick={() => setVisao("tabela")}>
+            Tabela
+          </button>
+        </div>
+      )}
 
       <div className="arbol-palco">
         <div className="arbol-ferramentas nao-imprimir" role="group" aria-label="Ferramentas">
+          {visao === "arvore" && (<>
           <button
             className="botao"
             onClick={() => setZoom((z) => Math.min(ZOOMS.length - 1, z + 1))}
@@ -158,6 +205,7 @@ export function ArbolVer({
           >
             −
           </button>
+          </>)}
           <button className="botao" onClick={limpar} disabled={marcadas.size === 0} title="Tirar toda a cor">
             Limpar
           </button>
@@ -169,6 +217,42 @@ export function ArbolVer({
               Esta árvore tem {total} possibilidades, mais do que cabe na tela. Modifique a árvore para
               ter menos níveis ou menos elementos.
             </p>
+          ) : visao === "tabela" ? (
+            <table className="arbol-tabela">
+              <caption className="sr-only">Todas as possibilidades. Toque numa linha para pintá-la de vermelho.</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Nº</th>
+                  {def.niveis.map((n, i) => (
+                    <th key={i} scope="col">{n.nome}</th>
+                  ))}
+                  <th scope="col">Vale?</th>
+                </tr>
+              </thead>
+              <tbody>
+                {todasAsFolhas(def.niveis).map((id, i) => {
+                  const vermelho = marcadas.has(id);
+                  return (
+                    <tr key={id} data-vermelho={vermelho ? "sim" : undefined}>
+                      <td>{i + 1}</td>
+                      {rotulosDoCaminho(def.niveis, id).map((r, j) => (
+                        <td key={j}>{r}</td>
+                      ))}
+                      <td>
+                        <button
+                          className="botao"
+                          aria-pressed={vermelho}
+                          aria-label={`${vermelho ? "Tirar a cor de" : "Pintar"} ${rotulosDoCaminho(def.niveis, id).join(", ")}`}
+                          onClick={() => alternar(id)}
+                        >
+                          {vermelho ? "Pintada" : "Pintar"}
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           ) : (
             <div className="arbol-escala" style={{ zoom: escala }}>
               <div

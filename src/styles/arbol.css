@@ -89,3 +89,21 @@ button.arbol-folha-no:focus-visible { outline: 3px solid var(--acento); outline-
 /* Controles indisponíveis continuam legíveis */
 .tela-arbol-criar .botao.primario[aria-disabled="true"], .tela-arbol-criar .botao.primario:disabled { background: #5b6f50; color: #fff; opacity: 1; cursor: not-allowed; }
 .arbol-botoes-lista .botao:disabled { color: #4a604f; opacity: .75; }
+
+/* Situações, ficha do professor e tabela */
+.arbol-situacao { margin: 0 4px 26px; }
+.arbol-situacao h2 { font-family: var(--fonte-titulo); font-size: 1.35rem; }
+.arbol-situacao-ideia { color: var(--texto-2); margin: 2px 0 10px; }
+.arbol-cartao h3 { font-family: var(--fonte-titulo); font-size: 1.2rem; }
+.arbol-ficha { max-width: 900px; background: var(--painel-2); border-radius: 10px; padding: 10px 14px; display: grid; gap: 6px; line-height: 1.5; }
+.arbol-ficha h2 { font-family: var(--fonte-titulo); font-size: 1.05rem; }
+.arbol-ficha .botao { justify-self: start; }
+.arbol-visoes { display: flex; gap: 6px; }
+.arbol-visoes .botao { min-height: 34px; padding: 0 14px; }
+.arbol-visoes .botao[aria-pressed="true"], .arbol-barra .botao[aria-pressed="true"] { background: var(--acento); color: #fff; border-color: var(--acento); }
+.arbol-tabela { border-collapse: collapse; width: 100%; font-size: 15px; }
+.arbol-tabela th, .arbol-tabela td { text-align: left; padding: 6px 12px; border-bottom: 1px solid var(--linha); color: var(--texto); }
+.arbol-tabela thead th { position: sticky; top: 0; background: var(--painel-2); font-family: var(--fonte-titulo); }
+.arbol-tabela tr[data-vermelho="sim"] td { background: #f9e6e0; color: #7d2b1e; font-weight: 600; }
+.arbol-tabela .botao { min-height: 30px; padding: 0 12px; font-size: 14px; }
+.arbol-tabela .botao[aria-pressed="true"] { background: #b3412f; color: #fff; border-color: #b3412f; }

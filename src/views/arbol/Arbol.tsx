@@ -69,6 +69,7 @@ export function Arbol({ aoAtividades, aoSobre }: Props) {
       <ArbolVer
         key={ex.id}
         def={ex}
+        professor={{ situacao: ex.tipo, regra: ex.regra, validas: ex.validas, perguntas: ex.perguntas }}
         enunciado={ex.enunciado}
         marcadasIniciais={[]}
         aoMudarMarcas={(m) => {
