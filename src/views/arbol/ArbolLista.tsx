@@ -1,6 +1,8 @@
+import { Icone } from "../../components/Icone";
 import { useState } from "react";
 import { totalDeCaminhos } from "../../engine/arbol";
-import { SITUACOES, type ExemploDoArbol } from "../../data/exemplos-arbol";
+import type { ExemploDoArbol } from "../../data/exemplos-arbol";
+import { SITUACOES } from "../../data/situacoes";
 import { exportarJson, importarJson } from "../../lib/arquivo";
 import { exportarBiblioteca, importarBiblioteca, type ArvoreSalva } from "../../state/arvores";
 
@@ -24,6 +26,7 @@ export function ArbolExemplos({ exemplos, aoAbrir, aoVoltar }: PropsExemplos) {
         <h1>Exemplos</h1>
         <div className="arbol-barra-acoes">
           <button className="botao" onClick={aoVoltar}>
+            <Icone nome="casa" />
             Início
           </button>
         </div>
@@ -45,6 +48,7 @@ export function ArbolExemplos({ exemplos, aoAbrir, aoVoltar }: PropsExemplos) {
                   <p>{e.enunciado}</p>
                   <p className="arbol-niveis">{descricao(e.niveis)}</p>
                   <button className="botao primario" onClick={() => aoAbrir(e)} aria-label={`Abrir o exemplo ${e.nome}`}>
+                    <Icone nome="play" />
                     Abrir
                   </button>
                 </li>

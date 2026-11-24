@@ -1,13 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { urlAtividade, type Atividade } from "../data/activities";
-import { exportarEstado, importarEstado, type Modo, type Sessao } from "../state/store";
+import { exportarEstado, importarEstado, type Sessao } from "../state/store";
+import { SITUACOES, situacaoDaAtividade } from "../data/situacoes";
+import { Icone } from "../components/Icone";
 import { exportarJson, importarJson } from "../lib/arquivo";
 import { plural } from "../lib/texto";
 
 type Props = {
+  /** Situação a mostrar em primeiro lugar (vem do painel inicial). */
+  foco?: string;
   atividades: Atividade[];
   sessoes: Sessao[];
-  aoComecar: (atividade: Atividade, modo: Modo) => void;
+  aoComecar: (atividade: Atividade) => void;
   aoContinuar: (sessao: Sessao) => void;
   aoNovaAtividade: () => void;
   aoEditar: (atividade: Atividade) => void;
@@ -28,15 +32,11 @@ function horaCurta(iso: string): string {
 }
 
 function resumoSessao(sessao: Sessao): string {
-  if (sessao.modo === "interpretar") {
-    const marcados = Object.keys(sessao.marcas).length;
-    return marcados === 0
-      ? "interpretar, sem marcas ainda"
-      : `interpretar, ${plural(marcados, "caminho marcado", "caminhos marcados")}`;
-  }
-  return sessao.montagens.length === 0
-    ? "sem montagens ainda"
-    : plural(sessao.montagens.length, "montagem", "montagens");
+  const marcados = Object.keys(sessao.marcas).length;
+  const partes: string[] = [];
+  if (sessao.montagens.length > 0) partes.push(plural(sessao.montagens.length, "montagem", "montagens"));
+  if (marcados > 0) partes.push(plural(marcados, "caminho pintado", "caminhos pintados"));
+  return partes.length === 0 ? "sem montagens ainda" : partes.join(", ");
 }
 
 function ModulosDaAtividade({
@@ -45,26 +45,18 @@ function ModulosDaAtividade({
   nova = false,
 }: {
   atividade: Atividade;
-  aoComecar: (atividade: Atividade, modo: Modo) => void;
+  aoComecar: (atividade: Atividade) => void;
   nova?: boolean;
 }) {
   return (
-    <div className="atividade-acao modulos" role="group" aria-label={`Abrir ${atividade.titulo}`}>
+    <div className="atividade-acao">
       <button
-        className="botao"
-        onClick={() => aoComecar(atividade, "construir")}
-        aria-label={`${nova ? "Nova sessão de" : "Construir"} ${atividade.titulo}: construir possibilidades`}
-        title="A criança monta possibilidades e a árvore cresce com o que ela guardou"
+        className="botao primario"
+        onClick={() => aoComecar(atividade)}
+        aria-label={`${nova ? "Nova sessão de" : "Começar"} ${atividade.titulo}`}
       >
-        Construir
-      </button>
-      <button
-        className="botao"
-        onClick={() => aoComecar(atividade, "interpretar")}
-        aria-label={`${nova ? "Nova sessão de" : "Interpretar"} ${atividade.titulo}: interpretar a árvore completa`}
-        title="A árvore já vem completa e a criança marca os caminhos que valem"
-      >
-        Interpretar
+        <Icone nome={nova ? "mais" : "play"} />
+        {nova ? "Nova sessão" : "Começar"}
       </button>
     </div>
   );
@@ -75,7 +67,10 @@ function ModulosDaAtividade({
  * sessões abertas. Não há inspetor nem painel à parte — escolher é o trabalho
  * desta tela.
  */
-export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtividade, aoEditar }: Props) {
+export function Inicio({ foco, atividades, sessoes, aoComecar, aoContinuar, aoNovaAtividade, aoEditar }: Props) {
+  useEffect(() => {
+    if (foco) document.getElementById(`grupo-${foco}`)?.scrollIntoView({ block: "start" });
+  }, [foco]);
   const [mensagem, setMensagem] = useState("");
   const [erro, setErro] = useState("");
 
@@ -152,6 +147,7 @@ export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtiv
             onClick={aoNovaAtividade}
             title="Criar uma atividade com os níveis, as peças e as regras que você escolher"
           >
+            <Icone nome="mais" />
             Nova atividade
           </button>
           <button
@@ -159,6 +155,7 @@ export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtiv
             onClick={salvarCopia}
             title="Salvar uma cópia das sessões em um arquivo"
           >
+            <Icone nome="guardar" />
             Salvar cópia
           </button>
           <button
@@ -166,6 +163,7 @@ export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtiv
             onClick={abrirCopia}
             title="Abrir uma cópia das sessões de um arquivo"
           >
+            <Icone nome="abrir" />
             Abrir cópia
           </button>
         </div>
@@ -181,8 +179,17 @@ export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtiv
         </p>
       ) : null}
 
+      {SITUACOES.map((situacao) => {
+        const doTipo = atividades.filter((a) => situacaoDaAtividade(a) === situacao.tipo);
+        if (doTipo.length === 0) return null;
+        return (
+      <section key={situacao.tipo} className="grupo-situacao" aria-labelledby={`grupo-${situacao.tipo}`}>
+        <header className="grupo-cabecalho">
+          <h2 id={`grupo-${situacao.tipo}`}>{situacao.titulo}</h2>
+          <p>{situacao.ideia}</p>
+        </header>
       <ul className="prateleira">
-        {atividades.map((atividade) => {
+        {doTipo.map((atividade) => {
           const abertas = porAtividade.get(atividade.id) ?? [];
 
           return (
@@ -255,6 +262,9 @@ export function Inicio({ atividades, sessoes, aoComecar, aoContinuar, aoNovaAtiv
           );
         })}
       </ul>
+      </section>
+        );
+      })}
     </main>
   );
 }

@@ -1,14 +1,12 @@
 import { useRef, useState } from "react";
 import { EXEMPLOS, type ExemploDoArbol } from "../../data/exemplos-arbol";
 import { apagarArvore, guardarArvore, marcarCaminhos, useBiblioteca, type ArvoreSalva } from "../../state/arvores";
-import { ArbolInicio } from "./ArbolInicio";
 import { ArbolCriar } from "./ArbolCriar";
 import { ArbolVer } from "./ArbolVer";
 import { ArbolBiblioteca, ArbolExemplos } from "./ArbolLista";
 import { ArbolInstrucoes } from "./ArbolInstrucoes";
 
 type Tela =
-  | { v: "inicio" }
   | { v: "criar"; editarId?: string }
   | { v: "exemplos" }
   | { v: "biblioteca" }
@@ -16,17 +14,22 @@ type Tela =
   | { v: "ver-salva"; id: string }
   | { v: "ver-exemplo"; exemplo: ExemploDoArbol };
 
+export type SecaoDoArbol = "criar" | "exemplos" | "biblioteca" | "instrucoes" | { ver: string };
+
 type Props = {
-  aoAtividades: () => void;
-  aoSobre: () => void;
+  /** Seção em que abre; o menu lateral remonta a tela ao trocar de seção. */
+  secao: SecaoDoArbol;
+  aoPainel: () => void;
 };
 
 /** O Árbol: criar, ver exemplos, recuperar da biblioteca e instruções. */
-export function Arbol({ aoAtividades, aoSobre }: Props) {
-  const [tela, setTela] = useState<Tela>({ v: "inicio" });
+export function Arbol({ secao, aoPainel }: Props) {
+  const [tela, setTela] = useState<Tela>(() =>
+    typeof secao === "object" ? { v: "ver-salva", id: secao.ver } : { v: secao },
+  );
   const biblioteca = useBiblioteca();
   const marcasDoExemplo = useRef<string[]>([]);
-  const inicio = () => setTela({ v: "inicio" });
+  const inicio = aoPainel;
 
   if (tela.v === "criar") {
     const editando = tela.editarId ? biblioteca.find((a) => a.id === tela.editarId) : undefined;
@@ -99,15 +102,5 @@ export function Arbol({ aoAtividades, aoSobre }: Props) {
 
   if (tela.v === "instrucoes") return <ArbolInstrucoes aoVoltar={inicio} />;
 
-  return (
-    <ArbolInicio
-      aoCriar={() => setTela({ v: "criar" })}
-      aoExemplos={() => setTela({ v: "exemplos" })}
-      aoBiblioteca={() => setTela({ v: "biblioteca" })}
-      aoInstrucoes={() => setTela({ v: "instrucoes" })}
-      aoAtividades={aoAtividades}
-      aoSobre={aoSobre}
-      quantasNaBiblioteca={biblioteca.length}
-    />
-  );
+  return <ArbolExemplos exemplos={EXEMPLOS} aoAbrir={(e) => setTela({ v: "ver-exemplo", exemplo: e })} aoVoltar={inicio} />;
 }

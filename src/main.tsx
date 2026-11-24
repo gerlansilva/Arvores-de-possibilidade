@@ -10,6 +10,7 @@ import "./styles/app.css";
 import "./styles/tema.css";
 import "./styles/identidade.css";
 import "./styles/arbol.css";
+import "./styles/programa.css";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(

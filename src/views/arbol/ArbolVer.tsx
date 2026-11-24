@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Icone } from "../../components/Icone";
 import {
-  ALTURA_NO,
-  LARGURA_NO,
   MAX_CAMINHOS,
   diagramar,
   noEstaMarcado,
@@ -22,6 +21,10 @@ type Props = {
   /** Chamado a cada mudança da pintura; quem guarda é o pai. */
   aoMudarMarcas: (marcadas: string[]) => void;
   aoInicio: () => void;
+  /** Figurinhas por rótulo de elemento (atividades). Com figura, os nós ficam maiores. */
+  figuras?: Record<string, string>;
+  /** Dentro de uma sessão: sem botões de navegação, de guardar nem de apagar. */
+  incorporada?: boolean;
   /** Só para árvores da biblioteca. */
   aoModificar?: () => void;
   aoApagar?: () => void;
@@ -39,6 +42,8 @@ const ZOOMS = [0.5, 0.65, 0.8, 1, 1.25, 1.5];
 export function ArbolVer({
   def,
   professor,
+  figuras,
+  incorporada = false,
   enunciado,
   marcadasIniciais,
   aoMudarMarcas,
@@ -59,7 +64,11 @@ export function ArbolVer({
 
   const total = totalDeCaminhos(def.niveis);
   const grande = total > MAX_CAMINHOS;
-  const diagrama = useMemo(() => (grande ? undefined : diagramar(def.niveis)), [def.niveis, grande]);
+  const comFiguras = Boolean(figuras);
+  const diagrama = useMemo(
+    () => (grande ? undefined : diagramar(def.niveis, comFiguras ? { alturaNo: 46, larguraNo: 190 } : {})),
+    [def.niveis, grande, comFiguras],
+  );
 
 
   useEffect(() => {
@@ -96,18 +105,19 @@ export function ArbolVer({
   return (
     <main className="tela tela-arbol-ver" id="conteudo" tabIndex={-1}>
       <header className="arbol-barra nao-imprimir">
-        <h1>{def.nome}</h1>
+        {incorporada ? <h1 className="arbol-titulo-menor">Todas as possibilidades</h1> : <h1>{def.nome}</h1>}
         <div className="arbol-barra-acoes">
-          {aoModificar && (
+          {!incorporada && aoModificar && (
             <button className="botao" onClick={aoModificar}>
+              <Icone nome="editar" />
               Modificar a árvore
             </button>
           )}
-          {aoApagar &&
+          {!incorporada && aoApagar &&
             (apagando ? (
               <span role="group" aria-label="Confirmar exclusão">
                 Apagar esta árvore?{" "}
-                <button className="botao" onClick={aoApagar}>
+                <button className="botao perigo" onClick={aoApagar}>
                   Sim, apagar
                 </button>{" "}
                 <button className="botao" autoFocus onClick={() => setApagando(false)}>
@@ -115,29 +125,37 @@ export function ArbolVer({
                 </button>
               </span>
             ) : (
-              <button className="botao" onClick={() => setApagando(true)}>
+              <button className="botao perigo" onClick={() => setApagando(true)}>
+                <Icone nome="lixeira" />
                 Apagar
               </button>
             ))}
-          {aoGuardarNaBiblioteca && (
+          {!incorporada && aoGuardarNaBiblioteca && (
             <button className="botao" onClick={aoGuardarNaBiblioteca}>
+              <Icone nome="guardar" />
               Guardar na biblioteca
             </button>
           )}
           <button className="botao" aria-pressed={ajuda} onClick={() => setAjuda((a) => !a)}>
+            <Icone nome="ajuda" />
             Ajuda
           </button>
           {professor && (
             <button className="botao" aria-pressed={ficha} onClick={() => setFicha((f) => !f)}>
+              <Icone nome="professor" />
               Professor
             </button>
           )}
           <button className="botao" onClick={imprimir}>
+            <Icone nome="imprimir" />
             Imprimir
           </button>
-          <button className="botao" onClick={aoInicio}>
-            Início
-          </button>
+          {!incorporada && (
+            <button className="botao" onClick={aoInicio}>
+              <Icone nome="casa" />
+              Início
+            </button>
+          )}
         </div>
       </header>
 
@@ -176,9 +194,11 @@ export function ArbolVer({
       {!grande && (
         <div className="arbol-visoes nao-imprimir" role="group" aria-label="Ver como">
           <button className="botao" aria-pressed={visao === "arvore"} onClick={() => setVisao("arvore")}>
+            <Icone nome="arvore" />
             Árvore
           </button>
           <button className="botao" aria-pressed={visao === "tabela"} onClick={() => setVisao("tabela")}>
+            <Icone nome="tabela" />
             Tabela
           </button>
         </div>
@@ -194,7 +214,7 @@ export function ArbolVer({
             aria-label="Aumentar a árvore"
             title="Aumentar"
           >
-            +
+            <Icone nome="mais" />
           </button>
           <button
             className="botao"
@@ -203,10 +223,11 @@ export function ArbolVer({
             aria-label="Diminuir a árvore"
             title="Diminuir"
           >
-            −
+            <Icone nome="menos" />
           </button>
           </>)}
           <button className="botao" onClick={limpar} disabled={marcadas.size === 0} title="Tirar toda a cor">
+            <Icone nome="limpar" />
             Limpar
           </button>
         </div>
@@ -236,7 +257,10 @@ export function ArbolVer({
                     <tr key={id} data-vermelho={vermelho ? "sim" : undefined}>
                       <td>{i + 1}</td>
                       {rotulosDoCaminho(def.niveis, id).map((r, j) => (
-                        <td key={j}>{r}</td>
+                        <td key={j}>
+                          {figuras?.[r] && <img className="arbol-figura-mini" src={figuras[r]} alt="" />}
+                          {r}
+                        </td>
                       ))}
                       <td>
                         <button
@@ -264,7 +288,7 @@ export function ArbolVer({
                     key={`faixa-${c.nivel}`}
                     className="arbol-faixa"
                     data-par={c.nivel % 2}
-                    style={{ left: c.x - 12, width: LARGURA_NO + 24 }}
+                    style={{ left: c.x - 12, width: diagrama.larguraNo + 24 }}
                   >
                     <span className="arbol-faixa-nome">{c.nome}</span>
                   </div>
@@ -278,10 +302,10 @@ export function ArbolVer({
                     return (
                       <line
                         key={`${de}->${para}`}
-                        x1={a.x + LARGURA_NO}
-                        y1={a.y + ALTURA_NO / 2}
+                        x1={a.x + diagrama.larguraNo}
+                        y1={a.y + diagrama.alturaNo / 2}
                         x2={b.x}
-                        y2={b.y + ALTURA_NO / 2}
+                        y2={b.y + diagrama.alturaNo / 2}
                         className={vermelha ? "vermelha" : undefined}
                       />
                     );
@@ -290,11 +314,18 @@ export function ArbolVer({
 
                 {diagrama.nos.map((no) => {
                   const vermelho = noEstaMarcado(no.id, marcadas);
-                  const estilo = { left: no.x, top: no.y, width: LARGURA_NO, height: ALTURA_NO };
+                  const estilo = { left: no.x, top: no.y, width: diagrama.larguraNo, height: diagrama.alturaNo };
+                  const figura = figuras?.[no.rotulo];
+                  const conteudo = (
+                    <>
+                      {figura && <img className="arbol-figura" src={figura} alt="" />}
+                      <span>{no.rotulo}</span>
+                    </>
+                  );
                   if (!no.folha) {
                     return (
                       <div key={no.id} className="arbol-no" data-vermelho={vermelho ? "sim" : undefined} style={estilo}>
-                        <span>{no.rotulo}</span>
+                        {conteudo}
                       </div>
                     );
                   }
@@ -309,7 +340,7 @@ export function ArbolVer({
                       aria-label={`Possibilidade: ${caminho}`}
                       onClick={() => alternar(no.id)}
                     >
-                      <span>{no.rotulo}</span>
+                      {conteudo}
                     </button>
                   );
                 })}

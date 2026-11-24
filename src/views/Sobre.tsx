@@ -11,9 +11,8 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
         <header>
           <h1>Sobre</h1>
           <p className="texto-lead">
-            A Árvore de possibilidades é uma versão em português do Árbol: um programa em que a criança
-            define os níveis de um problema, vê todas as possibilidades em uma árvore e pinta de
-            vermelho as que valem.
+            A Árvore de possibilidades reúne duas ideias: montar possibilidades com figurinhas e ver a
+            árvore completa do problema, como no Árbol, pintando de vermelho as que valem.
           </p>
         </header>
 
@@ -56,7 +55,7 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
         <section>
           <h2>Referências</h2>
           <ul>
-            <li>Aguirre, M. (2005). <em>Diagramas de Árbol</em>.</li>
+            <li>Aguirre (2005). <em>Diagramas de Árbol</em>. Multimídia.</li>
             <li>
               Azevedo, J.; Costa, D.; Borba, R. (2011). Árbol: ambiente para o desenvolvimento do
               raciocínio combinatório.

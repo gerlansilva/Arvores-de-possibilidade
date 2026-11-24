@@ -192,7 +192,6 @@ h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
 .vazia.peca-img, button.vazia { border-color: #8a7c57; }
 .decisao button { min-height: 36px; padding: 0 14px; }
 .editor-radio input[type="radio"], fieldset input[type="radio"] { width: 24px; height: 24px; }
-.botao:not(:disabled):not(.primario):not(.discreto):not(.texto) { border-color: #a39467; }
 
 /* ---- Telas estreitas (zoom alto e celulares): o cabeçalho cresce, nada some ---- */
 @media (max-width: 640px) {

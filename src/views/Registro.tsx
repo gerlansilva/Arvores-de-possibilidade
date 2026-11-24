@@ -116,7 +116,7 @@ export function Registro({ sessao, aoExcluirSessao }: Props) {
             <div>
               {sessao.modo === "interpretar"
                 ? plural(Object.keys(sessao.marcas).length, "caminho marcado", "caminhos marcados")
-                : `${plural(sessao.montagens.length, "montagem", "montagens")} · ${plural(sessao.grupos.length, "grupo", "grupos")}`}
+                : `${plural(sessao.montagens.length, "montagem", "montagens")} · ${plural(sessao.grupos.length, "grupo", "grupos")} · ${plural(Object.keys(sessao.marcas).length, "caminho pintado", "caminhos pintados")}`}
             </div>
             <div>{sessao.atividade.slots.map((s) => s.rotulo).join(" · ")}</div>
           </div>
@@ -150,9 +150,9 @@ export function Registro({ sessao, aoExcluirSessao }: Props) {
           </label>
         </section>
 
-        {sessao.modo === "interpretar" && (
+        {(sessao.modo === "interpretar" || Object.keys(sessao.marcas).length > 0) && (
           <section className="registro-secao">
-            <h2>Marcações na árvore</h2>
+            <h2>Pintados na árvore</h2>
             {Object.keys(sessao.marcas).length === 0 ? (
               <p style={{ color: "var(--texto-3)" }}>Nenhum caminho marcado.</p>
             ) : (

@@ -50,6 +50,8 @@ export type DiagramaDoArbol = {
   largura: number;
   altura: number;
   colunas: { nivel: number; nome: string; x: number }[];
+  larguraNo: number;
+  alturaNo: number;
 };
 
 /** Caminhos completos, na ordem em que aparecem de cima para baixo. */
@@ -70,10 +72,15 @@ export function rotulosDoCaminho(niveis: NivelDoArbol[], id: string): string[] {
 }
 
 /** Posiciona a árvore da esquerda para a direita, sem nó raiz: o nível 1 é a primeira coluna. */
-export function diagramar(niveis: NivelDoArbol[]): DiagramaDoArbol {
+export function diagramar(
+  niveis: NivelDoArbol[],
+  opcoes: { alturaNo?: number; larguraNo?: number } = {},
+): DiagramaDoArbol {
+  const alturaNo = opcoes.alturaNo ?? ALTURA_NO;
+  const larguraNo = opcoes.larguraNo ?? LARGURA_NO;
   const nos: NoDoArbol[] = [];
   const arestas: { de: string; para: string }[] = [];
-  const passo = ALTURA_NO + ESPACO_NO;
+  const passo = alturaNo + ESPACO_NO;
   let proximaFolha = 0;
 
   function visitar(nivel: number, prefixo: number[], pai: string | undefined): number {
@@ -98,7 +105,7 @@ export function diagramar(niveis: NivelDoArbol[]): DiagramaDoArbol {
   }
 
   if (niveis.length === 0 || niveis.some((n) => n.elementos.length === 0)) {
-    return { nos, arestas, largura: 0, altura: 0, colunas: [] };
+    return { nos, arestas, largura: 0, altura: 0, colunas: [], larguraNo, alturaNo };
   }
 
   // O nível 1 não tem pai: percorremos os elementos dele e cada um calcula o próprio y.
@@ -121,7 +128,9 @@ export function diagramar(niveis: NivelDoArbol[]): DiagramaDoArbol {
   return {
     nos,
     arestas,
-    largura: MARGEM * 2 + (niveis.length - 1) * LARGURA_COLUNA + LARGURA_NO,
+    largura: MARGEM * 2 + (niveis.length - 1) * LARGURA_COLUNA + larguraNo,
+    larguraNo,
+    alturaNo,
     altura: TOPO + proximaFolha * passo + MARGEM,
     colunas: niveis.map((n, nivel) => ({ nivel, nome: n.nome, x: MARGEM + nivel * LARGURA_COLUNA })),
   };

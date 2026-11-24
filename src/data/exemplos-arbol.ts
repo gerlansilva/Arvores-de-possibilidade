@@ -1,4 +1,5 @@
 import type { DefinicaoDoArbol } from "../engine/arbol";
+import type { Situacao } from "./situacoes";
 
 /**
  * Exemplos dos quatro tipos de problema combinatório, a partir das situações
@@ -15,15 +16,7 @@ export type ExemploDoArbol = DefinicaoDoArbol & {
   perguntas: string[];
 };
 
-export type Situacao = "Produto cartesiano" | "Arranjo" | "Combinação" | "Permutação";
 
-/** As quatro situações, na ordem de apresentação, com a linguagem para a criança. */
-export const SITUACOES: { tipo: Situacao; titulo: string; ideia: string }[] = [
-  { tipo: "Produto cartesiano", titulo: "Juntar coisas diferentes", ideia: "Escolher uma peça de cada conjunto." },
-  { tipo: "Arranjo", titulo: "Escolher e ordenar", ideia: "Escolher parte dos elementos, e a ordem faz diferença." },
-  { tipo: "Combinação", titulo: "Formar grupos", ideia: "Escolher parte dos elementos, e a ordem não faz diferença." },
-  { tipo: "Permutação", titulo: "Organizar todos", ideia: "Usar todos os elementos, mudando a ordem." },
-];
 
 const pessoas7 = ["Ana", "Beto", "Carla", "Davi", "Elisa", "Fábio", "Gabi"];
 const candidatos = ["Luciana", "Priscila", "Márcia", "Tiago", "Bruno"];

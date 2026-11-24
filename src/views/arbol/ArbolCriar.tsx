@@ -1,3 +1,4 @@
+import { Icone } from "../../components/Icone";
 import { useMemo, useRef, useState } from "react";
 import {
   MAX_CAMINHOS,
@@ -157,8 +158,8 @@ export function ArbolCriar({ editando, aoCancelar, aoGuardar }: Props) {
               <button className="botao" onClick={adicionarNivel} disabled={niveis.length >= MAX_NIVEIS}>
                 Adicionar
               </button>
-              <button className="botao" onClick={eliminarNivel} disabled={niveis.length <= 1}>
-                Eliminar
+              <button className="botao perigo" onClick={eliminarNivel} disabled={niveis.length <= 1}>
+                <Icone nome="lixeira" />Eliminar
               </button>
               <button className="botao" onClick={() => moverNivel(-1)} disabled={nivel === 0}>
                 Subir
@@ -209,8 +210,8 @@ export function ArbolCriar({ editando, aoCancelar, aoGuardar }: Props) {
               <button className="botao" onClick={adicionarElemento} disabled={ativo.elementos.length >= MAX_ELEMENTOS}>
                 Adicionar
               </button>
-              <button className="botao" onClick={eliminarElemento} disabled={elemento === null}>
-                Eliminar
+              <button className="botao perigo" onClick={eliminarElemento} disabled={elemento === null}>
+                <Icone nome="lixeira" />Eliminar
               </button>
               <button className="botao" onClick={() => moverElemento(-1)} disabled={elemento === null || elemento === 0}>
                 Subir
@@ -241,10 +242,10 @@ export function ArbolCriar({ editando, aoCancelar, aoGuardar }: Props) {
 
         <div className="arbol-criar-acoes">
           <button className="botao" onClick={aoCancelar}>
-            Cancelar
+            <Icone nome="limpar" />Cancelar
           </button>
           <button className="botao primario" onClick={guardar} aria-disabled={!completo || grande}>
-            Guardar e ver
+            <Icone nome="arvore" />Guardar e ver
           </button>
         </div>
       </section>

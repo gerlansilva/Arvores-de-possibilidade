@@ -236,3 +236,14 @@ Escolhida após o estudo em `docs/estudo-de-paleta.md`: azul-tinta para ação (
 - **Salvar atividade** usa `aria-disabled`, não `disabled`: o clique explica o que falta.
 - **Mantido como está:** `<img role="button">` nas peças montadas (necessário para o arrasto por ponteiro; tem teclado e rótulo).
 - **Ainda não testado:** Tauri real, impressão física, toque, leitor de tela.
+
+## Unificação em um só programa (nov/2026)
+
+Depois de um período em que o Árbol fiel foi tratado à parte, as peças foram reunidas:
+
+- **Casca de programa**: menu lateral fixo (Início, Atividades, Árvore livre, Para o professor) e barra de contexto com as etapas da sessão. O painel inicial mostra por onde começar, as quatro situações e o que está em andamento.
+- **Quatro situações** como eixo de organização (`src/data/situacoes.ts`): atividades com figurinhas e exemplos da árvore livre usam a mesma classificação.
+- **Interpretar virou a etapa Árvore** da sessão: o Árbol aplicado à atividade, com as figurinhas nos nós, visão em tabela, pintura em vermelho e ficha do professor. As marcas ficam na sessão e aparecem no Registro. Sessões antigas do modo Interpretar continuam abrindo.
+- **Botões**: um só estilo (`programa.css`) com ícones de traço (`Icone`), estados ativo, desativado legível e perigo.
+- **Paleta Papel e floresta** (marfim, areia, verde-folha, terra), com texto de contraste alto.
+- **Ainda não feito** (proposta do estudo com o ChatGPT, a validar com crianças): etapa Investigar com árvores incompletas, Transformar (mudar a condição do problema), construção direta dos ramos e registro de processo para pesquisa. Dependem de teste em sala e de aprovação ética.
