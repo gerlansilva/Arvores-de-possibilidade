@@ -31,25 +31,25 @@ export function Entrada({ aoEntrar, aoOrientacoes, aoSobre }: Props) {
             <span className="entrada-nome-fraco">de possibilidades</span>
           </h1>
           <p>Cada escolha abre um novo ramo. Descubra todos os caminhos de um problema.</p>
-          <button className="botao primario grande" onClick={aoEntrar}>
-            Entrar
-          </button>
-          <nav className="entrada-links" aria-label="Mais informações">
-            <button className="link-discreto" onClick={aoOrientacoes}>
-              Orientações para o professor
+          <div className="entrada-acoes">
+            <button className="botao primario grande" onClick={aoEntrar}>
+              Entrar
             </button>
-            <button className="link-discreto" onClick={aoSobre}>
-              Sobre
-            </button>
-          </nav>
-          <p className="entrada-credito">
-            Desenvolvido por Gerlan Silva da Silva · UFSCar
-          </p>
+            <nav className="entrada-links" aria-label="Mais informações">
+              <button className="link-discreto" onClick={aoOrientacoes}>
+                Orientações para o professor
+              </button>
+              <button className="link-discreto" onClick={aoSobre}>
+                Sobre
+              </button>
+            </nav>
+          </div>
         </div>
         <div className="entrada-arvore" aria-hidden="true">
           <LogoArvore tamanho={300} />
         </div>
       </div>
+      <footer className="entrada-rodape">Desenvolvido por Gerlan Silva da Silva · UFSCar</footer>
     </main>
   );
 }

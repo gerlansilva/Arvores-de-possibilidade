@@ -265,3 +265,24 @@ h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
 .texto-longo section[id] { scroll-margin-top: 16px; }
 .texto-voltar { margin-top: 40px; }
 @media print { .texto-indice, .texto-voltar { display: none; } .tela-texto { overflow: visible; height: auto; } }
+
+/* Entrada: composição em duas colunas equilibradas, crédito no rodapé */
+.tela-entrada { position: relative; display: flex; align-items: center; justify-content: center; }
+.entrada { max-width: 1040px; padding: 32px 56px 72px; gap: 80px; justify-content: center; }
+.entrada-texto { max-width: 540px; flex: 1 1 auto; gap: 20px; }
+.entrada-arvore { flex: 0 0 auto; display: grid; place-items: center; padding: 0 12px; }
+.entrada-arvore svg { width: min(30vw, 360px); }
+.entrada-acoes { display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; margin-top: 8px; }
+.entrada-acoes .botao.primario.grande { margin-top: 0; }
+.entrada-links { margin: 0; gap: 8px 22px; }
+.entrada-rodape { position: absolute; left: 0; right: 0; bottom: 20px; text-align: center; font-size: .9rem; color: var(--texto-3); }
+@media (max-width: 760px) {
+  .entrada { flex-direction: column-reverse; gap: 28px; padding: 24px 24px 64px; }
+  .entrada-arvore svg { width: 160px; }
+  .entrada-texto { align-items: flex-start; }
+}
+.entrada { gap: 64px; max-width: 1080px; }
+.entrada-texto { max-width: 620px; }
+.entrada h1 { font-size: clamp(40px, 4.8vw, 62px); }
+.entrada h1 span { display: block; white-space: nowrap; }
+.entrada-arvore svg { width: min(26vw, 340px); }
