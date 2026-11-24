@@ -1,0 +1,230 @@
+[
+ {
+  "tema": "formas",
+  "id": "circulo",
+  "nome": "Círculo azul",
+  "arquivo": "extras/formas/circulo.png"
+ },
+ {
+  "tema": "formas",
+  "id": "quadrado",
+  "nome": "Quadrado vermelho",
+  "arquivo": "extras/formas/quadrado.png"
+ },
+ {
+  "tema": "formas",
+  "id": "triangulo",
+  "nome": "Triângulo amarelo",
+  "arquivo": "extras/formas/triangulo.png"
+ },
+ {
+  "tema": "formas",
+  "id": "estrela",
+  "nome": "Estrela verde",
+  "arquivo": "extras/formas/estrela.png"
+ },
+ {
+  "tema": "cores",
+  "id": "balao-vermelho",
+  "nome": "Balão vermelho",
+  "arquivo": "extras/cores/balao-vermelho.png"
+ },
+ {
+  "tema": "cores",
+  "id": "balao-azul",
+  "nome": "Balão azul",
+  "arquivo": "extras/cores/balao-azul.png"
+ },
+ {
+  "tema": "cores",
+  "id": "balao-amarelo",
+  "nome": "Balão amarelo",
+  "arquivo": "extras/cores/balao-amarelo.png"
+ },
+ {
+  "tema": "cores",
+  "id": "balao-verde",
+  "nome": "Balão verde",
+  "arquivo": "extras/cores/balao-verde.png"
+ },
+ {
+  "tema": "pizza",
+  "id": "queijo",
+  "nome": "Pizza de queijo",
+  "arquivo": "extras/pizza/queijo.png"
+ },
+ {
+  "tema": "pizza",
+  "id": "calabresa",
+  "nome": "Pizza de calabresa",
+  "arquivo": "extras/pizza/calabresa.png"
+ },
+ {
+  "tema": "pizza",
+  "id": "cogumelo",
+  "nome": "Pizza de cogumelo",
+  "arquivo": "extras/pizza/cogumelo.png"
+ },
+ {
+  "tema": "pizza",
+  "id": "milho",
+  "nome": "Pizza de milho",
+  "arquivo": "extras/pizza/milho.png"
+ },
+ {
+  "tema": "brinquedos",
+  "id": "bola",
+  "nome": "Bola",
+  "arquivo": "extras/brinquedos/bola.png"
+ },
+ {
+  "tema": "brinquedos",
+  "id": "carrinho",
+  "nome": "Carrinho de corrida",
+  "arquivo": "extras/brinquedos/carrinho.png"
+ },
+ {
+  "tema": "transportes",
+  "id": "carro",
+  "nome": "Carro azul",
+  "arquivo": "extras/transportes/carro.png"
+ },
+ {
+  "tema": "brinquedos",
+  "id": "pipa",
+  "nome": "Pipa",
+  "arquivo": "extras/brinquedos/pipa.png"
+ },
+ {
+  "tema": "brinquedos",
+  "id": "bloco",
+  "nome": "Bloco de montar",
+  "arquivo": "extras/brinquedos/bloco.png"
+ },
+ {
+  "tema": "transportes",
+  "id": "onibus",
+  "nome": "Ônibus amarelo",
+  "arquivo": "extras/transportes/onibus.png"
+ },
+ {
+  "tema": "transportes",
+  "id": "barco",
+  "nome": "Barco a vela",
+  "arquivo": "extras/transportes/barco.png"
+ },
+ {
+  "tema": "transportes",
+  "id": "aviao",
+  "nome": "Avião",
+  "arquivo": "extras/transportes/aviao.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-1",
+  "nome": "Dado 1",
+  "arquivo": "extras/dados/dado-1.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-2",
+  "nome": "Dado 2",
+  "arquivo": "extras/dados/dado-2.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-3",
+  "nome": "Dado 3",
+  "arquivo": "extras/dados/dado-3.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-4",
+  "nome": "Dado 4",
+  "arquivo": "extras/dados/dado-4.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-5",
+  "nome": "Dado 5",
+  "arquivo": "extras/dados/dado-5.png"
+ },
+ {
+  "tema": "dados",
+  "id": "dado-6",
+  "nome": "Dado 6",
+  "arquivo": "extras/dados/dado-6.png"
+ },
+ {
+  "tema": "clima",
+  "id": "sol",
+  "nome": "Sol",
+  "arquivo": "extras/clima/sol.png"
+ },
+ {
+  "tema": "clima",
+  "id": "nuvem",
+  "nome": "Nuvem",
+  "arquivo": "extras/clima/nuvem.png"
+ },
+ {
+  "tema": "clima",
+  "id": "chuva",
+  "nome": "Chuva",
+  "arquivo": "extras/clima/chuva.png"
+ },
+ {
+  "tema": "clima",
+  "id": "lua",
+  "nome": "Lua",
+  "arquivo": "extras/clima/lua.png"
+ },
+ {
+  "tema": "flores",
+  "id": "girassol",
+  "nome": "Girassol",
+  "arquivo": "extras/flores/girassol.png"
+ },
+ {
+  "tema": "flores",
+  "id": "margarida",
+  "nome": "Margarida",
+  "arquivo": "extras/flores/margarida.png"
+ },
+ {
+  "tema": "flores",
+  "id": "rosa",
+  "nome": "Flor rosa",
+  "arquivo": "extras/flores/rosa.png"
+ },
+ {
+  "tema": "flores",
+  "id": "azul",
+  "nome": "Flor azul",
+  "arquivo": "extras/flores/azul.png"
+ },
+ {
+  "tema": "bebidas",
+  "id": "agua",
+  "nome": "Água",
+  "arquivo": "extras/bebidas/agua.png"
+ },
+ {
+  "tema": "bebidas",
+  "id": "leite",
+  "nome": "Leite",
+  "arquivo": "extras/bebidas/leite.png"
+ },
+ {
+  "tema": "bebidas",
+  "id": "suco-de-laranja",
+  "nome": "Suco de laranja",
+  "arquivo": "extras/bebidas/suco-de-laranja.png"
+ },
+ {
+  "tema": "bebidas",
+  "id": "suco-de-uva",
+  "nome": "Suco de uva",
+  "arquivo": "extras/bebidas/suco-de-uva.png"
+ }
+]

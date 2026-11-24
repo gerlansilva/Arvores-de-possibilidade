@@ -1,0 +1,6 @@
+# Figurinhas para De quantos jeitos?
+10 convites e 50 peças de montagem. Cada pasta corresponde a uma atividade. Todos os caminhos do catálogo são relativos a esta pasta raiz. Copie a pasta para os recursos estáticos do aplicativo e carregue atividades.json. O arquivo convite.png identifica o cartão na biblioteca. Na mesa, mostre os itens de papel escolha na bandeja da posição ativa. Coloque os suportes fixos diretamente na montagem. Os convites ilustram o tema e podem representar uma composição mais ampla que a tarefa.
+
+As imagens estão recortadas com margem transparente. Dimensione cada tipo de peça no componente de montagem preservando a proporção. Na casquinha, alinhe as bolas ao centro e empilhe de baixo para cima. Na taça, permita que as porções ocupem o mesmo recipiente. Ao comparar misturas, duas ordens de seleção podem representar o mesmo resultado. No cordão, o nó à esquerda fixa o sentido de leitura.
+
+O total de referência é para o professor. Mantenha caminhos de escolha e tentativas guardadas, inclusive duplicatas, separados do cálculo dos resultados distintos. A regra de repetição se aplica dentro de uma montagem. Para as duplas e saladas, a posição registrada indica a sequência de escolhas e não muda o agrupamento final.

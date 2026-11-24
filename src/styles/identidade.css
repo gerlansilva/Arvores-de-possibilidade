@@ -1,0 +1,235 @@
+/* Identidade: caderno de papel, tinta verde e ramos desenhados.
+   Carregado por último; troca os hábitos genéricos (cartões, pílulas, grades
+   de pontos, rótulos em caixa-alta) pela linguagem da árvore. */
+
+:root {
+  --fundo: #f6f8fb;
+  --painel: #ffffff;
+  --painel-2: #e8eef6;
+  --raio: 8px;
+  --raio-painel: 12px;
+  --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
+  --ramo: #cb6b1d;
+  --ramo-apagado: #f0cfae;
+  --ramo-fino: #cb6b1d;
+}
+
+::selection { background: var(--folha-suave); color: var(--texto); }
+input, textarea { caret-color: var(--acento); }
+* { scrollbar-width: thin; scrollbar-color: var(--ramo-apagado) transparent; }
+dd, .contagem, .interpretar-contagem { font-variant-numeric: tabular-nums; }
+
+/* Títulos em serifa; o resto continua em Atkinson, feita para leitura. */
+h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Abertura: assimétrica, a árvore é o desenho ---------------------- */
+.tela-entrada {
+  background-image: none;
+  background-color: var(--fundo);
+  justify-content: flex-start;
+}
+.entrada {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  text-align: left;
+}
+.entrada-texto { display: grid; gap: 22px; max-width: 520px; }
+.entrada h1 { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.02em; line-height: 1.02; }
+.entrada h1 .entrada-nome-fraco { font-weight: 400; color: var(--terra); letter-spacing: -0.01em; }
+.entrada-texto p { font-size: 1.25rem; line-height: 1.5; color: var(--texto-2); margin: 0; }
+.entrada .botao.primario.grande { justify-self: start; margin-top: 4px; height: 52px; padding: 0 34px; font-size: 1.1rem; }
+.entrada-arvore { flex: 0 0 auto; color: var(--acento); }
+.entrada-arvore svg { width: min(36vw, 340px); height: auto; }
+@media (max-width: 760px) {
+  .entrada { flex-direction: column-reverse; padding: 24px; }
+  .entrada-arvore svg { width: 200px; }
+}
+
+/* ---- Barra: abas sublinhadas, sem pílula ------------------------------ */
+.aba-sessao { border-radius: 0; background: none; position: relative; height: 64px; padding: 0 14px; }
+.aba-sessao[aria-current="page"] { background: none; color: var(--texto); }
+.aba-sessao[aria-current="page"]::after {
+  display: block; content: ""; position: absolute; left: 14px; right: 14px; bottom: 0;
+  height: 4px; border-radius: 4px 4px 0 0; background: var(--folha);
+}
+.topo { border-bottom: 1px solid var(--borda); box-shadow: none; }
+
+/* ---- Superfícies: um só plano, sem moldura e sombra juntas ------------ */
+.arvore-embutida, .interpretar-arvore { background: transparent; border: 0; box-shadow: none; border-radius: 0; }
+.arvore-embutida .mapa { padding: 0 8px 8px; }
+.bancada { box-shadow: none; border: 0; background: var(--painel-2); border-radius: var(--raio-painel); }
+.interpretar-topo, .interpretar-barra { box-shadow: none; }
+.cartao-peca, .editor-peca { box-shadow: none; }
+.bancada .cena-montagem { background: var(--painel); background-image: none; border: 2px dashed var(--ramo-apagado); border-radius: var(--raio-painel); }
+.arvore-vazia { background: none; }
+.editor-secao { background: none; border: 0; border-top: 2px solid var(--texto); border-radius: 0; padding: 14px 0 6px; }
+.editor-secao h2 { font-size: 1.3rem; }
+.editor-resumo { background: var(--painel-2); }
+.registro { box-shadow: none; border-radius: var(--raio-painel); }
+
+/* ---- Rótulos: frase comum, sem caixa-alta espaçada -------------------- */
+.rotulo-campo, .registro-secao h2, .registro-cabecalho .olho {
+  text-transform: none; letter-spacing: 0; font-size: 1rem; font-weight: 700; color: var(--texto);
+}
+.registro-secao h2 { font-family: var(--fonte-titulo); font-size: 1.2rem; }
+.registro-cabecalho h2 { font-size: 1.8rem; }
+
+/* ---- Catálogo de atividades: cartões planos (borda, sem sombra) ------ */
+.atividade { border: 1px solid var(--borda); background: var(--painel); box-shadow: none; border-radius: var(--raio-painel); padding: 16px; }
+.atividade-arte { background: var(--painel-2); border: 0; border-radius: 8px; height: 120px; }
+.atividade-arte img { filter: drop-shadow(0 3px 0 rgba(27, 42, 65, 0.08)); }
+.atividade-texto h2 { font-size: 1.3rem; }
+.atividade-acao .botao { border-radius: var(--raio); }
+
+/* ---- Árvore: ramos curvos e nós sem caixa ----------------------------- */
+.linhas path { stroke: var(--ramo-apagado); }
+.linhas path[stroke="var(--acento)"] { stroke: var(--acento); }
+.no {
+  background: transparent; border: 2px solid transparent; box-shadow: none; border-radius: 999px;
+}
+.no:hover { background: var(--painel-2); }
+.no.folha { background: transparent; border-color: transparent; }
+.no.no-caminho, .no.folha.no-caminho { background: var(--acento-suave); border-color: var(--acento); box-shadow: none; }
+.no.raiz, .no.raiz.no-caminho {
+  background: var(--terra); border-color: var(--terra); border-radius: 14px 14px 22px 22px; font-family: var(--fonte-titulo);
+}
+.no.caminho:not([data-marca]) { background: transparent; border-color: var(--ramo-apagado); border-radius: 999px; }
+.no.caminho[data-marca="vale"] { background: var(--folha-suave); border-color: var(--folha); }
+.faixa-nivel { background: transparent; border-left: 1px dashed var(--ramo-apagado); border-radius: 0; }
+.cabecalho-nivel { font-family: var(--fonte-titulo); font-weight: 600; color: var(--terra-forte); font-size: 1rem; }
+
+.entrada { align-self: center; }
+.entrada-texto { max-width: 660px; }
+.entrada h1 { font-size: clamp(44px, 5.4vw, 70px); }
+.tela-entrada { display: grid; align-content: center; }
+.linhas path { stroke: var(--ramo-fino); stroke-opacity: 1; }
+.linhas path[stroke="var(--acento)"] { stroke: var(--acento); stroke-opacity: 1; }
+.tela-entrada { justify-content: center; }
+
+/* A cena de montagem cabe inteira: o tamanho das peças nasce da altura da cena. */
+.bancada { --cena: clamp(220px, 31vh, 320px); }
+.bancada .cena-montagem { height: var(--cena); }
+.bancada .cena-montagem > .montagem { --p: calc((var(--cena) - 40px) / 2.9); }
+
+/* Painel de detalhe da árvore: a figura cabe inteira, sem rolagem interna */
+.arvore-embutida .detalhe { overflow: auto; }
+.arvore-embutida .detalhe .cena { min-height: 0; padding: 8px; margin: 8px 0; background: var(--painel); }
+
+/* Catálogo compacto: figura pequena ao lado do texto, ações discretas */
+.botao { min-height: 36px; padding: 0 14px; font-size: 15px; border-width: 1.5px; }
+.barra-ferramentas .botao { min-height: 34px; }
+.barra-ferramentas .botao:not(.primario) { border-color: var(--borda); }
+.atividade-acao.modulos { display: flex; gap: 8px; }
+.barra-ferramentas { flex-wrap: wrap; }
+.barra-ferramentas p { white-space: normal; }
+.barra-ferramentas .acoes { gap: 8px; }
+
+/* Interpretar: topo em uma linha de ferramentas, folhas centradas */
+.interpretar-topo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding: 12px 18px; }
+.interpretar-topo .enunciado { flex: 1 0 100%; margin: 0; }
+.interpretar-barra { display: contents; }
+.interpretar-barra > .botao { order: 3; margin-left: auto; }
+.interpretar-dica { order: 2; margin: 0; font-size: 14px; }
+.no.caminho { align-items: center; }
+.no.caminho .nome { justify-content: center; }
+.no.caminho .estado-caminho { min-height: 0; }
+.no.caminho .estado-caminho:empty { display: none; }
+.interpretar-topo { flex-direction: row; }
+.interpretar-topo .enunciado { max-width: none; font-size: 20px; }
+.interpretar-dica { flex: 1 1 220px; min-width: 0; }
+
+/* Registro: cada montagem é um cartãozinho com a figura inteira */
+.registro-montagens { gap: 10px; }
+.registro-montagens li {
+  height: auto; flex-direction: column; align-items: center; gap: 4px;
+  padding: 8px 12px; min-width: 84px; border-radius: var(--raio); background: var(--painel);
+  border-color: var(--borda);
+}
+.registro-montagens li .n, .registro-montagens li .hora { font-size: 13px; }
+.registro-mini { width: auto; height: auto; min-height: 76px; padding: 4px 0; }
+.registro-mini .montagem { transform: none; --p: 34px; }
+
+/* Coleção: comparar lado a lado, figuras proporcionais ao painel */
+.colecao-lateral .comparacao-grade { grid-template-columns: 1fr 1px 1fr; }
+.colecao-lateral .comparacao-grade .divisor { height: auto; }
+.colecao-lateral .lado-montagem .cena { min-height: 150px; }
+.colecao-lateral .comparacao .montagem { --p: 56px; }
+
+/* Bancada recolhível: dá a altura toda à árvore quando a criança só quer ler */
+.bancada-topo { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.bancada-topo .enunciado { margin: 0; }
+.bancada-alternar { flex: none; margin-top: 2px; }
+.bancada[data-recolhida="true"] { padding-bottom: 12px; }
+.bancada-corpo[hidden] { display: none; }
+
+/* E se a regra mudasse? */
+.compara-regras { margin-top: 16px; }
+.compara-regras h3 { font-size: 1rem; margin: 0 0 4px; }
+.compara-regras table { width: 100%; border-collapse: separate; border-spacing: 0 4px; font-size: 14px; }
+.compara-regras th { font-weight: 600; text-align: left; padding: 2px 8px 2px 0; color: var(--texto-2); }
+.compara-regras thead th { text-align: center; }
+.compara-regras td { text-align: center; padding: 6px 8px; background: var(--painel); border: 1px solid var(--borda); border-radius: var(--raio); }
+.compara-regras td strong { display: block; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.compara-regras td span { font-size: 12.5px; color: var(--texto-3); }
+.compara-regras td[aria-current="true"] { background: var(--acento-suave); border-color: var(--acento); }
+.compara-regras td[data-vazio="true"] strong { color: var(--texto-3); }
+.compara-regras { max-width: 640px; }
+.compara-regras thead td { background: none; border: 0; padding: 0; }
+
+/* ---- Acessibilidade: contraste e alvos (auditoria WCAG 2.2) ------------- */
+.no.raiz, .no.raiz.no-caminho { background: #b94f14; }
+.campo, input.campo, textarea.campo, select.campo { border-color: #6b7f99; }
+.vazia.peca-img, button.vazia { border-color: #6b7f99; }
+.decisao button { min-height: 36px; padding: 0 14px; }
+.editor-radio input[type="radio"], fieldset input[type="radio"] { width: 24px; height: 24px; }
+.botao:not(:disabled):not(.primario):not(.discreto):not(.texto) { border-color: #8a9bb3; }
+
+/* ---- Telas estreitas (zoom alto e celulares): o cabeçalho cresce, nada some ---- */
+@media (max-width: 640px) {
+  .topo { height: auto; min-height: var(--topo); flex-wrap: wrap; row-gap: 4px; padding-block: 6px; }
+  .topo-acoes { margin-left: auto; }
+  .abas-sessao { height: 52px; align-self: center; }
+  .arvore-vazia { flex-direction: column; align-items: flex-start; gap: 12px; padding: 12px 16px; height: auto; }
+  .arvore-vazia .no.arvore-vazia-raiz { min-width: 0; max-width: 100%; }
+  .arvore-vazia-ramo { display: none; }
+  .arvore-vazia p { max-width: 100%; overflow-wrap: anywhere; }
+  .bancada-topo { flex-direction: column; gap: 6px; }
+}
+
+/* ---- Imprimir mapa (dentro de Construir): só a árvore, em paisagem ---- */
+@page { margin: 12mm; }
+@media print {
+  .tela-mesa { display: block !important; height: auto !important; overflow: visible !important; padding: 0 !important; }
+  .tela-mesa .bancada, .tela-mesa .detalhe, .tela-mesa .barra-ferramentas .acoes { display: none !important; }
+  .mesa-arvore, .arvore-embutida, .arvore-embutida .arvore-corpo, .arvore-embutida .mapa {
+    display: block !important; height: auto !important; max-height: none !important; overflow: visible !important; border: 0 !important;
+  }
+  .arvore-embutida .mapa { zoom: 0.8; }
+}
+
+/* ---- Abas dos níveis: o rótulo quebra em vez de ser cortado ---- */
+.bancada .aba-nivel { height: auto; min-height: 52px; }
+.bancada .aba-nivel-rotulo { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.2; }
+.arvore-embutida .detalhe { max-height: 100%; }
+
+/* Link "Editar" no cartão do catálogo */
+.link-editar { background: none; border: 0; padding: 0; font: inherit; color: var(--acento); text-decoration: underline; cursor: pointer; }
+.link-editar:hover { color: var(--acento-forte, var(--acento)); }
+
+/* Atalho de teclado: pular a árvore */
+.pular-arvore { position: absolute; left: 8px; top: -48px; z-index: 30; padding: 8px 14px; background: var(--acento); color: #fff; border-radius: 8px; font-weight: 600; text-decoration: none; }
+.pular-arvore:focus { top: 8px; }
+.tela-interpretar { position: relative; }
+
+/* Botão indisponível mas ainda clicável: o clique explica o que falta */
+.botao[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }

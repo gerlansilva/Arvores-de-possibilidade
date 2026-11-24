@@ -1,0 +1,703 @@
+/* =========================================================================
+   Tema "papel e folha" (redesign): escala legível para crianças e projeção,
+   moldura clara, árvore como centro da Mesa. Carrega depois de app.css e só
+   sobrescreve o necessário.
+   ========================================================================= */
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---- Moldura ---------------------------------------------------------- */
+.topo {
+  height: var(--topo);
+  padding: 0 24px;
+  gap: 24px;
+  background: var(--painel);
+  border-bottom: 1px solid var(--borda);
+}
+
+.marca {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.marca em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--texto-3);
+}
+
+.topo-contexto {
+  font-size: 16px;
+}
+
+.topo-atividade {
+  font-weight: 700;
+  color: var(--texto);
+}
+
+.topo-acoes {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.botao-topo {
+  height: 44px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: var(--raio);
+  color: var(--texto-2);
+}
+
+.abas-sessao {
+  gap: 6px;
+  align-items: center;
+}
+
+.aba-sessao {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 999px;
+  color: var(--texto-2);
+}
+
+.aba-sessao[aria-current="page"] {
+  background: var(--acento-suave);
+  color: var(--acento-forte);
+  font-weight: 700;
+}
+
+.aba-sessao[aria-current="page"]::after {
+  display: none;
+}
+
+.aba-contador {
+  min-width: 24px;
+  height: 24px;
+  font-size: 14px;
+  background: var(--painel-2);
+  color: var(--texto);
+}
+
+.statusbar {
+  height: auto;
+  min-height: 44px;
+  padding: 8px 24px;
+  background: var(--perigo-suave);
+  border-top: 1px solid var(--perigo);
+  color: var(--perigo-forte);
+  font-size: 16px;
+}
+
+/* ---- Controles -------------------------------------------------------- */
+.botao {
+  height: auto;
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 16px;
+  border-radius: var(--raio);
+  border-width: 2px;
+  border-color: var(--borda);
+}
+
+.botao.primario {
+  border-color: var(--acento);
+}
+
+.botao.discreto,
+.botao.texto {
+  border-color: transparent;
+}
+
+.segmentado button {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.campo {
+  font-size: 16px;
+}
+
+.tela {
+  padding: 24px 32px;
+  gap: 20px;
+}
+
+/* ---- Mesa: árvore em cima, bancada embaixo ----------------------------- */
+.tela-mesa {
+  height: 100%;
+  min-height: 0;
+  padding: 16px 24px 20px;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.mesa-arvore {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.arvore-embutida {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--painel);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-painel);
+  overflow: hidden;
+}
+
+.arvore-embutida .barra-ferramentas {
+  padding: 8px 12px 0 24px;
+}
+
+.titulo-arvore {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--terra-forte);
+}
+
+.arvore-embutida .arvore-corpo {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0;
+}
+
+.arvore-embutida .mapa {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 16px 16px;
+}
+
+.arvore-embutida .detalhe {
+  width: 300px;
+  margin: 8px 16px 16px 0;
+  padding: 16px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--painel-2);
+}
+
+.detalhe-fechar {
+  float: right;
+  min-height: 36px;
+  padding: 0 10px;
+}
+
+.arvore-vazia {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 24px;
+}
+
+.arvore-vazia .no.arvore-vazia-raiz {
+  position: relative;
+  flex: none;
+  width: 240px;
+  height: 76px;
+  justify-content: center;
+  text-align: center;
+}
+
+.arvore-vazia-ramo {
+  flex: none;
+  width: 72px;
+  border-top: 3px dashed var(--terra);
+  opacity: 0.55;
+}
+
+.arvore-vazia p {
+  max-width: 28ch;
+  padding-left: 16px;
+  color: var(--texto-2);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.arvore-vazia p b {
+  display: block;
+  color: var(--texto);
+  font-size: 20px;
+}
+
+/* nós: raiz terra, caminho verde, folhas em folha */
+.no {
+  gap: 10px;
+  padding: 0 12px;
+  border: 2px solid var(--borda);
+  border-radius: 16px;
+  background: var(--painel);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.no:hover {
+  background: var(--painel-2);
+  border-color: var(--borda-forte);
+}
+
+.no img {
+  width: 40px;
+  height: 40px;
+}
+
+.no.folha {
+  background: var(--folha-suave);
+  border-color: var(--folha);
+}
+
+.no.no-caminho,
+.no.folha.no-caminho {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+  box-shadow: 0 0 0 4px var(--acento-fantasma);
+}
+
+.no.raiz,
+.no.raiz.no-caminho {
+  background: var(--terra);
+  border-color: var(--terra);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.no.raiz .nome {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.linhas path {
+  stroke: var(--terra);
+  stroke-opacity: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.linhas path[stroke-width="3"] {
+  stroke: var(--acento);
+  stroke-opacity: 1;
+  stroke-width: 4;
+}
+
+.faixa-nivel {
+  background: rgba(238, 232, 214, 0.55);
+  border-radius: 16px;
+}
+
+.cabecalho-nivel {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--terra-forte);
+}
+
+/* ---- Bancada ---------------------------------------------------------- */
+.bancada {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px 18px;
+  border-radius: var(--raio-painel);
+  background: var(--painel-2);
+}
+
+.bancada .enunciado {
+  max-width: 72ch;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--texto);
+  text-wrap: balance;
+}
+
+.bancada-corpo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.rotulo-bancada {
+  margin-bottom: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--terra-forte);
+}
+
+.bancada-pecas .pecas-grade {
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 8px;
+}
+
+.cartao-peca {
+  min-height: 112px;
+  padding: 8px 6px;
+  gap: 4px;
+  border-radius: 14px;
+  background: var(--painel);
+}
+
+.cartao-peca:hover {
+  background: var(--acento-suave);
+}
+
+.cartao-peca img {
+  width: 64px;
+  height: 64px;
+}
+
+.cartao-peca span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--texto);
+}
+
+.peca-em-uso {
+  font-size: 14px;
+}
+
+.botao-tirar {
+  margin-top: 8px;
+}
+
+.bancada-montagem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.bancada .abas-niveis {
+  gap: 8px;
+  border: 0;
+  background: transparent;
+}
+
+.bancada .aba-nivel {
+  flex: 1;
+  height: 52px;
+  padding: 0 12px;
+  gap: 8px;
+  border: 2px solid var(--borda);
+  border-radius: 12px;
+  background: var(--painel);
+}
+
+.bancada .aba-nivel[aria-pressed="true"] {
+  border-color: var(--acento);
+  background: var(--acento-suave);
+}
+
+.bancada .aba-nivel[aria-pressed="true"]::after {
+  display: none;
+}
+
+.bancada .aba-nivel-n {
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.bancada .aba-nivel-rotulo {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.bancada .cena-montagem {
+  flex: none;
+  height: clamp(132px, 19vh, 188px);
+  padding: 8px;
+  border-radius: 14px;
+  background-color: var(--painel);
+}
+
+.bancada .cena-montagem > .montagem {
+  --p: clamp(72px, 11vh, 108px);
+}
+
+.bancada .cena-dica {
+  font-size: 15px;
+}
+
+.bancada-acoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bancada-aviso {
+  flex: 1;
+  min-width: 140px;
+  font-size: 16px;
+}
+
+.bancada .acoes-montagem {
+  gap: 8px;
+}
+
+/* ---- Telas menores ---------------------------------------------------- */
+@media (max-width: 1000px) {
+  .tela-mesa {
+    height: auto;
+    overflow: visible;
+  }
+
+  .mesa-arvore {
+    flex: none;
+    min-height: 340px;
+  }
+
+  .bancada-corpo {
+    grid-template-columns: 1fr;
+  }
+
+  .arvore-embutida .arvore-corpo {
+    grid-template-columns: 1fr;
+  }
+
+  .arvore-embutida .detalhe {
+    width: auto;
+    margin: 0 16px 16px;
+  }
+
+  .topo {
+    gap: 12px;
+    padding: 0 12px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--topo);
+  }
+}
+
+/* Link "pular": sem sombra enquanto está fora da tela. */
+.pular {
+  top: -96px;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.pular:focus {
+  box-shadow: var(--sombra-flutuante);
+}
+
+.marca svg {
+  width: 34px;
+  height: 34px;
+}
+
+.entrada-simbolo {
+  background: var(--painel);
+}
+
+.bancada .cena-montagem {
+  height: clamp(132px, 19vh, 190px);
+}
+
+.cartao-peca {
+  min-height: 108px;
+}
+
+.cartao-peca img {
+  width: 68px;
+  height: 68px;
+}
+
+.campo {
+  min-height: 44px;
+}
+
+.pular {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- Modo Interpretar: árvore completa ---------------------------------- */
+.tela-interpretar {
+  height: 100%;
+  min-height: 0;
+  padding: 16px 24px 20px;
+  gap: 12px;
+  overflow: auto;
+}
+
+.interpretar-topo {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px;
+  border-radius: var(--raio-painel);
+  background: var(--painel-2);
+}
+
+.interpretar-topo .enunciado {
+  max-width: 72ch;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.interpretar-barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.interpretar-contagem {
+  display: flex;
+  gap: 16px;
+  font-weight: 500;
+  color: var(--texto-2);
+}
+
+.interpretar-dica {
+  color: var(--texto-2);
+}
+
+.interpretar-arvore {
+  flex: 1;
+  min-height: 300px;
+}
+
+.no.caminho {
+  cursor: pointer;
+}
+
+.no.caminho .nome {
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+  line-height: 1.15;
+}
+
+.no.caminho .estado-caminho {
+  min-height: 1.15em;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.no.caminho .regra-caminho {
+  font-weight: 500;
+  color: var(--texto-3);
+}
+
+.no.caminho[data-marca="vale"] {
+  background: var(--folha-suave);
+  border-color: var(--folha);
+}
+
+.no.caminho[data-marca="vale"] .estado-caminho {
+  color: var(--acento-forte);
+}
+
+.no.caminho[data-marca="nao-vale"] {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--painel) 0 8px,
+    var(--painel-2) 8px 16px
+  );
+  border-color: var(--borda-forte);
+  border-style: dashed;
+}
+
+.no.caminho[data-marca="nao-vale"] .nome > :first-child,
+.no.caminho[data-marca="nao-vale"] {
+  color: var(--texto-3);
+}
+
+.no.caminho[data-marca="nao-vale"] .estado-caminho {
+  color: var(--texto-2);
+}
+
+.no.caminho[data-escolhido="sim"] {
+  border-color: var(--acento);
+  box-shadow: 0 0 0 4px var(--acento-fantasma);
+}
+
+.no.caminho[data-difere="sim"] {
+  border-color: var(--perigo);
+  box-shadow: 0 0 0 3px rgba(163, 58, 42, 0.18);
+}
+
+.interpretar-conferencia {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--painel-2);
+  color: var(--texto-2);
+}
+
+.interpretar-comparacao {
+  flex: none;
+  padding: 16px 20px;
+  border-radius: var(--raio-painel);
+  background: var(--painel);
+  border: 1px solid var(--borda);
+}
+
+/* Editor do professor */
+.tela-editor { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.editor-grade { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
+.editor-form { display: grid; gap: 16px; }
+.editor-secao { background: var(--painel); border: 1px solid var(--borda, #d9d2bd); border-radius: var(--raio-painel); padding: 18px; display: grid; gap: 12px; }
+.editor-secao h2, .editor-resumo h2 { font-size: 1.15rem; margin: 0; }
+.editor-secao h3, .editor-resumo h3 { font-size: 1rem; margin: 8px 0 0; }
+.editor-secao textarea.campo { min-height: 96px; resize: vertical; }
+.rotulo-campo { display: block; font-weight: 700; margin-bottom: 4px; }
+.campo-nota { color: var(--texto); opacity: .75; margin: 0; }
+.editor-pecas, .editor-opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.editor-peca { display: grid; justify-items: center; gap: 4px; width: 96px; min-height: 44px; padding: 8px; background: var(--painel); border: 2px solid var(--borda, #d9d2bd); border-radius: var(--raio); cursor: pointer; font: inherit; color: inherit; }
+.editor-peca img { width: 56px; height: 56px; object-fit: contain; }
+.editor-peca[aria-pressed="true"], .editor-opcao[aria-pressed="true"] { border-color: var(--acento); background: var(--folha-suave); }
+.editor-opcao { min-height: 44px; padding: 6px 14px; border: 2px solid var(--borda, #d9d2bd); border-radius: 999px; background: var(--painel); font: inherit; color: inherit; cursor: pointer; }
+.editor-nivel { display: grid; gap: 8px; padding-top: 8px; border-top: 1px solid var(--borda, #d9d2bd); }
+.editor-niveis-acoes { display: flex; gap: 8px; }
+.editor-regra { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
+.editor-radio { display: flex; gap: 10px; align-items: flex-start; min-height: 44px; align-items: center; }
+.editor-radio input { width: 20px; height: 20px; accent-color: var(--acento); }
+.editor-resumo { position: sticky; top: 16px; background: var(--painel-2); border-radius: var(--raio-painel); padding: 18px; display: grid; gap: 10px; }
+.editor-numeros { display: grid; gap: 8px; margin: 0; }
+.editor-numeros div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.editor-numeros dt { margin: 0; }
+.editor-numeros dd { margin: 0; font-size: 1.6rem; font-weight: 700; color: var(--acento); }
+.editor-exemplos { display: flex; gap: 12px; flex-wrap: wrap; }
+.editor-perguntas { margin: 0; padding-left: 20px; }
+@media (max-width: 900px) { .editor-grade { grid-template-columns: 1fr; } .editor-resumo { position: static; } }
+
+/* Interpretar: caminho sem marca é neutro; só "vale" fica verde */
+.no.caminho:not([data-marca]) {
+  background: var(--painel);
+  border-color: var(--borda-forte, #cfc6ab);
+}
+
+/* Mediação do professor */
+.registro-mediacoes { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 10px; }
+.registro-mediacoes li { padding: 8px 12px; background: var(--painel-2); border-radius: var(--raio); }
+.registro-mediacoes p { margin: 2px 0; }
+.mediacao-form { display: grid; gap: 10px; max-width: 640px; }
+.mediacao-form textarea.campo { min-height: 72px; }

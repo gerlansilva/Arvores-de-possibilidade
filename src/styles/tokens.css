@@ -1,0 +1,63 @@
+:root {
+  color-scheme: light;
+
+  /* Papel de trabalho: marfim, areia e folha. Quatro planos, como antes. */
+  --fundo: #f6f8fb;
+  --painel: #ffffff;
+  --painel-2: #e8eef6;
+  --painel-3: #dbe4f0;
+
+  --borda: #cdd7e5;
+  --borda-forte: #9fb0c7;
+  --linha: #dce3ee;
+
+  --texto: #1b2a41;
+  --texto-2: #324560;
+  --texto-3: #4a5d78;
+
+  /* Ação: verde-folha escuro. Folha e terra aparecem na árvore e na marca. */
+  --acento: #1f4e8c;
+  --acento-forte: #163b6b;
+  --acento-suave: #dfe9f6;
+  --acento-borda: #9db8dc;
+  --sobre-acento: #ffffff;
+  --acento-fantasma: rgba(31, 78, 140, 0.1);
+
+  --folha: #2f8f5b;
+  --folha-suave: #d9efe3;
+  --terra: #c2571a;
+  --terra-forte: #9c4313;
+
+  --perigo: #a33a2a;
+  --perigo-forte: #8b3022;
+  --perigo-suave: #fbeae7;
+
+  /* A moldura do programa agora é papel claro; os nomes antigos continuam valendo. */
+  --barra: #ffffff;
+  --barra-borda: #cdd7e5;
+  --barra-texto: #1b2a41;
+  --barra-texto-2: #4a5d78;
+  --barra-acento: #1f4e8c;
+  --barra-linha: #cdd7e5;
+  --barra-realce: #dfe9f6;
+  --barra-hover: rgba(27, 42, 65, 0.06);
+
+  --raio: 10px;
+  --raio-painel: 16px;
+  --sombra-flutuante: 0 10px 28px -14px rgba(60, 45, 20, 0.45);
+
+  --fonte: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  --topo: 64px;
+  --status: 26px;
+
+  --transicao: 120ms ease;
+  --foco: 0 0 0 2px var(--painel), 0 0 0 4px var(--acento);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transicao: 0ms;
+  }
+}

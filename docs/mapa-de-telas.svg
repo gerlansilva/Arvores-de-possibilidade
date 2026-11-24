@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1064" viewBox="0 0 1760 1064" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+  <rect width="1760" height="1064" fill="#e7eaed"/>
+
+  <text x="48" y="58" font-size="26" font-weight="650" fill="#1b232a" letter-spacing="-0.4">Árvore de possibilidades · mapa das telas</text>
+  <text x="48" y="84" font-size="13.5" fill="#3f4a55">A entrada mostra o nome e a marca e leva direto às atividades; a partir daí, a sessão atravessa as quatro etapas e as abas trocam de etapa a qualquer momento.</text>
+
+  <!-- hub: Atividades -->
+  <g>
+    <rect x="48" y="120" width="300" height="600" rx="12" fill="#ffffff" stroke="#d2d8de"/>
+    <rect x="48" y="120" width="300" height="44" rx="12" fill="#eff2f5"/>
+    <rect x="48" y="150" width="300" height="14" fill="#eff2f5"/>
+    <path d="M48 164h300" stroke="#d2d8de"/>
+    <text x="68" y="149" font-size="15" font-weight="650" fill="#1b232a">Atividades</text>
+    <text x="328" y="149" font-size="10.5" font-weight="600" fill="#5f6a75" text-anchor="end" letter-spacing="0.6">FORA DA SESSÃO</text>
+
+    <text x="68" y="192" font-size="12.5" fill="#3f4a55">Estante das dez atividades, cada uma</text>
+    <text x="68" y="210" font-size="12.5" fill="#3f4a55">com convite, enunciado e níveis.</text>
+
+    <text x="68" y="244" font-size="12.5" fill="#3f4a55">Sessões com conteúdo aparecem no cartão:</text>
+    <text x="78" y="268" font-size="12.5" fill="#1b232a">• nome, montagens e data</text>
+    <text x="78" y="288" font-size="12.5" fill="#1b232a">• a mais recente primeiro</text>
+    <text x="78" y="308" font-size="12.5" fill="#1b232a">• a linha abre a sessão</text>
+
+    <text x="68" y="350" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">AÇÕES</text>
+    <rect x="68" y="364" width="110" height="30" rx="6" fill="#ffffff" stroke="#b6bfc8"/>
+    <text x="123" y="384" font-size="12" fill="#1b232a" text-anchor="middle">Abrir sessão</text>
+    <rect x="186" y="364" width="110" height="30" rx="6" fill="#ffffff" stroke="#b6bfc8"/>
+    <text x="241" y="384" font-size="12" fill="#1b232a" text-anchor="middle">Nova sessão</text>
+
+    <text x="68" y="426" font-size="12.5" fill="#3f4a55">Salvar cópia e abrir cópia em JSON,</text>
+    <text x="68" y="444" font-size="12.5" fill="#3f4a55">pelo diálogo do sistema.</text>
+
+    <path d="M68 474h260" stroke="#e4e8ec"/>
+    <text x="68" y="502" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">ESTADOS</text>
+    <text x="68" y="524" font-size="12" fill="#3f4a55">Sem sessão: “Começar”.</text>
+    <text x="68" y="544" font-size="12" fill="#3f4a55">Com sessão: a linha abre; “Nova sessão”</text>
+    <text x="68" y="562" font-size="12" fill="#3f4a55">começa outra.</text>
+    <text x="68" y="582" font-size="12" fill="#3f4a55">Sessão excluída sai da estante.</text>
+
+    <text x="68" y="618" font-size="12" fill="#5f6a75">Dados locais, sem rede.</text>
+  </g>
+
+  <!-- sessão -->
+  <g transform="translate(56,0)">
+    <rect x="424" y="120" width="1208" height="600" rx="14" fill="none" stroke="#a9c9bd" stroke-width="1.5"/>
+    <rect x="424" y="120" width="1208" height="34" rx="14" fill="#e4f0eb"/>
+    <rect x="424" y="140" width="1208" height="14" fill="#e4f0eb"/>
+    <text x="444" y="143" font-size="11.5" font-weight="700" fill="#115344" letter-spacing="0.6">SESSÃO DA ATIVIDADE · AS ABAS TROCAM DE ETAPA A QUALQUER MOMENTO</text>
+
+    <!-- barra de abas -->
+    <rect x="448" y="172" width="1160" height="34" rx="6" fill="#23282f"/>
+    <text x="474" y="195" font-size="13" font-weight="650" fill="#6fc3aa">Mesa</text>
+    <path d="M462 204h60" stroke="#6fc3aa" stroke-width="2"/>
+    <text x="566" y="195" font-size="13" fill="#a4aeb8">Coleção</text>
+    <text x="664" y="195" font-size="13" fill="#a4aeb8">Árvore</text>
+    <text x="748" y="195" font-size="13" fill="#a4aeb8">Registro</text>
+    <text x="1088" y="195" font-size="11.5" fill="#a4aeb8">a sessão é a mesma nas quatro etapas</text>
+
+    <!-- Mesa -->
+    <g>
+      <rect x="448" y="240" width="268" height="420" rx="10" fill="#ffffff" stroke="#d2d8de"/>
+      <text x="468" y="272" font-size="15" font-weight="650" fill="#1b232a">Mesa</text>
+      <text x="696" y="272" font-size="10.5" font-weight="600" fill="#5f6a75" text-anchor="end">1º PASSO</text>
+      <path d="M468 286h228" stroke="#e4e8ec"/>
+
+      <text x="468" y="314" font-size="12.5" fill="#3f4a55">Bandeja com todas as peças; a</text>
+      <text x="468" y="332" font-size="12.5" fill="#3f4a55">montagem tem um encaixe por nível.</text>
+
+      <text x="468" y="364" font-size="12.5" fill="#1b232a">• arrastar, clicar ou teclado</text>
+      <text x="468" y="384" font-size="12.5" fill="#1b232a">• peça usada é movida com aviso</text>
+      <text x="468" y="404" font-size="12.5" fill="#1b232a">• troca entre níveis compatíveis</text>
+      <text x="468" y="424" font-size="12.5" fill="#1b232a">• duplicatas são permitidas</text>
+
+      <text x="468" y="462" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">AÇÕES</text>
+      <text x="468" y="484" font-size="12.5" fill="#3f4a55">Desfazer (Cmd+Z) · Limpar ·</text>
+      <text x="468" y="502" font-size="12.5" fill="#3f4a55">Guardar montagem (Cmd+Enter)</text>
+
+      <rect x="468" y="528" width="228" height="28" rx="5" fill="#176b56"/>
+      <text x="582" y="547" font-size="11.5" font-weight="600" fill="#ffffff" text-anchor="middle">Guardar montagem</text>
+
+      <text x="468" y="590" font-size="11.5" fill="#5f6a75">Guardadas mostram miniatura,</text>
+      <text x="468" y="608" font-size="11.5" fill="#5f6a75">número e hora.</text>
+      <text x="468" y="636" font-size="11.5" fill="#5f6a75">Incompleta: explica o que falta.</text>
+    </g>
+
+    <!-- Coleção -->
+    <g>
+      <rect x="740" y="240" width="268" height="420" rx="10" fill="#ffffff" stroke="#d2d8de"/>
+      <text x="760" y="272" font-size="15" font-weight="650" fill="#1b232a">Coleção</text>
+      <text x="988" y="272" font-size="10.5" font-weight="600" fill="#5f6a75" text-anchor="end">2º PASSO</text>
+      <path d="M760 286h228" stroke="#e4e8ec"/>
+
+      <text x="760" y="314" font-size="12.5" fill="#3f4a55">Montagens na ordem em que foram</text>
+      <text x="760" y="332" font-size="12.5" fill="#3f4a55">guardadas, mesmo as repetidas.</text>
+
+      <text x="760" y="364" font-size="12.5" fill="#1b232a">• sem classificação automática</text>
+      <text x="760" y="384" font-size="12.5" fill="#1b232a">• comparação ao lado da grade</text>
+      <text x="760" y="404" font-size="12.5" fill="#1b232a">• grupos nomeados pela criança</text>
+      <text x="760" y="424" font-size="12.5" fill="#1b232a">• remover com confirmação</text>
+
+      <text x="760" y="462" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">DECISÕES</text>
+      <text x="760" y="484" font-size="12.5" fill="#3f4a55">São a mesma · São diferentes ·</text>
+      <text x="760" y="502" font-size="12.5" fill="#3f4a55">Ainda estou pensando</text>
+
+      <path d="M760 528h228" stroke="#e4e8ec"/>
+      <text x="760" y="552" font-size="11.5" fill="#5f6a75">A decisão e a explicação vão</text>
+      <text x="760" y="570" font-size="11.5" fill="#5f6a75">para o Registro.</text>
+      <text x="760" y="600" font-size="11.5" fill="#5f6a75">Vazia: “Nada guardado ainda”</text>
+      <text x="760" y="618" font-size="11.5" fill="#5f6a75">leva de volta à Mesa.</text>
+    </g>
+
+    <!-- Árvore -->
+    <g>
+      <rect x="1032" y="240" width="268" height="420" rx="10" fill="#ffffff" stroke="#d2d8de"/>
+      <text x="1052" y="272" font-size="15" font-weight="650" fill="#1b232a">Árvore</text>
+      <text x="1280" y="272" font-size="10.5" font-weight="600" fill="#5f6a75" text-anchor="end">3º PASSO</text>
+      <path d="M1052 286h228" stroke="#e4e8ec"/>
+
+      <text x="1052" y="314" font-size="12.5" fill="#3f4a55">Só o que a criança guardou; nada é</text>
+      <text x="1052" y="332" font-size="12.5" fill="#3f4a55">calculado antes da montagem.</text>
+
+      <text x="1052" y="364" font-size="12.5" fill="#1b232a">• mapa por níveis ou lista</text>
+      <text x="1052" y="384" font-size="12.5" fill="#1b232a">• nó selecionado destaca o caminho</text>
+      <text x="1052" y="404" font-size="12.5" fill="#1b232a">• contagem por ramo</text>
+      <text x="1052" y="424" font-size="12.5" fill="#1b232a">• caminho completo por montagem</text>
+
+      <text x="1052" y="462" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">AÇÕES</text>
+      <text x="1052" y="484" font-size="12.5" fill="#3f4a55">Mapa · Lista indentada ·</text>
+      <text x="1052" y="502" font-size="12.5" fill="#3f4a55">Imprimir mapa (cabe em A4)</text>
+
+      <path d="M1052 528h228" stroke="#e4e8ec"/>
+      <text x="1052" y="552" font-size="11.5" fill="#5f6a75">Vazia: “A árvore começa com a</text>
+      <text x="1052" y="570" font-size="11.5" fill="#5f6a75">primeira montagem”.</text>
+    </g>
+
+    <!-- Registro -->
+    <g>
+      <rect x="1324" y="240" width="268" height="420" rx="10" fill="#ffffff" stroke="#d2d8de"/>
+      <text x="1344" y="272" font-size="15" font-weight="650" fill="#1b232a">Registro</text>
+      <text x="1572" y="272" font-size="10.5" font-weight="600" fill="#5f6a75" text-anchor="end">4º PASSO</text>
+      <path d="M1344 286h228" stroke="#e4e8ec"/>
+
+      <text x="1344" y="314" font-size="12.5" fill="#3f4a55">Folha da investigação, com o nome,</text>
+      <text x="1344" y="332" font-size="12.5" fill="#3f4a55">as montagens e a explicação.</text>
+
+      <text x="1344" y="364" font-size="12.5" fill="#1b232a">• identificação da dupla</text>
+      <text x="1344" y="384" font-size="12.5" fill="#1b232a">• ordem de criação</text>
+      <text x="1344" y="404" font-size="12.5" fill="#1b232a">• grupos e comparações</text>
+      <text x="1344" y="424" font-size="12.5" fill="#1b232a">• gravação automática do texto</text>
+
+      <text x="1344" y="462" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">AÇÕES</text>
+      <text x="1344" y="484" font-size="12.5" fill="#3f4a55">Imprimir · Excluir sessão ·</text>
+      <text x="1344" y="502" font-size="12.5" fill="#3f4a55">Voltar à mesa · Ver árvore</text>
+
+      <path d="M1344 528h228" stroke="#e4e8ec"/>
+      <text x="1344" y="552" font-size="11.5" fill="#5f6a75">Impresso: os campos viram texto,</text>
+      <text x="1344" y="570" font-size="11.5" fill="#5f6a75">nada é cortado.</text>
+      <text x="1344" y="600" font-size="11.5" fill="#5f6a75">Excluir volta para Atividades.</text>
+    </g>
+
+    <!-- Mesa -> Coleção -->
+    <path d="M716 452h16" stroke="#176b56" stroke-width="2" marker-end="url(#seta)"/>
+  </g>
+
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#176b56"/>
+    </marker>
+    <marker id="setaCinza" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#5f6a75"/>
+    </marker>
+  </defs>
+
+  <!-- Atividades -> Mesa -->
+  <path d="M348 400h150" stroke="#176b56" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="360" y="388" font-size="11" font-weight="600" fill="#176b56">Começar / abrir sessão</text>
+
+  <!-- retorno ao hub -->
+  <path d="M1524 660v88H198v-24" fill="none" stroke="#5f6a75" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#setaCinza)"/>
+  <rect x="700" y="734" width="300" height="28" rx="14" fill="#e7eaed"/>
+  <text x="850" y="752" font-size="11.5" fill="#3f4a55" text-anchor="middle">Excluir sessão · Atividades (topo)</text>
+
+  <!-- percurso -->
+  <text x="48" y="794" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.7">PERCURSO DA CRIANÇA</text>
+  <g font-size="12" fill="#1b232a">
+    <rect x="48" y="810" width="110" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="103" y="832" text-anchor="middle">entrada</text>
+    <rect x="174" y="810" width="176" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="262" y="832" text-anchor="middle">escolher a atividade</text>
+    <rect x="366" y="810" width="168" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="450" y="832" text-anchor="middle">montar e guardar</text>
+    <rect x="550" y="810" width="176" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="638" y="832" text-anchor="middle">comparar e organizar</text>
+    <rect x="742" y="810" width="128" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="806" y="832" text-anchor="middle">ver a árvore</text>
+    <rect x="886" y="810" width="180" height="34" rx="17" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="976" y="832" text-anchor="middle">registrar e imprimir</text>
+  </g>
+  <g stroke="#5f6a75" stroke-width="1.5" marker-end="url(#setaCinza)">
+    <path d="M158 827h16"/>
+    <path d="M350 827h16"/>
+    <path d="M534 827h16"/>
+    <path d="M726 827h16"/>
+    <path d="M870 827h16"/>
+  </g>
+  <text x="1712" y="832" font-size="11.5" fill="#5f6a75" text-anchor="end">Pular ou voltar etapas pelas abas não perde a montagem em andamento.</text>
+
+  <!-- legenda -->
+  <path d="M48 884h1664" stroke="#d2d8de"/>
+  <g font-size="11.5" fill="#3f4a55">
+    <path d="M50 918h34" stroke="#176b56" stroke-width="2" marker-end="url(#seta)"/>
+    <text x="94" y="922">ação que leva a outra tela</text>
+    <path d="M266 918h34" stroke="#5f6a75" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#setaCinza)"/>
+    <text x="310" y="922">retorno ou exclusão</text>
+    <text x="560" y="922">As quatro etapas da sessão compartilham o mesmo registro; trocar de aba não perde a montagem em andamento.</text>
+  </g>
+
+  <text x="48" y="964" font-size="11.5" fill="#5f6a75">Duplicatas são mantidas de propósito: repetir uma possibilidade também é informação para a conversa com a turma. Nenhuma tela tem recompensa, som de acerto, cronômetro ou classificação.</text>
+  <text x="48" y="986" font-size="11.5" fill="#5f6a75">A montagem incompleta nunca bloqueia a exploração; só o botão “Guardar montagem” espera a montagem inteira, e o rodapé diz o que falta.</text>
+  <text x="48" y="1032" font-size="11.5" fill="#5f6a75">Detalhes visuais e tokens em DESIGN.md; decisões pedagógicas em docs/decisoes.md.</text>
+</svg>

@@ -1,0 +1,759 @@
+[
+  {
+    "id": "01-casquinhas",
+    "titulo": "Casquinhas",
+    "enunciado": "Monte uma casquinha com duas bolas de sabores diferentes. Qual fica embaixo?",
+    "convite": {
+      "arquivo": "01-casquinhas/convite.png",
+      "alt": "Casquinha com duas bolas"
+    },
+    "pecas": [
+      {
+        "id": "casquinha-vazia",
+        "nome": "Casquinha vazia",
+        "arquivo": "01-casquinhas/casquinha-vazia.png",
+        "papel": "suporte-fixo"
+      },
+      {
+        "id": "chocolate",
+        "nome": "Chocolate",
+        "arquivo": "01-casquinhas/chocolate.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "morango",
+        "nome": "Morango",
+        "arquivo": "01-casquinhas/morango.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "baunilha",
+        "nome": "Baunilha",
+        "arquivo": "01-casquinhas/baunilha.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "manga",
+        "nome": "Manga",
+        "arquivo": "01-casquinhas/manga.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Bola de baixo",
+        "opcoes": [
+          "chocolate",
+          "morango",
+          "baunilha",
+          "manga"
+        ]
+      },
+      {
+        "nome": "Bola de cima",
+        "opcoes": [
+          "chocolate",
+          "morango",
+          "baunilha",
+          "manga"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "02-mistura-de-sabores",
+    "titulo": "Mistura de sabores",
+    "enunciado": "Escolha dois sabores diferentes para misturar na mesma taça.",
+    "convite": {
+      "arquivo": "02-mistura-de-sabores/convite.png",
+      "alt": "Taça com chocolate e morango misturados"
+    },
+    "pecas": [
+      {
+        "id": "taca-vazia",
+        "nome": "Taça vazia",
+        "arquivo": "02-mistura-de-sabores/taca-vazia.png",
+        "papel": "suporte-fixo"
+      },
+      {
+        "id": "chocolate",
+        "nome": "Chocolate",
+        "arquivo": "02-mistura-de-sabores/chocolate.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "morango",
+        "nome": "Morango",
+        "arquivo": "02-mistura-de-sabores/morango.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "baunilha",
+        "nome": "Baunilha",
+        "arquivo": "02-mistura-de-sabores/baunilha.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "manga",
+        "nome": "Manga",
+        "arquivo": "02-mistura-de-sabores/manga.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Sabor escolhido primeiro",
+        "opcoes": [
+          "chocolate",
+          "morango",
+          "baunilha",
+          "manga"
+        ]
+      },
+      {
+        "nome": "Sabor escolhido depois",
+        "opcoes": [
+          "chocolate",
+          "morango",
+          "baunilha",
+          "manga"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": false,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "03-sanduiches",
+    "titulo": "Sanduíches",
+    "enunciado": "Escolha um tipo de pão e um recheio para montar um sanduíche.",
+    "convite": {
+      "arquivo": "03-sanduiches/convite.png",
+      "alt": "Sanduíche montado"
+    },
+    "pecas": [
+      {
+        "id": "pao-frances",
+        "nome": "Pão francês",
+        "arquivo": "03-sanduiches/pao-frances.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "pao-integral",
+        "nome": "Pão integral",
+        "arquivo": "03-sanduiches/pao-integral.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "queijo",
+        "nome": "Queijo",
+        "arquivo": "03-sanduiches/queijo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tomate",
+        "nome": "Tomate",
+        "arquivo": "03-sanduiches/tomate.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "alface",
+        "nome": "Alface",
+        "arquivo": "03-sanduiches/alface.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Pão",
+        "opcoes": [
+          "pao-frances",
+          "pao-integral"
+        ]
+      },
+      {
+        "nome": "Recheio",
+        "opcoes": [
+          "queijo",
+          "tomate",
+          "alface"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "04-roupas",
+    "titulo": "Roupas",
+    "enunciado": "Escolha uma camiseta e uma peça de baixo.",
+    "convite": {
+      "arquivo": "04-roupas/convite.png",
+      "alt": "Camiseta e saia"
+    },
+    "pecas": [
+      {
+        "id": "camiseta-listrada",
+        "nome": "Camiseta listrada",
+        "arquivo": "04-roupas/camiseta-listrada.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "camiseta-de-bolinhas",
+        "nome": "Camiseta de bolinhas",
+        "arquivo": "04-roupas/camiseta-de-bolinhas.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "short-jeans",
+        "nome": "Short jeans",
+        "arquivo": "04-roupas/short-jeans.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "saia-amarela",
+        "nome": "Saia amarela",
+        "arquivo": "04-roupas/saia-amarela.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "calca-comprida",
+        "nome": "Calça comprida",
+        "arquivo": "04-roupas/calca-comprida.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Camiseta",
+        "opcoes": [
+          "camiseta-listrada",
+          "camiseta-de-bolinhas"
+        ]
+      },
+      {
+        "nome": "Peça de baixo",
+        "opcoes": [
+          "short-jeans",
+          "saia-amarela",
+          "calca-comprida"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "05-sucos-e-copos",
+    "titulo": "Sucos e copos",
+    "enunciado": "Escolha o sabor do suco e o copo em que vai servi-lo.",
+    "convite": {
+      "arquivo": "05-sucos-e-copos/convite.png",
+      "alt": "Suco de abacaxi servido no copo"
+    },
+    "pecas": [
+      {
+        "id": "abacaxi",
+        "nome": "Abacaxi",
+        "arquivo": "05-sucos-e-copos/abacaxi.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "laranja",
+        "nome": "Laranja",
+        "arquivo": "05-sucos-e-copos/laranja.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "copo-baixo-canelado",
+        "nome": "Copo baixo canelado",
+        "arquivo": "05-sucos-e-copos/copo-baixo-canelado.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "copo-alto-ambar",
+        "nome": "Copo alto âmbar",
+        "arquivo": "05-sucos-e-copos/copo-alto-ambar.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "copo-de-bolinhas",
+        "nome": "Copo de bolinhas",
+        "arquivo": "05-sucos-e-copos/copo-de-bolinhas.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Sabor",
+        "opcoes": [
+          "abacaxi",
+          "laranja"
+        ]
+      },
+      {
+        "nome": "Copo",
+        "opcoes": [
+          "copo-baixo-canelado",
+          "copo-alto-ambar",
+          "copo-de-bolinhas"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "06-lancheira",
+    "titulo": "Lancheira",
+    "enunciado": "Escolha um salgado e uma fruta para o lanche.",
+    "convite": {
+      "arquivo": "06-lancheira/convite.png",
+      "alt": "Lancheira com salgado e fruta"
+    },
+    "pecas": [
+      {
+        "id": "coxinha",
+        "nome": "Coxinha",
+        "arquivo": "06-lancheira/coxinha.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "pastel",
+        "nome": "Pastel",
+        "arquivo": "06-lancheira/pastel.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "banana",
+        "nome": "Banana",
+        "arquivo": "06-lancheira/banana.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "maca",
+        "nome": "Maçã",
+        "arquivo": "06-lancheira/maca.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "uvas",
+        "nome": "Uvas",
+        "arquivo": "06-lancheira/uvas.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Salgado",
+        "opcoes": [
+          "coxinha",
+          "pastel"
+        ]
+      },
+      {
+        "nome": "Fruta",
+        "opcoes": [
+          "banana",
+          "maca",
+          "uvas"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "07-duplas-de-animais",
+    "titulo": "Duplas de animais",
+    "enunciado": "Escolha dois animais diferentes para uma dupla. Trocar os lados mantém a mesma dupla.",
+    "convite": {
+      "arquivo": "07-duplas-de-animais/convite.png",
+      "alt": "Retrato de capivara e tucano"
+    },
+    "pecas": [
+      {
+        "id": "capivara",
+        "nome": "Capivara",
+        "arquivo": "07-duplas-de-animais/capivara.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tucano",
+        "nome": "Tucano",
+        "arquivo": "07-duplas-de-animais/tucano.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "onca-pintada",
+        "nome": "Onça-pintada",
+        "arquivo": "07-duplas-de-animais/onca-pintada.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tatu",
+        "nome": "Tatu",
+        "arquivo": "07-duplas-de-animais/tatu.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tartaruga",
+        "nome": "Tartaruga",
+        "arquivo": "07-duplas-de-animais/tartaruga.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Animal escolhido primeiro",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "onca-pintada",
+          "tatu",
+          "tartaruga"
+        ]
+      },
+      {
+        "nome": "Animal escolhido depois",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "onca-pintada",
+          "tatu",
+          "tartaruga"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": false,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "08-canetas",
+    "titulo": "Canetas",
+    "enunciado": "Escolha uma caneta para o título e outra diferente para o desenho.",
+    "convite": {
+      "arquivo": "08-canetas/convite.png",
+      "alt": "Estojo de canetas"
+    },
+    "pecas": [
+      {
+        "id": "caneta-listrada",
+        "nome": "Caneta listrada",
+        "arquivo": "08-canetas/caneta-listrada.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "caneta-de-bolinhas",
+        "nome": "Caneta de bolinhas",
+        "arquivo": "08-canetas/caneta-de-bolinhas.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "caneta-em-zigue-zague",
+        "nome": "Caneta em zigue-zague",
+        "arquivo": "08-canetas/caneta-em-zigue-zague.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "caneta-preta-lisa",
+        "nome": "Caneta preta lisa",
+        "arquivo": "08-canetas/caneta-preta-lisa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "caneta-xadrez",
+        "nome": "Caneta xadrez",
+        "arquivo": "08-canetas/caneta-xadrez.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Título",
+        "opcoes": [
+          "caneta-listrada",
+          "caneta-de-bolinhas",
+          "caneta-em-zigue-zague",
+          "caneta-preta-lisa",
+          "caneta-xadrez"
+        ]
+      },
+      {
+        "nome": "Desenho",
+        "opcoes": [
+          "caneta-listrada",
+          "caneta-de-bolinhas",
+          "caneta-em-zigue-zague",
+          "caneta-preta-lisa",
+          "caneta-xadrez"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "09-salada-de-frutas",
+    "titulo": "Salada de frutas",
+    "enunciado": "Escolha três frutas diferentes para uma salada. A receita é a mesma em qualquer ordem.",
+    "convite": {
+      "arquivo": "09-salada-de-frutas/convite.png",
+      "alt": "Tigela de salada de frutas"
+    },
+    "pecas": [
+      {
+        "id": "morango",
+        "nome": "Morango",
+        "arquivo": "09-salada-de-frutas/morango.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "kiwi",
+        "nome": "Kiwi",
+        "arquivo": "09-salada-de-frutas/kiwi.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "manga",
+        "nome": "Manga",
+        "arquivo": "09-salada-de-frutas/manga.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "melancia",
+        "nome": "Melancia",
+        "arquivo": "09-salada-de-frutas/melancia.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tangerina",
+        "nome": "Tangerina",
+        "arquivo": "09-salada-de-frutas/tangerina.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Primeira fruta",
+        "opcoes": [
+          "morango",
+          "kiwi",
+          "manga",
+          "melancia",
+          "tangerina"
+        ]
+      },
+      {
+        "nome": "Segunda fruta",
+        "opcoes": [
+          "morango",
+          "kiwi",
+          "manga",
+          "melancia",
+          "tangerina"
+        ]
+      },
+      {
+        "nome": "Terceira fruta",
+        "opcoes": [
+          "morango",
+          "kiwi",
+          "manga",
+          "melancia",
+          "tangerina"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": false,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "10-cordao-de-contas",
+    "titulo": "Cordão de contas",
+    "enunciado": "Escolha três contas diferentes. Coloque-as em fila, começando pelo nó.",
+    "convite": {
+      "arquivo": "10-cordao-de-contas/convite.png",
+      "alt": "Cordão enfeitado com contas"
+    },
+    "pecas": [
+      {
+        "id": "cordao-vazio-com-no",
+        "nome": "Cordão vazio com nó",
+        "arquivo": "10-cordao-de-contas/cordao-vazio-com-no.png",
+        "papel": "suporte-fixo"
+      },
+      {
+        "id": "conta-redonda",
+        "nome": "Conta redonda",
+        "arquivo": "10-cordao-de-contas/conta-redonda.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "conta-quadrada",
+        "nome": "Conta quadrada",
+        "arquivo": "10-cordao-de-contas/conta-quadrada.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "conta-de-estrela",
+        "nome": "Conta de estrela",
+        "arquivo": "10-cordao-de-contas/conta-de-estrela.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "conta-de-coracao",
+        "nome": "Conta de coração",
+        "arquivo": "10-cordao-de-contas/conta-de-coracao.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Junto ao nó",
+        "opcoes": [
+          "conta-redonda",
+          "conta-quadrada",
+          "conta-de-estrela",
+          "conta-de-coracao"
+        ]
+      },
+      {
+        "nome": "No meio",
+        "opcoes": [
+          "conta-redonda",
+          "conta-quadrada",
+          "conta-de-estrela",
+          "conta-de-coracao"
+        ]
+      },
+      {
+        "nome": "Na ponta livre",
+        "opcoes": [
+          "conta-redonda",
+          "conta-quadrada",
+          "conta-de-estrela",
+          "conta-de-coracao"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "11-fotografia-dos-animais",
+    "titulo": "Fotografia dos animais",
+    "enunciado": "Três animais vão posar lado a lado para uma fotografia. Cada animal aparece uma vez. Trocar a ordem faz outra fotografia.",
+    "convite": {
+      "arquivo": "07-duplas-de-animais/capivara.png",
+      "alt": "Capivara"
+    },
+    "pecas": [
+      {
+        "id": "capivara",
+        "nome": "Capivara",
+        "arquivo": "07-duplas-de-animais/capivara.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tucano",
+        "nome": "Tucano",
+        "arquivo": "07-duplas-de-animais/tucano.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tatu",
+        "nome": "Tatu",
+        "arquivo": "07-duplas-de-animais/tatu.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Esquerda",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "tatu"
+        ]
+      },
+      {
+        "nome": "Meio",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "tatu"
+        ]
+      },
+      {
+        "nome": "Direita",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "tatu"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "12-entrevista",
+    "titulo": "Entrevista dos animais",
+    "enunciado": "Um animal faz as perguntas e outro responde. Quem pergunta e quem responde são papéis diferentes, e o mesmo animal não faz os dois.",
+    "convite": {
+      "arquivo": "07-duplas-de-animais/tucano.png",
+      "alt": "Tucano"
+    },
+    "pecas": [
+      {
+        "id": "capivara",
+        "nome": "Capivara",
+        "arquivo": "07-duplas-de-animais/capivara.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tucano",
+        "nome": "Tucano",
+        "arquivo": "07-duplas-de-animais/tucano.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "onca-pintada",
+        "nome": "Onça-pintada",
+        "arquivo": "07-duplas-de-animais/onca-pintada.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "tatu",
+        "nome": "Tatu",
+        "arquivo": "07-duplas-de-animais/tatu.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Quem pergunta",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "onca-pintada",
+          "tatu"
+        ]
+      },
+      {
+        "nome": "Quem responde",
+        "opcoes": [
+          "capivara",
+          "tucano",
+          "onca-pintada",
+          "tatu"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  }
+]

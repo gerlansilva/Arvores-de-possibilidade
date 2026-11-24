@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
+  <rect width="1200" height="980" fill="#f4f6f8"/>
+
+  <text x="48" y="56" font-size="27" font-weight="650" fill="#1b232a" letter-spacing="-0.5">Paleta · Árvore de possibilidades</text>
+  <text x="48" y="82" font-size="13" fill="#3f4a55">Quatro planos, três tintas, um acento. A cor diz onde se está; não decora.</text>
+
+  <!-- PLANOS -->
+  <text x="48" y="130" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.8">PLANOS</text>
+
+  <g>
+    <rect x="48" y="146" width="264" height="88" fill="#23282f"/>
+    <text x="64" y="300" font-size="13.5" font-weight="650" fill="#1b232a">Estrutura</text>
+    <text x="64" y="318" font-size="11" fill="#5f6a75">moldura, abas, status</text>
+    <text x="64" y="260" font-size="12" font-weight="600" fill="#3f4a55">#23282f</text>
+
+    <rect x="328" y="146" width="264" height="88" fill="#e7eaed" stroke="#d2d8de"/>
+    <text x="344" y="300" font-size="13.5" font-weight="650" fill="#1b232a">Bancada</text>
+    <text x="344" y="318" font-size="11" fill="#5f6a75">fundo; espaço entre as coisas</text>
+    <text x="344" y="260" font-size="12" font-weight="600" fill="#3f4a55">#e7eaed</text>
+
+    <rect x="608" y="146" width="264" height="88" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="624" y="300" font-size="13.5" font-weight="650" fill="#1b232a">Papel</text>
+    <text x="624" y="318" font-size="11" fill="#5f6a75">palco, mapa, folha, comparação</text>
+    <text x="624" y="260" font-size="12" font-weight="600" fill="#3f4a55">#ffffff</text>
+
+    <rect x="888" y="146" width="264" height="88" fill="#eff2f5" stroke="#d2d8de"/>
+    <text x="904" y="300" font-size="13.5" font-weight="650" fill="#1b232a">Recesso</text>
+    <text x="904" y="318" font-size="11" fill="#5f6a75">objetos, campos, faixas</text>
+    <text x="904" y="260" font-size="12" font-weight="600" fill="#3f4a55">#eff2f5</text>
+  </g>
+
+  <!-- TINTA -->
+  <text x="48" y="372" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.8">TINTA</text>
+
+  <g>
+    <rect x="48" y="388" width="136" height="72" fill="#1b232a"/>
+    <text x="116" y="432" font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle">Aa</text>
+    <text x="48" y="480" font-size="12" font-weight="650" fill="#1b232a">Tinta 1 · títulos</text>
+    <text x="48" y="496" font-size="10.5" fill="#5f6a75">#1b232a · 15,9:1 no papel</text>
+
+    <rect x="200" y="388" width="136" height="72" fill="#3f4a55"/>
+    <text x="268" y="432" font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle">Aa</text>
+    <text x="200" y="480" font-size="12" font-weight="650" fill="#1b232a">Tinta 2 · corpo</text>
+    <text x="200" y="496" font-size="10.5" fill="#5f6a75">#3f4a55 · 8,8:1 no papel</text>
+
+    <rect x="352" y="388" width="136" height="72" fill="#5f6a75"/>
+    <text x="420" y="432" font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle">Aa</text>
+    <text x="352" y="480" font-size="12" font-weight="650" fill="#1b232a">Tinta 3 · rótulos</text>
+    <text x="352" y="496" font-size="10.5" fill="#5f6a75">#5f6a75 · 4,6:1 na bancada · 4,9:1 no recesso</text>
+  </g>
+
+  <!-- ACENTO -->
+  <text x="560" y="372" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.8">ACENTO</text>
+
+  <g>
+    <rect x="560" y="388" width="120" height="72" fill="#176b56"/>
+    <text x="620" y="432" font-size="14" font-weight="650" fill="#ffffff" text-anchor="middle">ação</text>
+    <text x="560" y="480" font-size="11" fill="#3f4a55">#176b56</text>
+
+    <rect x="692" y="388" width="120" height="72" fill="#115344"/>
+    <text x="752" y="432" font-size="14" font-weight="650" fill="#ffffff" text-anchor="middle">pressão</text>
+    <text x="692" y="480" font-size="11" fill="#3f4a55">#115344</text>
+
+    <rect x="824" y="388" width="120" height="72" fill="#e4f0eb" stroke="#a9c9bd"/>
+    <text x="884" y="432" font-size="14" font-weight="650" fill="#115344" text-anchor="middle">seleção</text>
+    <text x="824" y="480" font-size="11" fill="#3f4a55">#e4f0eb</text>
+
+    <rect x="956" y="388" width="120" height="72" fill="#a9c9bd"/>
+    <text x="1016" y="432" font-size="14" font-weight="650" fill="#115344" text-anchor="middle">linha</text>
+    <text x="956" y="480" font-size="11" fill="#3f4a55">#a9c9bd</text>
+
+    <text x="560" y="512" font-size="10.5" fill="#5f6a75">No chrome escuro, o acento clareia: <tspan font-weight="650" fill="#176b56">#6fc3aa</tspan>.</text>
+  </g>
+
+  <!-- SEMANTICA -->
+  <text x="48" y="548" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.8">SEMÂNTICA</text>
+  <g>
+    <rect x="48" y="564" width="136" height="46" fill="#a33a2a"/>
+    <text x="116" y="592" font-size="12" font-weight="650" fill="#ffffff" text-anchor="middle">perigo</text>
+    <rect x="200" y="564" width="136" height="46" fill="#fbeae7" stroke="#e5c4bd"/>
+    <text x="268" y="592" font-size="12" font-weight="650" fill="#a33a2a" text-anchor="middle">perigo suave</text>
+    <rect x="352" y="564" width="136" height="46" fill="#8a5b12"/>
+    <text x="420" y="592" font-size="12" font-weight="650" fill="#ffffff" text-anchor="middle">alerta</text>
+    <text x="504" y="592" font-size="10.5" fill="#5f6a75">Só erro e aviso. Nunca decoração.</text>
+  </g>
+
+  <!-- GRAMATICA -->
+  <text x="48" y="652" font-size="10.5" font-weight="700" fill="#5f6a75" letter-spacing="0.8">GRAMÁTICA DE SUPERFÍCIE</text>
+
+  <g>
+    <rect x="48" y="668" width="1104" height="200" fill="#e7eaed" stroke="#d2d8de"/>
+    <rect x="48" y="668" width="1104" height="48" fill="#23282f"/>
+    <circle cx="74" cy="692" r="7" fill="#6fc3aa"/>
+    <text x="90" y="697" font-size="13" font-weight="650" fill="#e8ebee">Mistura de sabores</text>
+    <text x="1040" y="697" font-size="12" fill="#a4aeb8" text-anchor="end">Atividades</text>
+    <text x="680" y="697" font-size="12" fill="#a4aeb8">Mesa</text>
+    <text x="736" y="697" font-size="12" font-weight="650" fill="#6fc3aa">Coleção</text>
+    <text x="812" y="697" font-size="12" fill="#a4aeb8">Árvore</text>
+    <text x="878" y="697" font-size="12" fill="#a4aeb8">Registro</text>
+    <rect x="736" y="710" width="52" height="2" fill="#6fc3aa"/>
+
+    <rect x="88" y="740" width="592" height="96" fill="#ffffff" stroke="#d2d8de"/>
+    <text x="108" y="766" font-size="12" font-weight="650" fill="#1b232a">Onde se trabalha</text>
+    <rect x="108" y="780" width="196" height="36" fill="#eff2f5" stroke="#e4e8ec"/>
+    <text x="118" y="803" font-size="11" fill="#5f6a75">recesso · dado secundário</text>
+    <rect x="548" y="786" width="112" height="30" rx="5" fill="#176b56"/>
+    <text x="604" y="806" font-size="11.5" font-weight="650" fill="#ffffff" text-anchor="middle">Guardar</text>
+
+    <rect x="724" y="740" width="88" height="88" fill="#eff2f5" stroke="#d2d8de"/>
+    <circle cx="768" cy="784" r="22" fill="#ffffff" stroke="#d2d8de"/>
+    <rect x="832" y="740" width="88" height="88" fill="#ffffff" stroke="#176b56" stroke-width="2"/>
+    <circle cx="876" cy="784" r="22" fill="#e4f0eb" stroke="#a9c9bd"/>
+    <rect x="940" y="740" width="88" height="88" fill="#eff2f5" stroke="#d2d8de"/>
+    <circle cx="984" cy="784" r="22" fill="#ffffff" stroke="#d2d8de"/>
+
+    <text x="724" y="852" font-size="10.5" fill="#5f6a75">objetos no recesso</text>
+    <text x="832" y="852" font-size="10.5" font-weight="650" fill="#176b56">seleção sobe ao papel</text>
+
+    <text x="1104" y="900" font-size="10.5" fill="#5f6a75" text-anchor="end">papel = onde se trabalha · recesso = objetos e dados · bancada = intervalo</text>
+  </g>
+
+  <text x="48" y="918" font-size="11" fill="#3f4a55">Regra: nenhuma cor crua fora dos tokens. Ilustrações são conteúdo — podem ser quentes; a interface não.</text>
+  <text x="48" y="940" font-size="11" fill="#5f6a75">Contraste medido em WCAG 2.1: tinta 3 passa AA no papel (5,5:1), no recesso (4,9:1) e na bancada (4,6:1); branco sobre acento, 6,4:1.</text>
+</svg>
