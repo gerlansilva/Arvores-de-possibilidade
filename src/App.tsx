@@ -10,12 +10,14 @@ import { Interpretar } from "./views/Interpretar";
 import { Editor } from "./views/Editor";
 import { Orientacoes } from "./views/Orientacoes";
 import { Sobre } from "./views/Sobre";
+import { Arbol } from "./views/arbol/Arbol";
 import { LogoArvore } from "./components/LogoArvore";
 
 type Rota =
   | { tela: "entrada" }
   | { tela: "inicio" }
-  | { tela: "orientacoes" | "sobre"; origem: "entrada" | "inicio" }
+  | { tela: "arbol" }
+  | { tela: "orientacoes" | "sobre"; origem: "entrada" | "inicio" | "arbol" }
   | { tela: "editor"; editandoId?: string }
   | { tela: "mesa" | "colecao" | "registro"; sessaoId: string };
 
@@ -133,9 +135,9 @@ export default function App() {
       <header className="topo">
         <button
           className="marca"
-          onClick={() => setRota({ tela: "inicio" })}
-          title="Ir para as atividades"
-          aria-label="Árvore de possibilidades — ir para as atividades"
+          onClick={() => setRota({ tela: "arbol" })}
+          title="Ir para o início"
+          aria-label="Árvore de possibilidades — ir para o início"
         >
           <LogoArvore tamanho={20} />
           <span>
@@ -201,7 +203,7 @@ export default function App() {
           {rota.tela === "inicio" && (
             <button
               className="botao-topo botao-voltar"
-              onClick={() => setRota({ tela: "entrada" })}
+              onClick={() => setRota({ tela: "arbol" })}
             >
               <span aria-hidden="true">←</span> Início
             </button>
@@ -211,7 +213,7 @@ export default function App() {
               className="botao-topo botao-voltar"
               onClick={() => setRota({ tela: rota.origem })}
             >
-              <span aria-hidden="true">←</span> {rota.origem === "entrada" ? "Início" : "Atividades"}
+              <span aria-hidden="true">←</span> {rota.origem === "inicio" ? "Atividades" : "Início"}
             </button>
           )}
           {rota.tela === "editor" && (
@@ -228,9 +230,16 @@ export default function App() {
       <div className="area">
         {rota.tela === "entrada" && (
           <Entrada
-            aoEntrar={() => setRota({ tela: "inicio" })}
+            aoEntrar={() => setRota({ tela: "arbol" })}
             aoOrientacoes={() => setRota({ tela: "orientacoes", origem: "entrada" })}
             aoSobre={() => setRota({ tela: "sobre", origem: "entrada" })}
+          />
+        )}
+
+        {rota.tela === "arbol" && (
+          <Arbol
+            aoAtividades={() => setRota({ tela: "inicio" })}
+            aoSobre={() => setRota({ tela: "sobre", origem: "arbol" })}
           />
         )}
 
@@ -247,7 +256,7 @@ export default function App() {
 
         {(rota.tela === "orientacoes" || rota.tela === "sobre") && (() => {
           const voltar = () => setRota({ tela: rota.origem });
-          const rotuloVoltar = rota.origem === "entrada" ? "Início" : "Atividades";
+          const rotuloVoltar = rota.origem === "inicio" ? "Atividades" : "Início";
           return rota.tela === "orientacoes" ? (
             <Orientacoes aoVoltar={voltar} rotuloVoltar={rotuloVoltar} />
           ) : (
@@ -264,7 +273,7 @@ export default function App() {
           />
         )}
 
-        {rota.tela !== "inicio" && rota.tela !== "entrada" && rota.tela !== "editor" && rota.tela !== "orientacoes" && rota.tela !== "sobre" && !sessao && (
+        {rota.tela !== "inicio" && rota.tela !== "entrada" && rota.tela !== "editor" && rota.tela !== "orientacoes" && rota.tela !== "sobre" && rota.tela !== "arbol" && !sessao && (
           <main className="tela" id="conteudo" tabIndex={-1}>
             <div className="vazio">
               <b>Esta sessão não está mais neste dispositivo.</b>

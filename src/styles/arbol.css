@@ -1,0 +1,87 @@
+/* ===== O Árbol: menu, criar, ver, listas ===== */
+.tela-arbol-inicio { display: grid; place-items: center; min-height: 100%; padding: 24px 20px 72px; position: relative; background: var(--fundo); }
+.arbol-menu { display: grid; justify-items: center; gap: 16px; max-width: 640px; text-align: center; }
+.arbol-menu h1 { font-family: var(--fonte-titulo); font-size: clamp(38px, 5vw, 58px); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em; }
+.arbol-menu h1 em { font-style: normal; font-weight: 400; color: var(--terra); }
+.arbol-menu-frase { font-size: 1.15rem; line-height: 1.5; color: var(--texto-2); max-width: 520px; }
+.arbol-menu-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: min(100%, 520px); margin-top: 8px; }
+.arbol-menu-botoes .botao.grande { height: 56px; font-size: 1.05rem; justify-content: center; gap: 8px; }
+.arbol-menu-links { display: flex; gap: 8px 22px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.tela-arbol-inicio .entrada-rodape { position: absolute; left: 0; right: 0; bottom: 18px; }
+@media (max-width: 560px) { .arbol-menu-botoes { grid-template-columns: 1fr; } }
+
+/* Barra de cada tela do Árbol */
+.arbol-barra { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 4px 4px 8px; }
+.arbol-barra h1 { font-family: var(--fonte-titulo); font-size: 1.5rem; line-height: 1.2; }
+.arbol-barra-acoes { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.arbol-barra .botao { min-height: 36px; }
+
+/* Criar */
+.tela-arbol-criar { display: block; overflow: auto; height: 100%; padding: 20px; }
+.arbol-criar { max-width: 880px; margin: 0 auto; display: grid; gap: 16px; }
+.arbol-criar h1 { font-family: var(--fonte-titulo); font-size: 1.7rem; }
+.arbol-criar-ajuda { color: var(--texto-2); line-height: 1.5; }
+.arbol-listas { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 8px; align-items: stretch; }
+.arbol-lista { display: grid; grid-template-rows: auto 1fr auto; gap: 10px; padding: 14px; background: var(--painel-2); border-radius: var(--raio-painel); min-width: 0; }
+.arbol-lista h2 { font-size: 1.05rem; font-family: var(--fonte-titulo); }
+.arbol-lista ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; align-content: start; min-height: 180px; max-height: 320px; overflow: auto; }
+.arbol-lista li[data-ativo="sim"] .campo { border-color: var(--acento); box-shadow: 0 0 0 2px var(--acento-suave); }
+.arbol-vazio { color: var(--texto-3); font-size: .95rem; padding: 8px 2px; }
+.arbol-botoes-lista { display: flex; gap: 6px; flex-wrap: wrap; }
+.arbol-botoes-lista .botao { min-height: 32px; padding: 0 10px; font-size: 14px; }
+.arbol-chave { display: grid; place-items: center; font-family: var(--fonte-titulo); font-size: 96px; line-height: 1; color: var(--borda-forte); font-weight: 300; }
+.arbol-nome { display: grid; gap: 6px; }
+.arbol-resumo { font-weight: 600; color: var(--texto); }
+.arbol-faltas { color: var(--perigo); }
+.arbol-criar-acoes { display: flex; gap: 10px; justify-content: flex-end; }
+@media (max-width: 720px) { .arbol-listas { grid-template-columns: 1fr; } .arbol-chave { display: none; } }
+
+/* Ver a árvore */
+.tela-arbol-ver { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 10px 14px 8px; gap: 8px; }
+.arbol-enunciado { max-width: 900px; color: var(--texto-2); line-height: 1.45; }
+.arbol-ajuda { background: var(--acento-suave); border-radius: 10px; padding: 10px 14px; max-width: 900px; line-height: 1.5; }
+.arbol-palco { flex: 1 1 auto; min-height: 0; display: flex; gap: 10px; }
+.arbol-ferramentas { display: flex; flex-direction: column; gap: 8px; align-self: flex-start; padding: 8px; background: var(--painel-2); border-radius: 12px; }
+.arbol-ferramentas .botao { min-width: 44px; justify-content: center; font-size: 18px; }
+.arbol-ferramentas .botao:last-child { font-size: 13px; }
+.arbol-area { flex: 1 1 auto; min-width: 0; overflow: auto; background: #fff; border: 1px solid var(--borda); border-radius: 12px; }
+.arbol-escala { width: max-content; }
+.arbol-folha { position: relative; }
+.arbol-faixa { position: absolute; top: 0; bottom: 0; background: var(--painel-2); opacity: .55; }
+.arbol-faixa[data-par="0"] { background: transparent; border-left: 1px dashed var(--linha); border-right: 1px dashed var(--linha); }
+.arbol-faixa-nome { position: absolute; top: 8px; left: 0; right: 0; text-align: center; font-family: var(--fonte-titulo); font-weight: 600; font-size: 15px; color: var(--terra-forte); }
+.arbol-linhas { position: absolute; inset: 0; pointer-events: none; }
+.arbol-linhas line { stroke: #1b2a41; stroke-width: 1.4; opacity: .55; }
+.arbol-linhas line.vermelha { stroke: #c62828; stroke-width: 3; opacity: 1; }
+.arbol-no { position: absolute; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 0 8px 0 10px; background: #fff; border: 1.5px solid var(--borda-forte); border-radius: 5px; font-size: 14px; line-height: 1; color: var(--texto); text-align: left; box-sizing: border-box; }
+.arbol-no span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arbol-no::after { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; background: var(--borda-forte); }
+.arbol-no[data-vermelho="sim"] { border-color: #c62828; color: #8f1d1d; background: #fdecec; font-weight: 600; }
+.arbol-no[data-vermelho="sim"]::after { background: #c62828; }
+button.arbol-folha-no { cursor: pointer; font-family: inherit; }
+button.arbol-folha-no:hover { background: var(--painel-2); }
+button.arbol-folha-no[data-vermelho="sim"]:hover { background: #fadada; }
+button.arbol-folha-no:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+.arbol-excesso { padding: 24px; max-width: 520px; line-height: 1.5; }
+.arbol-status { color: var(--texto-2); font-size: .95rem; }
+
+/* Listas: exemplos e biblioteca */
+.tela-arbol-lista { display: block; overflow: auto; height: 100%; padding: 14px 20px 40px; }
+.arbol-lista-ajuda { color: var(--texto-2); max-width: 720px; margin: 4px 4px 14px; line-height: 1.5; }
+.arbol-cartoes { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.arbol-cartao { display: grid; gap: 8px; align-content: start; padding: 16px; background: #fff; border: 1px solid var(--borda); border-radius: var(--raio-painel); }
+.arbol-cartao h2 { font-family: var(--fonte-titulo); font-size: 1.2rem; }
+.arbol-cartao p { color: var(--texto-2); line-height: 1.45; }
+.arbol-cartao .botao { justify-self: start; margin-top: 4px; }
+.arbol-tipo { justify-self: start; font-size: .85rem; font-weight: 700; color: var(--terra-forte); background: #fbeee3; padding: 2px 10px; border-radius: 999px; }
+.arbol-niveis { font-weight: 600; color: var(--texto) !important; }
+.arbol-meta { font-size: .9rem; }
+
+@media print {
+  .tela-arbol-ver { height: auto; padding: 0; }
+  .arbol-palco { display: block; }
+  .arbol-area { overflow: visible; border: 0; }
+  .arbol-escala { zoom: 0.7 !important; }
+  .arbol-barra h1 { margin-bottom: 8px; }
+  .arbol-no, .arbol-linhas line { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

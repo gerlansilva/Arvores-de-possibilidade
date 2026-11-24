@@ -11,8 +11,9 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
         <header>
           <h1>Sobre</h1>
           <p className="texto-lead">
-            A Árvore de possibilidades é um programa educativo de combinatória para os anos iniciais do
-            Ensino Fundamental, feito para pesquisa e para a sala de aula.
+            A Árvore de possibilidades é uma versão em português do Árbol: um programa em que a criança
+            define os níveis de um problema, vê todas as possibilidades em uma árvore e pinta de
+            vermelho as que valem.
           </p>
         </header>
 
@@ -32,9 +33,9 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
           <h2>De onde vem a ideia</h2>
           <p>
             A proposta se inspira nos <em>Diagramas de Árbol</em> mexicanos (Aguirre, 2005) e no Árbol
-            documentado por Azevedo, Costa e Borba (2011), ambientes em que a criança constrói a árvore de
-            possibilidades enquanto investiga um problema combinatório. As figurinhas e a interface foram
-            feitas para este programa.
+            documentado por Azevedo, Costa e Borba (2011), ambiente em que a criança monta a árvore de
+            possibilidades de um problema combinatório e escolhe, nela, os casos que atendem ao
+            enunciado. O programa segue essa lógica; a interface e os exemplos foram feitos para esta versão.
           </p>
         </section>
 
@@ -43,7 +44,7 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
           <ul>
             <li>Não pontua, não cronometra e não classifica crianças.</li>
             <li>Não envia dados para a internet: tudo fica no seu computador.</li>
-            <li>Não substitui a mediação do professor: ele a apoia e a registra.</li>
+            <li>Não diz quais possibilidades estão certas: quem confere é a criança, com a mediação do professor.</li>
           </ul>
         </section>
 

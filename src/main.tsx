@@ -9,6 +9,7 @@ import "./styles/tokens.css";
 import "./styles/app.css";
 import "./styles/tema.css";
 import "./styles/identidade.css";
+import "./styles/arbol.css";
 import App from "./App";
 
 createRoot(document.getElementById("root")!).render(
