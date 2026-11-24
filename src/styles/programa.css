@@ -315,3 +315,56 @@ button.arbol-folha-no[data-vermelho="sim"]:hover { background: #f3d3ca; }
 .entrada-exemplo { flex: none; width: min(100%, 500px); gap: 8px; }
 .entrada-acoes { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin: 4px 0 0; }
 .entrada .botao.grande { height: 48px; min-height: 48px; padding: 0 26px; font-size: 1rem; margin: 0; }
+
+/* --- "Continuar de onde parou": mesma grade dos cartões das situações --- */
+.painel-continuar { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 14px; }
+.painel-continuar ul { display: contents; }
+.painel-continuar li { display: flex; }
+.painel-item { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px 16px; height: 100%; }
+.painel-item b { font-size: 1rem; line-height: 1.25; }
+
+/* --- as demais abas seguem o Início: mesma margem, mesmos títulos de seção, quatro cartões por linha --- */
+.tela-atividades, .tela-arbol-lista, .tela-arbol-criar { padding: 24px clamp(20px, 4vw, 56px) 40px; }
+.tela-arbol-lista .arbol-situacao, .tela-arbol-lista .arbol-lista-ajuda, .tela-arbol-lista .arbol-barra { margin-left: 0; margin-right: 0; }
+.tela-arbol-lista .arbol-barra { padding: 0 0 14px; }
+.tela-arbol-lista .arbol-barra h1 { font-size: 22px; }
+.tela-arbol-criar > * { max-width: 920px; }
+
+/* título de seção igual ao do Início */
+.grupo-cabecalho, .arbol-situacao > h2 { display: flex; align-items: baseline; gap: 4px 14px; flex-wrap: wrap; }
+.grupo-cabecalho { margin-bottom: 10px; padding-bottom: 5px; border-bottom: 1px solid var(--linha); }
+.grupo-cabecalho h2, .arbol-situacao h2 { font-family: var(--fonte); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3); }
+.grupo-cabecalho p, .arbol-situacao-ideia { font-size: 14px; color: var(--texto-2); }
+.arbol-situacao { margin: 0 0 22px; }
+.arbol-situacao h2 { padding-bottom: 5px; margin-bottom: 4px; border-bottom: 1px solid var(--linha); }
+.arbol-situacao-ideia { margin: 0 0 10px; }
+
+/* quatro por linha, com a mesma largura dos cartões do Início */
+.grupo-situacao .prateleira, .arbol-cartoes { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+.arbol-cartao { padding: 14px 16px; }
+.arbol-cartao h2, .arbol-cartao h3 { font-size: 1.05rem; }
+.arbol-cartao p { font-size: .95rem; line-height: 1.4; }
+.arbol-cartao .arbol-niveis { font-weight: 600; color: var(--texto); }
+.tela-atividades, .tela-arbol-lista, .tela-arbol-criar { padding: 20px clamp(16px, 3vw, 40px) 32px; }
+.grupo-situacao .atividade-enunciado { -webkit-line-clamp: 4; line-clamp: 4; }
+.tela-arbol-criar > * { margin-left: 0 !important; margin-right: auto !important; } .tela-arbol-criar > h1 { font-size: 22px; }
+/* botões dos cartões centralizados */
+.grupo-situacao .atividade-acao { display: flex; justify-content: center; }
+.arbol-cartao .botao { justify-self: center; }
+.arbol-cartao { text-align: left; }
+
+/* --- cartões: sombra suave no lugar do contorno, e reação ao passar o mouse --- */
+.painel-acao, .painel-situacao, .painel-item, .grupo-situacao .atividade, .arbol-cartao {
+  border: 1px solid #e3e9e4; border-radius: 14px; background: #fff;
+  box-shadow: 0 1px 2px rgba(27, 47, 37, .07), 0 4px 14px rgba(27, 47, 37, .06);
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+.painel-acao:hover, .painel-situacao:hover, .painel-item:hover, .grupo-situacao .atividade:hover, .arbol-cartao:hover {
+  transform: translateY(-3px); border-color: #c9d6cc; background: #fff;
+  box-shadow: 0 2px 4px rgba(27, 47, 37, .08), 0 12px 28px rgba(27, 47, 37, .13);
+}
+.painel-acao:active, .painel-situacao:active, .painel-item:active { transform: translateY(-1px); box-shadow: 0 1px 3px rgba(27, 47, 37, .12); }
+.painel-acao.destaque { border-color: var(--acento-forte); background: var(--acento); box-shadow: 0 2px 6px rgba(30, 59, 47, .25); }
+.painel-acao.destaque:hover { background: var(--acento-forte); box-shadow: 0 12px 28px rgba(30, 59, 47, .30); }
+.painel-situacao-arte, .grupo-situacao .atividade-arte { background: #f4f7f3; border-radius: 10px; }
+@media (prefers-reduced-motion: reduce) { .painel-acao, .painel-situacao, .painel-item, .grupo-situacao .atividade, .arbol-cartao { transition: none; } .painel-acao:hover, .painel-situacao:hover, .painel-item:hover, .grupo-situacao .atividade:hover, .arbol-cartao:hover { transform: none; } }

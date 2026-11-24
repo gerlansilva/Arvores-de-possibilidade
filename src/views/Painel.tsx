@@ -19,9 +19,10 @@ type Props = {
 
 function Acao({ icone, titulo, texto, onClick, destaque }: { icone: NomeDeIcone; titulo: string; texto: string; onClick: () => void; destaque?: boolean }) {
   return (
-    <button className={`painel-acao${destaque ? " destaque" : ""}`} onClick={onClick} title={texto}>
+    <button className={`painel-acao${destaque ? " destaque" : ""}`} onClick={onClick}>
       <span className="painel-acao-icone"><Icone nome={icone} tamanho={26} /></span>
       <span className="painel-acao-titulo">{titulo}</span>
+      <span className="painel-acao-texto">{texto}</span>
     </button>
   );
 }
@@ -56,7 +57,7 @@ export function Painel({ atividades, sessoes, arvores, aoAtividades, aoCriar, ao
             const figura = dela[0]?.convite.arquivo;
             return (
               <li key={sit.tipo}>
-                <button className="painel-situacao" onClick={() => aoAtividades(sit.tipo)} title={`${sit.formal}. ${sit.perguntas}`}>
+                <button className="painel-situacao" onClick={() => aoAtividades(sit.tipo)}>
                   <span className="painel-situacao-arte">
                     {figura ? <img src={urlAtividade(figura)} alt="" /> : <Icone nome="arvore" tamanho={30} />}
                   </span>

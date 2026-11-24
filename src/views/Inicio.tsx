@@ -181,7 +181,7 @@ export function Inicio({ foco, atividades, sessoes, aoComecar, aoContinuar, aoNo
         if (doTipo.length === 0) return null;
         return (
       <section key={situacao.tipo} className="grupo-situacao" aria-labelledby={`grupo-${situacao.tipo}`}>
-        <header className="grupo-cabecalho" title={`${situacao.formal}. ${situacao.perguntas}`}>
+        <header className="grupo-cabecalho">
           <h2 id={`grupo-${situacao.tipo}`}>{situacao.titulo}</h2>
           <p>{situacao.ideia}</p>
         </header>
