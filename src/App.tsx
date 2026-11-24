@@ -8,11 +8,14 @@ import { Colecao } from "./views/Colecao";
 import { Registro } from "./views/Registro";
 import { Interpretar } from "./views/Interpretar";
 import { Editor } from "./views/Editor";
+import { Orientacoes } from "./views/Orientacoes";
+import { Sobre } from "./views/Sobre";
 import { LogoArvore } from "./components/LogoArvore";
 
 type Rota =
   | { tela: "entrada" }
   | { tela: "inicio" }
+  | { tela: "orientacoes" | "sobre"; origem: "entrada" | "inicio" }
   | { tela: "editor"; editandoId?: string }
   | { tela: "mesa" | "colecao" | "registro"; sessaoId: string };
 
@@ -109,8 +112,12 @@ export default function App() {
       ? "Atividades"
       : rota.tela === "editor"
         ? "Nova atividade"
-        : rota.tela === "entrada"
-          ? ""
+        : rota.tela === "orientacoes"
+          ? "Orientações"
+          : rota.tela === "sobre"
+            ? "Sobre"
+            : rota.tela === "entrada"
+              ? ""
           : (abas.find((a) => a.tela === rota.tela)?.nome ?? "");
 
   return (
@@ -176,11 +183,35 @@ export default function App() {
             </button>
           )}
           {rota.tela === "inicio" && (
+            <>
+              <button
+                className="botao-topo botao-voltar"
+                onClick={() => setRota({ tela: "orientacoes", origem: "inicio" })}
+              >
+                Orientações
+              </button>
+              <button
+                className="botao-topo botao-voltar"
+                onClick={() => setRota({ tela: "sobre", origem: "inicio" })}
+              >
+                Sobre
+              </button>
+            </>
+          )}
+          {rota.tela === "inicio" && (
             <button
               className="botao-topo botao-voltar"
               onClick={() => setRota({ tela: "entrada" })}
             >
               <span aria-hidden="true">←</span> Início
+            </button>
+          )}
+          {(rota.tela === "orientacoes" || rota.tela === "sobre") && (
+            <button
+              className="botao-topo botao-voltar"
+              onClick={() => setRota({ tela: rota.origem })}
+            >
+              <span aria-hidden="true">←</span> {rota.origem === "entrada" ? "Início" : "Atividades"}
             </button>
           )}
           {rota.tela === "editor" && (
@@ -196,7 +227,11 @@ export default function App() {
 
       <div className="area">
         {rota.tela === "entrada" && (
-          <Entrada aoEntrar={() => setRota({ tela: "inicio" })} />
+          <Entrada
+            aoEntrar={() => setRota({ tela: "inicio" })}
+            aoOrientacoes={() => setRota({ tela: "orientacoes", origem: "entrada" })}
+            aoSobre={() => setRota({ tela: "sobre", origem: "entrada" })}
+          />
         )}
 
         {rota.tela === "inicio" && (
@@ -210,6 +245,16 @@ export default function App() {
           />
         )}
 
+        {(rota.tela === "orientacoes" || rota.tela === "sobre") && (() => {
+          const voltar = () => setRota({ tela: rota.origem });
+          const rotuloVoltar = rota.origem === "entrada" ? "Início" : "Atividades";
+          return rota.tela === "orientacoes" ? (
+            <Orientacoes aoVoltar={voltar} rotuloVoltar={rotuloVoltar} />
+          ) : (
+            <Sobre aoVoltar={voltar} rotuloVoltar={rotuloVoltar} />
+          );
+        })()}
+
         {rota.tela === "editor" && (
           <Editor
             key={rota.editandoId ?? "nova"}
@@ -219,7 +264,7 @@ export default function App() {
           />
         )}
 
-        {rota.tela !== "inicio" && rota.tela !== "entrada" && rota.tela !== "editor" && !sessao && (
+        {rota.tela !== "inicio" && rota.tela !== "entrada" && rota.tela !== "editor" && rota.tela !== "orientacoes" && rota.tela !== "sobre" && !sessao && (
           <main className="tela" id="conteudo" tabIndex={-1}>
             <div className="vazio">
               <b>Esta sessão não está mais neste dispositivo.</b>

@@ -4,7 +4,11 @@ Programa educativo de **combinatória para os anos iniciais**, inspirado nos *Di
 
 Aplicativo de mesa (Tauri 2 + React 19 + TypeScript) para **macOS** e **Windows**. Tudo funciona sem internet e os dados ficam no próprio computador.
 
-![Entrada do programa](docs/capturas/01-entrada.png)
+![Entrada do programa](docs/capturas/00-entrada-com-links.png)
+
+Na tela inicial há **Orientações para o professor** (como conduzir cada módulo, como mediar sem dar a resposta, atalhos e dúvidas frequentes) e **Sobre** (quem desenvolveu, de onde vem a ideia, o que o programa não faz). Os dois também estão no topo da tela de Atividades.
+
+![Página de orientações](docs/capturas/09-orientacoes.png)
 
 ## Baixar e instalar
 
