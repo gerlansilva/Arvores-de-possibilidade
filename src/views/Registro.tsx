@@ -30,7 +30,23 @@ export function Registro({ sessao, aoExcluirSessao }: Props) {
         salvos.current.aluno = aluno.trim();
       }
     }, 600);
-    return () => window.clearTimeout(temporizador);
+    const gravarAgora = () => {
+      if (explicacao !== salvos.current.explicacao) {
+        salvarExplicacao(sessao.id, explicacao);
+        salvos.current.explicacao = explicacao;
+      }
+      if (aluno.trim() !== salvos.current.aluno) {
+        identificarSessao(sessao.id, aluno.trim());
+        salvos.current.aluno = aluno.trim();
+      }
+    };
+    window.addEventListener("pagehide", gravarAgora);
+    window.addEventListener("beforeunload", gravarAgora);
+    return () => {
+      window.clearTimeout(temporizador);
+      window.removeEventListener("pagehide", gravarAgora);
+      window.removeEventListener("beforeunload", gravarAgora);
+    };
   }, [sessao.id, explicacao, aluno]);
 
   useEffect(

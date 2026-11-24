@@ -166,9 +166,9 @@ export function ArbolVer({
 
       {ajuda && (
         <p className="arbol-ajuda nao-imprimir" role="note">
-          Cada linha da árvore é uma possibilidade: do primeiro nível até o último. Toque no último
-          elemento de uma linha para pintá-la de vermelho (as que valem). Toque de novo para tirar a
-          cor. A árvore mostra todas as combinações, inclusive as que não valem: decidir quais valem é
+          Cada linha da árvore é uma possibilidade: do primeiro nível até o último. Na árvore, toque
+          no último elemento de uma linha; na Tabela, use o botão Pintar. A linha fica vermelha
+          (as que valem). Toque de novo para tirar a cor. A árvore mostra todas as combinações, inclusive as que não valem: decidir quais valem é
           com você.
         </p>
       )}

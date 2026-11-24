@@ -468,6 +468,14 @@ export function Mesa({ sessao }: Props) {
                   <span className="aviso">{erro}</span>
                 ) : mensagem ? (
                   <span className="sucesso">{mensagem}</span>
+                ) : totalPreenchido > 0 && !completa ? (
+                  <span>
+                    Falta:{" "}
+                    {atividade.slots
+                      .filter((s) => !escolhas[s.id])
+                      .map((s) => s.rotulo)
+                      .join(", ")}
+                  </span>
                 ) : null}
               </span>
               <div className="acoes-montagem">

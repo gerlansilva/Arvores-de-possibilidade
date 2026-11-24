@@ -48,7 +48,7 @@ function abasDaSessao(sessao: Sessao | undefined): Aba[] {
 function rotaSalva(): Rota {
   try {
     const r = JSON.parse(sessionStorage.getItem("mesa-rota") ?? "null") as Rota | null;
-    if (r && typeof r.tela === "string" && r.tela !== ("arbol" as string)) return r;
+    if (r && typeof r.tela === "string") return r;
   } catch {
     /* ignora */
   }
