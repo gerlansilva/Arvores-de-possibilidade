@@ -15,6 +15,10 @@ type Props = {
   sessao: Sessao;
   /** Dentro da Mesa: sem título próprio, detalhe só quando há nó escolhido. */
   embutida?: boolean;
+  /** Dentro da Mesa: quando a árvore não cabe, oferece dar a altura toda ao mapa. */
+  aoAmpliar?: () => void;
+  /** Dentro da Mesa: a bancada está recolhida, então o mapa já tem a altura toda. */
+  ampliada?: boolean;
 };
 
 function acharFolhaDaMontagem(no: No, montagemId: string): No | undefined {
@@ -69,10 +73,12 @@ function ListaRamo({
   );
 }
 
-export function Arvore({ sessao, embutida = false }: Props) {
+export function Arvore({ sessao, embutida = false, aoAmpliar, ampliada = false }: Props) {
   const [modo, setModo] = useState<"mapa" | "lista">("mapa");
   const [selecionado, setSelecionado] = useState<string | null>(null);
   const mapaRef = useRef<HTMLDivElement>(null);
+  const [escala, setEscala] = useState(1);
+  const [cabe, setCabe] = useState(true);
   const ultimaImpressao = useRef(0);
 
   /** Um clique, uma impressão: ignora chamadas repetidas em sequência. */
@@ -89,6 +95,28 @@ export function Arvore({ sessao, embutida = false }: Props) {
   );
 
   const diagrama = useMemo(() => diagramar(arvore), [arvore]);
+
+  // A árvore se ajusta ao espaço da tela: encolhe quando cresce, até um mínimo
+  // que ainda se lê. Abaixo disso, passa a rolar.
+  useEffect(() => {
+    const el = mapaRef.current;
+    if (!el || modo !== "mapa") return;
+    function ajustar() {
+      if (!el) return;
+      const estilo = getComputedStyle(el);
+      const largura = el.clientWidth - parseFloat(estilo.paddingLeft) - parseFloat(estilo.paddingRight);
+      const altura = el.clientHeight - parseFloat(estilo.paddingTop) - parseFloat(estilo.paddingBottom);
+      if (largura <= 0 || altura <= 0) return;
+      const ideal = Math.min(1, largura / diagrama.largura, altura / diagrama.altura);
+      const nova = Math.max(0.55, Math.floor(ideal * 100) / 100);
+      setEscala((atual) => (Math.abs(atual - nova) < 0.01 ? atual : nova));
+      setCabe(ideal >= 0.55);
+    }
+    ajustar();
+    const observador = new ResizeObserver(ajustar);
+    observador.observe(el);
+    return () => observador.disconnect();
+  }, [diagrama.largura, diagrama.altura, modo, arvore.filhos.length]);
 
   // Ao guardar, a árvore mostra onde a montagem nova ficou.
   const ultimaMontagem = sessao.montagens[sessao.montagens.length - 1];
@@ -189,6 +217,11 @@ export function Arvore({ sessao, embutida = false }: Props) {
               Lista
             </button>
           </div>
+          {embutida && aoAmpliar && !cabe && !ampliada && modo === "mapa" && (
+            <button className="botao primario" onClick={aoAmpliar}>
+              Ver árvore inteira
+            </button>
+          )}
           <button className="botao" onClick={imprimirMapa}>
             Imprimir mapa
           </button>
@@ -236,8 +269,15 @@ export function Arvore({ sessao, embutida = false }: Props) {
       ) : (
         <div className="arvore-corpo">
           <div className="mapa" ref={mapaRef}>
+            <div style={{ width: diagrama.largura * escala, height: diagrama.altura * escala }}>
             <div
-              style={{ position: "relative", width: diagrama.largura, height: diagrama.altura }}
+              style={{
+                position: "relative",
+                width: diagrama.largura,
+                height: diagrama.altura,
+                transform: `scale(${escala})`,
+                transformOrigin: "top left",
+              }}
             >
               {Array.from({ length: profundidadeMaxima }, (_, i) => i + 1).map((profundidade) => (
                 <div
@@ -334,6 +374,7 @@ export function Arvore({ sessao, embutida = false }: Props) {
                   </button>
                 );
               })}
+            </div>
             </div>
           </div>
 

@@ -355,7 +355,7 @@ export function Mesa({ sessao }: Props) {
       </p>
 
       <div className="mesa-arvore">
-        <Arvore sessao={sessao} embutida />
+        <Arvore sessao={sessao} embutida aoAmpliar={() => setRecolhida(true)} ampliada={recolhida} />
       </div>
 
       <section className="bancada" aria-label="Bancada de montagem" data-recolhida={recolhida}>
