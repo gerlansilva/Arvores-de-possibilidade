@@ -233,3 +233,9 @@ h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
 
 /* Botão indisponível mas ainda clicável: o clique explica o que falta */
 .botao[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+
+/* Construir: toda peça da árvore tem caixa, para a linha sempre sair de uma borda visível */
+.no:not(.raiz):not(.caminho) { background: #fff; border-color: var(--borda); }
+.no.folha:not(.caminho) { background: #fff; border-color: var(--borda); }
+.no:not(.raiz):not(.caminho):hover { background: var(--painel-2); }
+.no.no-caminho:not(.raiz), .no.folha.no-caminho { background: var(--acento-suave); border-color: var(--acento); }
