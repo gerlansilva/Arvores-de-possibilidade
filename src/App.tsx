@@ -179,7 +179,7 @@ export default function App() {
           ativo: secaoDoArbol === "biblioteca" || typeof secaoDoArbol === "object",
           ir: () => irParaArbol(setRota, "biblioteca"),
         },
-        { id: "como", icone: "info", nome: "Como usar", ativo: secaoDoArbol === "instrucoes", ir: () => irParaArbol(setRota, "instrucoes") },
+        { id: "como", icone: "info", nome: "Passo a passo", ativo: secaoDoArbol === "instrucoes", ir: () => irParaArbol(setRota, "instrucoes") },
       ],
     },
     {
@@ -233,8 +233,8 @@ export default function App() {
             {sessao ? (
               <>
                 <span className="topo-atividade">{sessao.atividade.titulo}</span>
-                <span className="topo-sep" aria-hidden="true" />
-                <span className="topo-aluno">{sessao.aluno || "sessão local"}</span>
+                {sessao.aluno && <span className="topo-sep" aria-hidden="true" />}
+                {sessao.aluno && <span className="topo-aluno">{sessao.aluno}</span>}
               </>
             ) : (
               <span className="topo-atividade">{area}</span>

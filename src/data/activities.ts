@@ -147,6 +147,16 @@ PERGUNTAS["12-entrevista"] = [
   "Quais entrevistas o tucano faz como entrevistador?",
   "Como conferir se falta alguma entrevista?",
 ];
+PERGUNTAS["13-pizza-e-bebida"] = ["Quais lanches usam a pizza de queijo?", "O que muda quando você troca só a bebida?", "Como conferir se falta algum lanche?"];
+PERGUNTAS["14-presente-de-festa"] = ["Quais presentes têm o balão azul?", "Quantos presentes existem com a pipa?", "Como conferir todos os presentes?"];
+PERGUNTAS["15-mesa-da-festa"] = ["Quantas mesas usam a pizza de queijo?", "O que muda quando você troca só o balão?", "Como conferir todas as mesas sem repetir?"];
+PERGUNTAS["16-podio-das-formas"] = ["Quais pódios têm a estrela em 1º lugar?", "Trocar o 1º com o 2º muda o pódio?", "Como conferir se falta algum pódio?"];
+PERGUNTAS["17-bandeira-de-duas-cores"] = ["Quais bandeiras têm o vermelho em cima?", "A bandeira azul e verde é igual à verde e azul?", "Quantas bandeiras diferentes existem?"];
+PERGUNTAS["18-flores-no-vaso"] = ["Quais vasos têm girassol?", "Girassol e margarida é o mesmo vaso que margarida e girassol?", "Quantos vasos diferentes existem?"];
+PERGUNTAS["19-mochila-de-brinquedos"] = ["Qual brinquedo fica de fora em cada mochila?", "Quantas mochilas diferentes existem?", "Por que há tão poucas mochilas?"];
+PERGUNTAS["20-flores-na-janela"] = ["Quantas janelas diferentes existem?", "O que muda quando as flores trocam de lugar?", "Como saber que não falta nenhuma?"];
+PERGUNTAS["21-fila-de-transportes"] = ["Quem pode ser o primeiro? E depois dele?", "Se o barco for o último, quais filas existem?", "Como conferir se alguma fila está repetida?"];
+PERGUNTAS["22-quatro-dias-de-tempo"] = ["Quais sequências começam com sol?", "Se o sol for o Dia 1, quantas sequências existem?", "Como organizar para não esquecer nenhuma?"];
 
 const MAPEADAS: Atividade[] = (bruto as Bruto[]).map((a) => {
   const suporte = a.pecas.find((p) => p.papel === "suporte-fixo");

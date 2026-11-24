@@ -37,7 +37,7 @@
 /* --- botões: um só estilo --- */
 .botao, .botao-topo {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: auto; min-height: 40px; padding: 0 16px;
-  border: 1.5px solid #a39467; border-radius: 10px; background: var(--painel); color: var(--texto);
+  border: 1.5px solid var(--borda-controle); border-radius: 10px; background: var(--painel); color: var(--texto);
   font-size: 15px; font-weight: 600; line-height: 1.2; white-space: nowrap;
   box-shadow: 0 1px 0 rgba(27, 47, 37, .10); transition: background 120ms ease, border-color 120ms ease, transform 80ms ease;
 }
@@ -112,3 +112,159 @@
 .arbol-no:has(.arbol-figura) span { flex: 1; font-size: 14px; }
 .arbol-no:has(.arbol-figura)::after { margin-left: auto; }
 .arbol-figura-mini { height: 26px; width: 26px; object-fit: contain; vertical-align: middle; margin-right: 8px; }
+.grupo-perguntas { margin: 2px 0 0; font-size: 14px; color: var(--texto-2, #2e4a3c); font-style: italic; }
+
+/* --- ajustes da auditoria: bordas de controle, alvos de toque e telas estreitas --- */
+:root { --borda-controle: #6b7d70; }
+.painel-acao, .painel-situacao, .campo, .aba-nivel, .cartao-peca { border-color: var(--borda-controle); }
+.botao, .botao.discreto { color: #2e4a3c; font-size: 14px; }
+.botao.primario { color: #fff; }
+.sessao .botao, .tela-arbol-ver .botao, .lateral-item { min-height: 44px; }
+.lateral-rodape { color: var(--texto-2, #2e4a3c); }
+.arbol-chave { color: #6b7d70; }
+.grupo-situacao:last-of-type { margin-bottom: 45vh; }
+@media (max-width: 640px) {
+  .abas-sessao { width: 100%; height: 48px; overflow-x: auto; }
+  .aba-sessao { height: 48px; padding: 0 10px; flex: 1 0 auto; font-size: 15px; }
+}
+@media (max-width: 640px) {
+  .bancada .aba-nivel { flex-direction: column; align-items: center; gap: 2px; padding: 6px 4px; height: auto; min-height: 56px; text-align: center; }
+  .bancada .aba-nivel-rotulo { font-size: 12px; text-align: center; overflow-wrap: anywhere; }
+  .bancada .aba-nivel-ok, .bancada .aba-nivel-vazio { display: none; }
+}
+
+/* =====================================================================
+   Camada final — cara de programa de mesa.
+   Sistema de cor: branco + cinza-esverdeado para estrutura; verde-folha só
+   para ação e seleção; terra/ramo/laranja só dentro das árvores e na marca;
+   vermelho só para pintura. Serifa só na marca e nos títulos de árvore.
+   ===================================================================== */
+:root {
+  --fundo: #ffffff;
+  --painel: #ffffff;
+  --painel-2: #f3f6f2;
+  --painel-3: #e4eae2;
+  --borda: #d5ddd2;
+  --linha: #e3e9e1;
+  --borda-forte: #7a8c7f;
+  --borda-controle: #6b7d70;
+  --superficie-lateral: #f4f7f3;
+  --acento-suave: #e6eee7;
+  --raio: 6px;
+  --raio-painel: 8px;
+  --fonte-titulo: var(--fonte);
+  --fonte-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --ramo: #7f9285;
+  --ramo-fino: #7f9285;
+  --ramo-apagado: #b9c6bb;
+  --no-fundo: #e6eedf;
+}
+.lateral .marca, .app-sessao .lateral .marca, .entrada h1, .cabecalho-nivel, .arbol-faixa-nome, .no.raiz, .no.raiz .nome, .arbol-menu h1 { font-family: var(--fonte-serif); }
+
+/* casca: barra lateral cinza-esverdeada, topo e conteúdo brancos */
+.lateral { background: var(--superficie-lateral); border-right: 1px solid var(--borda); padding: 12px 10px; gap: 8px; }
+.lateral .marca, .app-sessao .lateral .marca { border-radius: 0; padding: 6px 8px 12px; margin: 0 0 4px; font-size: 17px; border-bottom: 1px solid var(--linha); }
+.lateral-grupo { gap: 1px; }
+.lateral-titulo { margin: 8px 8px 3px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3); }
+.lateral-item { border-radius: 5px; min-height: 36px; font-size: 14.5px; }
+.lateral-item:hover { background: var(--painel-3); }
+.lateral-item[aria-current="page"] { background: #dfe9e1; color: var(--acento-forte); }
+.lateral-item[aria-current="page"]::before { left: -10px; width: 3px; top: 6px; bottom: 6px; }
+.lateral-rodape { font-size: 12.5px; color: var(--texto-3); }
+.topo { border-bottom: 1px solid var(--borda); background: var(--painel); height: 48px; }
+.topo-atividade { font-size: 15px; font-weight: 700; }
+.aba-sessao { height: 48px; font-size: 14.5px; }
+h1, h2, h3 { letter-spacing: 0; }
+
+/* botões: planos, de mesa */
+.botao, .botao-topo { border-width: 1px; border-radius: 6px; box-shadow: none; min-height: 36px; padding: 0 14px; font-size: 14px; }
+.botao:active:not(:disabled) { transform: none; background: var(--painel-3); }
+.botao.pequeno, .arbol-botoes-lista .botao, .arbol-tabela .botao { min-height: 30px; border-radius: 5px; }
+.botao.primario:disabled, .botao.primario[aria-disabled="true"],
+.tela-arbol-criar .botao.primario[aria-disabled="true"], .tela-arbol-criar .botao.primario:disabled { background: var(--painel-2); border-color: var(--borda); color: #4a604f; opacity: 1; }
+.sessao .botao, .tela-arbol-ver .botao { min-height: 44px; }
+.lateral-item { min-height: 40px; }
+
+/* início: densidade de painel, não de página de apresentação */
+.tela-painel { padding: 20px clamp(16px, 3vw, 40px) 32px; }
+.painel-cabecalho { margin-bottom: 16px; max-width: none; }
+.painel-cabecalho h1 { font-size: 22px; line-height: 1.2; }
+.painel-cabecalho p { font-size: 15px; margin-top: 4px; }
+.painel-secao { margin-bottom: 20px; }
+.painel-secao > h2 { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-3); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--linha); }
+.painel-acoes { gap: 10px; }
+.painel-acao { grid-template-columns: 28px 1fr; grid-template-areas: "i t" "i x"; column-gap: 12px; row-gap: 2px; padding: 12px 14px; border-radius: 6px; border-width: 1px; }
+.painel-acao-icone { grid-area: i; width: 28px; height: 28px; background: transparent; border-radius: 0; align-self: start; color: var(--acento); }
+.painel-acao-titulo { grid-area: t; font-size: 15px; margin-top: 0; }
+.painel-acao-texto { grid-area: x; font-size: 14px; line-height: 1.35; }
+.painel-acao.destaque .painel-acao-icone { background: transparent; color: #fff; }
+.painel-situacoes { gap: 10px; }
+.painel-situacao, .painel-item, .grupo-situacao .atividade, .arbol-cartao { border-radius: 6px; border-width: 1px; border-color: var(--borda-controle); }
+.painel-situacao { padding: 10px; gap: 4px; }
+.painel-situacao-arte { height: 76px; border-radius: 4px; }
+.painel-situacao-arte img { max-height: 68px; }
+.painel-situacao-titulo { font-size: 15px; }
+.painel-situacao-ideia, .painel-situacao-meta { font-size: 13.5px; }
+
+/* atividades: lista de grupos com cabeçalho de seção */
+.grupo-cabecalho { border-bottom: 1px solid var(--borda); gap: 10px; margin-bottom: 10px; }
+.grupo-cabecalho h2 { font-size: 16px; }
+.grupo-cabecalho p { font-size: 14px; }
+.grupo-perguntas { font-size: 13.5px; color: var(--texto-3); font-style: normal; flex-basis: 100%; margin: 0; }
+.grupo-situacao .atividade { padding: 10px; gap: 6px; }
+.grupo-situacao .atividade-arte { height: 92px; border-radius: 4px; }
+.grupo-situacao .atividade-arte img { max-height: 84px; }
+.grupo-situacao .prateleira { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.tela-atividades { padding-top: 14px; }
+
+/* leitura: coluna estreita, título discreto, sem marrom nos títulos */
+.texto-longo h1 { font-size: 26px; margin-bottom: 8px; }
+.texto-longo { font-size: 1rem; line-height: 1.55; }
+.texto-longo h2 { font-size: 1.1rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 1px solid var(--linha); color: var(--acento-forte); }
+.arbol-lista-ajuda, .arbol-ajuda { font-size: 14px; }
+
+/* controles de formulário */
+.campo, input.campo, textarea.campo, select.campo { border-radius: 5px; border-width: 1px; border-color: var(--borda-controle); }
+.painel-acao, .painel-situacao, .aba-nivel, .cartao-peca { border-color: var(--borda-controle); }
+.arbol-ficha, .arbol-ajuda { border-radius: 6px; }
+.arbol-ferramentas { border-radius: 6px; background: var(--painel-2); border: 1px solid var(--borda); }
+
+/* árvore da sessão e árvore livre: mesma linguagem do mapa (ramos dourados, nós verde-claro) */
+.arbol-area { border-radius: 6px; border-color: var(--borda-controle); }
+.arbol-faixa { background: rgba(243, 246, 242, .9); }
+.arbol-faixa[data-par="0"] { background: transparent; border-left: 1px dashed #d3dbd0; border-right: 1px dashed #d3dbd0; }
+.arbol-faixa-nome { color: var(--terra-forte); font-size: 15px; }
+.arbol-linhas line { stroke: var(--ramo); stroke-width: 2; opacity: 1; stroke-linecap: round; }
+.arbol-linhas line.vermelha { stroke: #b3412f; stroke-width: 3.2; }
+.arbol-no { border-radius: 999px; background: var(--no-fundo); border: 1.5px solid #5f7a4a; color: var(--texto); padding-left: 12px; }
+.arbol-no::after { background: #5f7a4a; }
+button.arbol-folha-no, .arbol-folha-no { background: #ffffff; border-color: #5f7a4a; }
+.arbol-folha-no::after { background: #5f7a4a; }
+button.arbol-folha-no:hover { background: #eef3ea; }
+.arbol-no:has(.arbol-figura) { border-radius: 24px; }
+.arbol-no[data-vermelho="sim"] { border-color: #b3412f; background: #f9e6e0; color: #7d2b1e; }
+.arbol-no[data-vermelho="sim"]::after { background: #b3412f; }
+button.arbol-folha-no[data-vermelho="sim"]:hover { background: #f3d3ca; }
+.arbol-tipo { border-radius: 4px; background: var(--painel-2); color: var(--texto-2); border: 1px solid var(--borda); }
+.arbol-visoes .botao { border-radius: 5px; }
+
+/* barra de estado, como em programa de mesa */
+.arbol-status { border-top: 1px solid var(--borda); background: var(--painel-2); margin: 0 -14px -8px; padding: 5px 14px; font-size: 13px; color: var(--texto-2); }
+@media (max-width: 960px) { .lateral { padding-inline: 8px; } .lateral .marca { padding-bottom: 8px; } }
+@media (max-width: 640px) {
+  .topo { height: auto; min-height: 48px; }
+}
+
+/* Sem faixas de fundo nem divisórias tracejadas entre os níveis: só os nomes das colunas. */
+.arbol-faixa, .arbol-faixa[data-par="0"], .arbol-faixa[data-par="1"],
+.faixa-nivel, .faixa-nivel[data-par="0"], .faixa-nivel[data-par="1"] {
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+}
+
+/* Cor com um sentido só: vermelho = "vale". Estrutura da árvore em verde e cinza-esverdeado.
+   A raiz é uma pílula como os outros nós. */
+.no.raiz, .no.raiz.no-caminho { background: var(--acento); border-color: var(--acento); border-radius: 999px; font-family: var(--fonte); font-weight: 700; }
+.cabecalho-nivel, .arbol-faixa-nome { color: var(--texto-2); font-family: var(--fonte); font-weight: 700; }
+.lateral .marca em, .entrada h1 .entrada-nome-fraco, .arbol-menu h1 em { color: var(--acento); }
+.arvore-vazia-ramo { border-top-color: var(--ramo); }
+.no.raiz .nome { font-family: var(--fonte); }

@@ -297,7 +297,7 @@ body {
 }
 
 .faixa-nivel {
-  background: rgba(238, 232, 214, 0.55);
+  background: rgba(241, 244, 239, 0.7);
   border-radius: 16px;
 }
 
@@ -664,18 +664,18 @@ body {
 .tela-editor { max-width: 1200px; margin: 0 auto; padding: 24px; }
 .editor-grade { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 24px; align-items: start; }
 .editor-form { display: grid; gap: 16px; }
-.editor-secao { background: var(--painel); border: 1px solid var(--borda, #d9d2bd); border-radius: var(--raio-painel); padding: 18px; display: grid; gap: 12px; }
+.editor-secao { background: var(--painel); border: 1px solid var(--borda, #d3dbd0); border-radius: var(--raio-painel); padding: 18px; display: grid; gap: 12px; }
 .editor-secao h2, .editor-resumo h2 { font-size: 1.15rem; margin: 0; }
 .editor-secao h3, .editor-resumo h3 { font-size: 1rem; margin: 8px 0 0; }
 .editor-secao textarea.campo { min-height: 96px; resize: vertical; }
 .rotulo-campo { display: block; font-weight: 700; margin-bottom: 4px; }
 .campo-nota { color: var(--texto); opacity: .75; margin: 0; }
 .editor-pecas, .editor-opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
-.editor-peca { display: grid; justify-items: center; gap: 4px; width: 96px; min-height: 44px; padding: 8px; background: var(--painel); border: 2px solid var(--borda, #d9d2bd); border-radius: var(--raio); cursor: pointer; font: inherit; color: inherit; }
+.editor-peca { display: grid; justify-items: center; gap: 4px; width: 96px; min-height: 44px; padding: 8px; background: var(--painel); border: 2px solid var(--borda, #d3dbd0); border-radius: var(--raio); cursor: pointer; font: inherit; color: inherit; }
 .editor-peca img { width: 56px; height: 56px; object-fit: contain; }
 .editor-peca[aria-pressed="true"], .editor-opcao[aria-pressed="true"] { border-color: var(--acento); background: var(--folha-suave); }
-.editor-opcao { min-height: 44px; padding: 6px 14px; border: 2px solid var(--borda, #d9d2bd); border-radius: 999px; background: var(--painel); font: inherit; color: inherit; cursor: pointer; }
-.editor-nivel { display: grid; gap: 8px; padding-top: 8px; border-top: 1px solid var(--borda, #d9d2bd); }
+.editor-opcao { min-height: 44px; padding: 6px 14px; border: 2px solid var(--borda, #d3dbd0); border-radius: 999px; background: var(--painel); font: inherit; color: inherit; cursor: pointer; }
+.editor-nivel { display: grid; gap: 8px; padding-top: 8px; border-top: 1px solid var(--borda, #d3dbd0); }
 .editor-niveis-acoes { display: flex; gap: 8px; }
 .editor-regra { border: 0; padding: 0; margin: 0; display: grid; gap: 6px; }
 .editor-radio { display: flex; gap: 10px; align-items: flex-start; min-height: 44px; align-items: center; }
@@ -692,7 +692,7 @@ body {
 /* Interpretar: caminho sem marca é neutro; só "vale" fica verde */
 .no.caminho:not([data-marca]) {
   background: var(--painel);
-  border-color: var(--borda-forte, #cfc6ab);
+  border-color: var(--borda-forte, #c6d1c3);
 }
 
 /* Mediação do professor */

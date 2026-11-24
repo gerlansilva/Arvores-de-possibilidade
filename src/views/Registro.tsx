@@ -192,7 +192,7 @@ export function Registro({ sessao, aoExcluirSessao }: Props) {
 
         {sessao.modo === "construir" && (
         <section className="registro-secao">
-          <h2>Ordem de criação</h2>
+          <h2>Ordem das montagens</h2>
           {sessao.montagens.length === 0 ? (
             <p style={{ color: "var(--texto-3)" }}>Nenhuma montagem guardada.</p>
           ) : (

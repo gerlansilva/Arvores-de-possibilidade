@@ -1559,10 +1559,10 @@ body.arrastando-peca * {
   right: 4%;
   bottom: 0;
   height: calc(var(--p) * 0.4);
-  border: 2px solid #cdbb9c;
+  border: 2px solid #b3c0b0;
   border-radius: 8px 8px 16px 16px;
-  background: linear-gradient(180deg, #f7efdf, #eee0c7);
-  box-shadow: inset 0 3px 5px rgba(90, 70, 40, 0.08);
+  background: linear-gradient(180deg, #f1f4ef, #e3e9e0);
+  box-shadow: inset 0 3px 5px rgba(27, 47, 37, 0.08);
   z-index: 0;
 }
 
@@ -1645,10 +1645,10 @@ body.arrastando-peca * {
   transform: translateX(-50%);
   width: calc(var(--p) * 1.6);
   height: calc(var(--p) * 0.52);
-  border: 2px solid #c4b7a3;
+  border: 2px solid #b3c0b0;
   border-radius: 8px 8px 48% 48% / 8px 8px 68% 68%;
-  background: linear-gradient(180deg, #fbf8f1, #e9e1d2);
-  box-shadow: inset 0 -6px 10px rgba(90, 70, 40, 0.1);
+  background: linear-gradient(180deg, #f7f9f6, #e5ebe2);
+  box-shadow: inset 0 -6px 10px rgba(27, 47, 37, 0.1);
 }
 
 .comp-salada .salada-tigela::before {
@@ -1659,8 +1659,8 @@ body.arrastando-peca * {
   top: -5px;
   height: 9px;
   border-radius: 50%;
-  border: 2px solid #c4b7a3;
-  background: #fffdf7;
+  border: 2px solid #b3c0b0;
+  background: #ffffff;
 }
 
 /* cordão */

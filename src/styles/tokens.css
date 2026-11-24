@@ -2,14 +2,14 @@
   color-scheme: light;
 
   /* Papel de trabalho: marfim, areia e folha. Quatro planos, como antes. */
-  --fundo: #f5f0e6;
-  --painel: #fffdf8;
-  --painel-2: #eae2cf;
-  --painel-3: #ddd1b5;
+  --fundo: #ffffff;
+  --painel: #ffffff;
+  --painel-2: #f1f4ef;
+  --painel-3: #e3e9e0;
 
-  --borda: #d3c7a6;
-  --borda-forte: #a89a74;
-  --linha: #e2d8be;
+  --borda: #d3dbd0;
+  --borda-forte: #8fa089;
+  --linha: #e5ebe2;
 
   --texto: #1b2f25;
   --texto-2: #2e4a3c;
@@ -18,33 +18,33 @@
   /* Ação: verde-folha escuro. Folha e terra aparecem na árvore e na marca. */
   --acento: #2f5a45;
   --acento-forte: #1e3b2f;
-  --acento-suave: #e3e7d3;
+  --acento-suave: #e8f0e9;
   --acento-borda: #9cab84;
   --sobre-acento: #ffffff;
   --acento-fantasma: rgba(47, 90, 69, 0.1);
 
   --folha: #5f7a4a;
-  --folha-suave: #e1e8d2;
-  --terra: #8f6a2e;
-  --terra-forte: #6e4f1f;
+  --folha-suave: #e6eedf;
+  --terra: #2f5a45;
+  --terra-forte: #1e3b2f;
 
   --perigo: #a33a2a;
   --perigo-forte: #8b3022;
   --perigo-suave: #fbeae7;
 
   /* A moldura do programa agora é papel claro; os nomes antigos continuam valendo. */
-  --barra: #fffdf8;
-  --barra-borda: #d3c7a6;
+  --barra: #ffffff;
+  --barra-borda: #d3dbd0;
   --barra-texto: #1b2f25;
   --barra-texto-2: #4a604f;
   --barra-acento: #2f5a45;
-  --barra-linha: #d3c7a6;
-  --barra-realce: #e3e7d3;
+  --barra-linha: #d3dbd0;
+  --barra-realce: #e8f0e9;
   --barra-hover: rgba(27, 47, 37, 0.06);
 
   --raio: 10px;
   --raio-painel: 16px;
-  --sombra-flutuante: 0 10px 28px -14px rgba(60, 45, 20, 0.45);
+  --sombra-flutuante: 0 10px 28px -14px rgba(27, 47, 37, 0.45);
 
   --fonte: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", -apple-system,
     BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;

@@ -250,7 +250,7 @@ export function Editor({ atividades, editando, aoTerminar }: Props) {
       <header className="barra-ferramentas">
         <div>
           <h1>{editando ? "Editar atividade" : "Nova atividade"}</h1>
-          <p>O problema vale para os dois módulos: Construir e Interpretar.</p>
+          <p>O problema vale para a mesa e para a árvore.</p>
         </div>
         <div className="acoes">
           {editando &&

@@ -22,11 +22,21 @@ const TOTAIS: Record<string, { caminhos: number; resultados: number }> = {
   "10-cordao-de-contas": { caminhos: 24, resultados: 24 },
   "11-fotografia-dos-animais": { caminhos: 6, resultados: 6 },
   "12-entrevista": { caminhos: 12, resultados: 12 },
+  "13-pizza-e-bebida": { caminhos: 16, resultados: 16 },
+  "14-presente-de-festa": { caminhos: 16, resultados: 16 },
+  "15-mesa-da-festa": { caminhos: 12, resultados: 12 },
+  "16-podio-das-formas": { caminhos: 24, resultados: 24 },
+  "17-bandeira-de-duas-cores": { caminhos: 12, resultados: 12 },
+  "18-flores-no-vaso": { caminhos: 12, resultados: 6 },
+  "19-mochila-de-brinquedos": { caminhos: 24, resultados: 4 },
+  "20-flores-na-janela": { caminhos: 2, resultados: 2 },
+  "21-fila-de-transportes": { caminhos: 6, resultados: 6 },
+  "22-quatro-dias-de-tempo": { caminhos: 24, resultados: 24 },
 };
 
 describe("catálogo de atividades", () => {
-  it("tem as doze atividades do catálogo", () => {
-    expect(ATIVIDADES).toHaveLength(12);
+  it("tem as vinte e duas atividades do catálogo", () => {
+    expect(ATIVIDADES).toHaveLength(22);
     expect(ATIVIDADES.map((a) => a.id)).toEqual(Object.keys(TOTAIS));
   });
 

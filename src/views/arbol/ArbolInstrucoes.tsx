@@ -7,8 +7,7 @@ export function ArbolInstrucoes({ aoVoltar }: Props) {
         <header>
           <h1>Instruções</h1>
           <p className="texto-lead">
-            A árvore de possibilidades mostra, em ramos, todas as maneiras de combinar os elementos de
-            um problema. Aqui você monta a árvore e decide quais caminhos valem.
+            Criar, ver e pintar uma árvore em três passos.
           </p>
         </header>
 

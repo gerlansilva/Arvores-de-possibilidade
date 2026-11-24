@@ -755,5 +755,665 @@
     ],
     "ordem_distingue_resultados": true,
     "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "13-pizza-e-bebida",
+    "titulo": "Pizza e bebida",
+    "enunciado": "Escolha uma pizza e uma bebida para o lanche. Quantos lanches diferentes existem?",
+    "convite": {
+      "arquivo": "extras/pizza/queijo.png",
+      "alt": "Pizza de queijo"
+    },
+    "pecas": [
+      {
+        "id": "queijo",
+        "nome": "Pizza de queijo",
+        "arquivo": "extras/pizza/queijo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "calabresa",
+        "nome": "Pizza de calabresa",
+        "arquivo": "extras/pizza/calabresa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "cogumelo",
+        "nome": "Pizza de cogumelo",
+        "arquivo": "extras/pizza/cogumelo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "milho",
+        "nome": "Pizza de milho",
+        "arquivo": "extras/pizza/milho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "agua",
+        "nome": "Água",
+        "arquivo": "extras/bebidas/agua.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "leite",
+        "nome": "Leite",
+        "arquivo": "extras/bebidas/leite.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "suco-de-laranja",
+        "nome": "Suco de laranja",
+        "arquivo": "extras/bebidas/suco-de-laranja.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "suco-de-uva",
+        "nome": "Suco de uva",
+        "arquivo": "extras/bebidas/suco-de-uva.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Pizza",
+        "opcoes": [
+          "queijo",
+          "calabresa",
+          "cogumelo",
+          "milho"
+        ]
+      },
+      {
+        "nome": "Bebida",
+        "opcoes": [
+          "agua",
+          "leite",
+          "suco-de-laranja",
+          "suco-de-uva"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "14-presente-de-festa",
+    "titulo": "Presente de festa",
+    "enunciado": "Para o aniversário, escolha um brinquedo e um balão. Cada escolha vem de um grupo diferente.",
+    "convite": {
+      "arquivo": "extras/brinquedos/bola.png",
+      "alt": "Bola"
+    },
+    "pecas": [
+      {
+        "id": "bola",
+        "nome": "Bola",
+        "arquivo": "extras/brinquedos/bola.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "carrinho",
+        "nome": "Carrinho de corrida",
+        "arquivo": "extras/brinquedos/carrinho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "pipa",
+        "nome": "Pipa",
+        "arquivo": "extras/brinquedos/pipa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "bloco",
+        "nome": "Bloco de montar",
+        "arquivo": "extras/brinquedos/bloco.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-vermelho",
+        "nome": "Balão vermelho",
+        "arquivo": "extras/cores/balao-vermelho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-azul",
+        "nome": "Balão azul",
+        "arquivo": "extras/cores/balao-azul.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-amarelo",
+        "nome": "Balão amarelo",
+        "arquivo": "extras/cores/balao-amarelo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-verde",
+        "nome": "Balão verde",
+        "arquivo": "extras/cores/balao-verde.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Brinquedo",
+        "opcoes": [
+          "bola",
+          "carrinho",
+          "pipa",
+          "bloco"
+        ]
+      },
+      {
+        "nome": "Balão",
+        "opcoes": [
+          "balao-vermelho",
+          "balao-azul",
+          "balao-amarelo",
+          "balao-verde"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "15-mesa-da-festa",
+    "titulo": "Mesa da festa",
+    "enunciado": "Monte a mesa da festa: uma pizza, uma bebida e um balão. São três escolhas, uma de cada grupo.",
+    "convite": {
+      "arquivo": "extras/pizza/calabresa.png",
+      "alt": "Pizza de calabresa"
+    },
+    "pecas": [
+      {
+        "id": "queijo",
+        "nome": "Pizza de queijo",
+        "arquivo": "extras/pizza/queijo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "calabresa",
+        "nome": "Pizza de calabresa",
+        "arquivo": "extras/pizza/calabresa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "agua",
+        "nome": "Água",
+        "arquivo": "extras/bebidas/agua.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "suco-de-uva",
+        "nome": "Suco de uva",
+        "arquivo": "extras/bebidas/suco-de-uva.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-vermelho",
+        "nome": "Balão vermelho",
+        "arquivo": "extras/cores/balao-vermelho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-azul",
+        "nome": "Balão azul",
+        "arquivo": "extras/cores/balao-azul.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-verde",
+        "nome": "Balão verde",
+        "arquivo": "extras/cores/balao-verde.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Pizza",
+        "opcoes": [
+          "queijo",
+          "calabresa"
+        ]
+      },
+      {
+        "nome": "Bebida",
+        "opcoes": [
+          "agua",
+          "suco-de-uva"
+        ]
+      },
+      {
+        "nome": "Balão",
+        "opcoes": [
+          "balao-vermelho",
+          "balao-azul",
+          "balao-verde"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "16-podio-das-formas",
+    "titulo": "Pódio das formas",
+    "enunciado": "Quatro formas disputam uma corrida. Escolha quem fica em 1º, 2º e 3º lugar. A ordem muda o pódio.",
+    "convite": {
+      "arquivo": "extras/formas/estrela.png",
+      "alt": "Estrela verde"
+    },
+    "pecas": [
+      {
+        "id": "circulo",
+        "nome": "Círculo azul",
+        "arquivo": "extras/formas/circulo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "quadrado",
+        "nome": "Quadrado vermelho",
+        "arquivo": "extras/formas/quadrado.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "triangulo",
+        "nome": "Triângulo amarelo",
+        "arquivo": "extras/formas/triangulo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "estrela",
+        "nome": "Estrela verde",
+        "arquivo": "extras/formas/estrela.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "1º lugar",
+        "opcoes": [
+          "circulo",
+          "quadrado",
+          "triangulo",
+          "estrela"
+        ]
+      },
+      {
+        "nome": "2º lugar",
+        "opcoes": [
+          "circulo",
+          "quadrado",
+          "triangulo",
+          "estrela"
+        ]
+      },
+      {
+        "nome": "3º lugar",
+        "opcoes": [
+          "circulo",
+          "quadrado",
+          "triangulo",
+          "estrela"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "17-bandeira-de-duas-cores",
+    "titulo": "Bandeira de duas cores",
+    "enunciado": "Faça uma bandeira com dois balões de cores diferentes, um em cima e outro embaixo. A ordem muda a bandeira.",
+    "convite": {
+      "arquivo": "extras/cores/balao-vermelho.png",
+      "alt": "Balão vermelho"
+    },
+    "pecas": [
+      {
+        "id": "balao-vermelho",
+        "nome": "Balão vermelho",
+        "arquivo": "extras/cores/balao-vermelho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-azul",
+        "nome": "Balão azul",
+        "arquivo": "extras/cores/balao-azul.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-amarelo",
+        "nome": "Balão amarelo",
+        "arquivo": "extras/cores/balao-amarelo.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "balao-verde",
+        "nome": "Balão verde",
+        "arquivo": "extras/cores/balao-verde.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Em cima",
+        "opcoes": [
+          "balao-vermelho",
+          "balao-azul",
+          "balao-amarelo",
+          "balao-verde"
+        ]
+      },
+      {
+        "nome": "Embaixo",
+        "opcoes": [
+          "balao-vermelho",
+          "balao-azul",
+          "balao-amarelo",
+          "balao-verde"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "18-flores-no-vaso",
+    "titulo": "Flores no vaso",
+    "enunciado": "Escolha duas flores diferentes para um vaso. O vaso é o mesmo em qualquer ordem.",
+    "convite": {
+      "arquivo": "extras/flores/girassol.png",
+      "alt": "Girassol"
+    },
+    "pecas": [
+      {
+        "id": "girassol",
+        "nome": "Girassol",
+        "arquivo": "extras/flores/girassol.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "margarida",
+        "nome": "Margarida",
+        "arquivo": "extras/flores/margarida.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "rosa",
+        "nome": "Flor rosa",
+        "arquivo": "extras/flores/rosa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "azul",
+        "nome": "Flor azul",
+        "arquivo": "extras/flores/azul.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Primeira flor",
+        "opcoes": [
+          "girassol",
+          "margarida",
+          "rosa",
+          "azul"
+        ]
+      },
+      {
+        "nome": "Segunda flor",
+        "opcoes": [
+          "girassol",
+          "margarida",
+          "rosa",
+          "azul"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": false,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "19-mochila-de-brinquedos",
+    "titulo": "Mochila de brinquedos",
+    "enunciado": "Escolha três dos quatro brinquedos para levar na mochila. A ordem em que você guarda não importa.",
+    "convite": {
+      "arquivo": "extras/brinquedos/carrinho.png",
+      "alt": "Carrinho de corrida"
+    },
+    "pecas": [
+      {
+        "id": "bola",
+        "nome": "Bola",
+        "arquivo": "extras/brinquedos/bola.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "carrinho",
+        "nome": "Carrinho de corrida",
+        "arquivo": "extras/brinquedos/carrinho.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "pipa",
+        "nome": "Pipa",
+        "arquivo": "extras/brinquedos/pipa.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "bloco",
+        "nome": "Bloco de montar",
+        "arquivo": "extras/brinquedos/bloco.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Primeiro",
+        "opcoes": [
+          "bola",
+          "carrinho",
+          "pipa",
+          "bloco"
+        ]
+      },
+      {
+        "nome": "Segundo",
+        "opcoes": [
+          "bola",
+          "carrinho",
+          "pipa",
+          "bloco"
+        ]
+      },
+      {
+        "nome": "Terceiro",
+        "opcoes": [
+          "bola",
+          "carrinho",
+          "pipa",
+          "bloco"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": false,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "20-flores-na-janela",
+    "titulo": "Flores na janela",
+    "enunciado": "Duas flores vão na janela, uma de cada lado. Cada flor aparece uma vez. Trocar de lado muda a janela.",
+    "convite": {
+      "arquivo": "extras/flores/margarida.png",
+      "alt": "Margarida"
+    },
+    "pecas": [
+      {
+        "id": "girassol",
+        "nome": "Girassol",
+        "arquivo": "extras/flores/girassol.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "margarida",
+        "nome": "Margarida",
+        "arquivo": "extras/flores/margarida.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Esquerda",
+        "opcoes": [
+          "girassol",
+          "margarida"
+        ]
+      },
+      {
+        "nome": "Direita",
+        "opcoes": [
+          "girassol",
+          "margarida"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "21-fila-de-transportes",
+    "titulo": "Fila de transportes",
+    "enunciado": "Três transportes entram na fila, lado a lado. Cada um aparece uma vez. Mudar a ordem faz outra fila.",
+    "convite": {
+      "arquivo": "extras/transportes/onibus.png",
+      "alt": "Ônibus amarelo"
+    },
+    "pecas": [
+      {
+        "id": "carro",
+        "nome": "Carro azul",
+        "arquivo": "extras/transportes/carro.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "onibus",
+        "nome": "Ônibus amarelo",
+        "arquivo": "extras/transportes/onibus.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "barco",
+        "nome": "Barco a vela",
+        "arquivo": "extras/transportes/barco.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Primeiro",
+        "opcoes": [
+          "carro",
+          "onibus",
+          "barco"
+        ]
+      },
+      {
+        "nome": "Segundo",
+        "opcoes": [
+          "carro",
+          "onibus",
+          "barco"
+        ]
+      },
+      {
+        "nome": "Terceiro",
+        "opcoes": [
+          "carro",
+          "onibus",
+          "barco"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
+  },
+  {
+    "id": "22-quatro-dias-de-tempo",
+    "titulo": "Quatro dias de tempo",
+    "enunciado": "Em quatro dias seguidos, cada um teve um tempo diferente. Qual foi a ordem? Mudar a ordem muda a semana.",
+    "convite": {
+      "arquivo": "extras/clima/sol.png",
+      "alt": "Sol"
+    },
+    "pecas": [
+      {
+        "id": "sol",
+        "nome": "Sol",
+        "arquivo": "extras/clima/sol.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "nuvem",
+        "nome": "Nuvem",
+        "arquivo": "extras/clima/nuvem.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "chuva",
+        "nome": "Chuva",
+        "arquivo": "extras/clima/chuva.png",
+        "papel": "escolha"
+      },
+      {
+        "id": "lua",
+        "nome": "Lua",
+        "arquivo": "extras/clima/lua.png",
+        "papel": "escolha"
+      }
+    ],
+    "posicoes": [
+      {
+        "nome": "Dia 1",
+        "opcoes": [
+          "sol",
+          "nuvem",
+          "chuva",
+          "lua"
+        ]
+      },
+      {
+        "nome": "Dia 2",
+        "opcoes": [
+          "sol",
+          "nuvem",
+          "chuva",
+          "lua"
+        ]
+      },
+      {
+        "nome": "Dia 3",
+        "opcoes": [
+          "sol",
+          "nuvem",
+          "chuva",
+          "lua"
+        ]
+      },
+      {
+        "nome": "Dia 4",
+        "opcoes": [
+          "sol",
+          "nuvem",
+          "chuva",
+          "lua"
+        ]
+      }
+    ],
+    "ordem_distingue_resultados": true,
+    "permite_repetir_peca_na_montagem": false
   }
 ]

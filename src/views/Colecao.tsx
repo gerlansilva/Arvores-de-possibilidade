@@ -118,7 +118,7 @@ export function Colecao({ sessao, aoIrParaMesa }: Props) {
           Monte na mesa e guarde a primeira montagem.
           <div style={{ marginTop: 12 }}>
             <button className="botao" onClick={aoIrParaMesa}>
-              Voltar à mesa
+              Voltar a Montar
             </button>
           </div>
         </div>
@@ -321,10 +321,7 @@ export function Colecao({ sessao, aoIrParaMesa }: Props) {
                     </div>
                   </section>
                 ) : (
-                  <div className="lateral-ajuda">
-                    <h2>Comparação</h2>
-                    <p>Duas montagens aparecem aqui, lado a lado.</p>
-                  </div>
+                  <div className="lateral-ajuda" aria-hidden="true" />
                 )
               ) : (
                 <section className="form-grupo" aria-labelledby="grupo-titulo">

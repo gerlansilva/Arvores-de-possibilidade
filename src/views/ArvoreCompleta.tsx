@@ -3,6 +3,7 @@ import { pecaDaAtividade, urlAtividade } from "../data/activities";
 import type { DefinicaoDoArbol } from "../engine/arbol";
 import { caminhosValidos, chaveCaminho, resultadosDistintos } from "../engine/comb";
 import { marcarCaminho, type Sessao } from "../state/store";
+import { SITUACOES, situacaoDaAtividade } from "../data/situacoes";
 import { ArbolVer } from "./arbol/ArbolVer";
 
 type Props = { sessao: Sessao };
@@ -58,7 +59,7 @@ export function ArvoreCompleta({ sessao }: Props) {
           ? "Cada peça é usada uma vez."
           : "Nenhuma peça se repete.";
     return {
-      situacao: "Atividade da sessão",
+      situacao: SITUACOES.find((s) => s.tipo === situacaoDaAtividade(atividade))?.formal ?? "Atividade da sessão",
       validas: validos,
       regra: `${ordem} ${repete} Pela regra, ${validos} caminhos seguem o enunciado, o que dá ${distintos} possibilidades diferentes.`,
       perguntas: atividade.perguntas.length > 0 ? atividade.perguntas : ["Como você organizou as escolhas?"],

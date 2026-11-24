@@ -137,11 +137,8 @@ export function Inicio({ foco, atividades, sessoes, aoComecar, aoContinuar, aoNo
   return (
     <main className="tela tela-atividades" id="conteudo" tabIndex={-1}>
       <header className="barra-ferramentas">
-        <div>
-          <h1>Atividades</h1>
-          <p>Escolha uma atividade. As sessões ficam salvas neste dispositivo.</p>
-        </div>
-        <div className="acoes">
+        <h1 className="sr-only">Atividades</h1>
+        <div className="acoes" style={{ marginLeft: "auto" }}>
           <button
             className="botao primario"
             onClick={aoNovaAtividade}
@@ -184,7 +181,7 @@ export function Inicio({ foco, atividades, sessoes, aoComecar, aoContinuar, aoNo
         if (doTipo.length === 0) return null;
         return (
       <section key={situacao.tipo} className="grupo-situacao" aria-labelledby={`grupo-${situacao.tipo}`}>
-        <header className="grupo-cabecalho">
+        <header className="grupo-cabecalho" title={`${situacao.formal}. ${situacao.perguntas}`}>
           <h2 id={`grupo-${situacao.tipo}`}>{situacao.titulo}</h2>
           <p>{situacao.ideia}</p>
         </header>
@@ -201,21 +198,17 @@ export function Inicio({ foco, atividades, sessoes, aoComecar, aoContinuar, aoNo
               <div className="atividade-texto">
                 <h2>{atividade.titulo}</h2>
                 <p className="atividade-enunciado">{atividade.enunciado}</p>
-                <p className="atividade-meta">
-                  {plural(atividade.slots.length, "nível", "níveis")}
-                  {atividade.id.startsWith("prof-") && (
-                    <>
-                      {" · "}
-                      <button
-                        className="link-editar"
-                        onClick={() => aoEditar(atividade)}
-                        aria-label={`Editar a atividade ${atividade.titulo}`}
-                      >
-                        Editar
-                      </button>
-                    </>
-                  )}
-                </p>
+                {atividade.id.startsWith("prof-") && (
+                  <p className="atividade-meta">
+                    <button
+                      className="link-editar"
+                      onClick={() => aoEditar(atividade)}
+                      aria-label={`Editar a atividade ${atividade.titulo}`}
+                    >
+                      Editar
+                    </button>
+                  </p>
+                )}
               </div>
 
               {abertas.length > 0 ? (

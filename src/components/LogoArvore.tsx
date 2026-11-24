@@ -17,7 +17,7 @@ export function LogoArvore({ tamanho = 64 }: Props) {
       aria-hidden="true"
     >
       <g
-        stroke="var(--ramo, #cb6b1d)"
+        stroke="var(--ramo, #7f9285)"
         strokeLinecap="round"
         strokeLinejoin="round"
       >

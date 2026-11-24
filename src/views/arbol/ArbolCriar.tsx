@@ -126,9 +126,7 @@ export function ArbolCriar({ editando, aoCancelar, aoGuardar }: Props) {
       <section className="arbol-criar" aria-labelledby="titulo-criar">
         <h1 id="titulo-criar">{editando ? "Estou modificando a árvore" : "Estou criando uma árvore"}</h1>
         <p className="arbol-criar-ajuda">
-          Escreva o nome de cada nível e os nomes dos seus elementos. Depois, escreva o nome da árvore.
-          Por exemplo, em “Blusas e saias”, os níveis são <em>Blusas</em> e <em>Saias</em>, e os
-          elementos são as cores.
+          Escreva os níveis e seus elementos. Depois, dê um nome à árvore.
         </p>
 
         <div className="arbol-listas">

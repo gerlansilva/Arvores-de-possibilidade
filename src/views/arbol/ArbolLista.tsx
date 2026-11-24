@@ -19,21 +19,12 @@ type PropsExemplos = {
 };
 
 /** "Vejo exemplos": os quatro tipos de problema, já montados. */
-export function ArbolExemplos({ exemplos, aoAbrir, aoVoltar }: PropsExemplos) {
+export function ArbolExemplos({ exemplos, aoAbrir }: PropsExemplos) {
   return (
     <main className="tela tela-arbol-lista" id="conteudo" tabIndex={-1}>
       <header className="arbol-barra">
         <h1>Exemplos</h1>
-        <div className="arbol-barra-acoes">
-          <button className="botao" onClick={aoVoltar}>
-            <Icone nome="casa" />
-            Início
-          </button>
-        </div>
       </header>
-      <p className="arbol-lista-ajuda">
-        A árvore mostra todas as possibilidades; pinte as que valem. Os exemplos estão em quatro situações.
-      </p>
       {SITUACOES.map((sit) => {
         const doTipo = exemplos.filter((e) => e.tipo === sit.tipo);
         if (doTipo.length === 0) return null;
@@ -68,7 +59,7 @@ type PropsBiblioteca = {
 };
 
 /** "Recupero a biblioteca": as árvores que foram guardadas neste computador. */
-export function ArbolBiblioteca({ arvores, aoAbrir, aoVoltar }: PropsBiblioteca) {
+export function ArbolBiblioteca({ arvores, aoAbrir }: PropsBiblioteca) {
   const [mensagem, setMensagem] = useState("");
   const [erro, setErro] = useState("");
 
@@ -113,9 +104,6 @@ export function ArbolBiblioteca({ arvores, aoAbrir, aoVoltar }: PropsBiblioteca)
           </button>
           <button className="botao" onClick={abrirArquivo}>
             Abrir arquivo
-          </button>
-          <button className="botao" onClick={aoVoltar}>
-            Início
           </button>
         </div>
       </header>

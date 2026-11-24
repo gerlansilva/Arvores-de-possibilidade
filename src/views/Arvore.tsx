@@ -179,8 +179,8 @@ export function Arvore({ sessao, embutida = false }: Props) {
       {...(embutida ? { "aria-label": "Árvore das montagens guardadas" } : { id: "conteudo", tabIndex: -1 })}
     >
       <header className="barra-ferramentas">
-        {embutida ? <h2 className="titulo-arvore">As possibilidades guardadas</h2> : <h1>Árvore</h1>}
-        <div className="acoes">
+        {embutida ? <h2 className="titulo-arvore sr-only">As possibilidades guardadas</h2> : <h1>Árvore</h1>}
+        <div className="acoes" style={{ marginLeft: "auto" }}>
           <div className="segmentado" role="group" aria-label="Forma de visualização">
             <button aria-pressed={modo === "mapa"} onClick={() => setModo("mapa")}>
               Mapa
@@ -210,8 +210,7 @@ export function Arvore({ sessao, embutida = false }: Props) {
           </div>
           <span className="arvore-vazia-ramo" aria-hidden="true" />
           <p>
-            <b>A árvore cresce a cada montagem guardada.</b>
-            Monte uma possibilidade na bancada e guarde.
+            <b>Guarde uma montagem para começar a árvore.</b>
           </p>
         </div>
       ) : modo === "lista" ? (

@@ -3,15 +3,15 @@
    de pontos, rótulos em caixa-alta) pela linguagem da árvore. */
 
 :root {
-  --fundo: #f5f0e6;
-  --painel: #fffdf8;
-  --painel-2: #eae2cf;
+  --fundo: #ffffff;
+  --painel: #ffffff;
+  --painel-2: #f1f4ef;
   --raio: 8px;
   --raio-painel: 12px;
   --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
-  --ramo: #b08a4a;
-  --ramo-apagado: #e3d5b0;
-  --ramo-fino: #b08a4a;
+  --ramo: #7f9285;
+  --ramo-apagado: #b9c6bb;
+  --ramo-fino: #7f9285;
 }
 
 ::selection { background: var(--folha-suave); color: var(--texto); }
@@ -187,9 +187,9 @@ h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
 .compara-regras thead td { background: none; border: 0; padding: 0; }
 
 /* ---- Acessibilidade: contraste e alvos (auditoria WCAG 2.2) ------------- */
-.no.raiz, .no.raiz.no-caminho { background: #b94f14; }
-.campo, input.campo, textarea.campo, select.campo { border-color: #8a7c57; }
-.vazia.peca-img, button.vazia { border-color: #8a7c57; }
+.no.raiz, .no.raiz.no-caminho { background: #2f5a45; }
+.campo, input.campo, textarea.campo, select.campo { border-color: #6b7d70; }
+.vazia.peca-img, button.vazia { border-color: #6b7d70; }
 .decisao button { min-height: 36px; padding: 0 14px; }
 .editor-radio input[type="radio"], fieldset input[type="radio"] { width: 24px; height: 24px; }
 

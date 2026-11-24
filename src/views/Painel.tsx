@@ -19,10 +19,9 @@ type Props = {
 
 function Acao({ icone, titulo, texto, onClick, destaque }: { icone: NomeDeIcone; titulo: string; texto: string; onClick: () => void; destaque?: boolean }) {
   return (
-    <button className={`painel-acao${destaque ? " destaque" : ""}`} onClick={onClick}>
+    <button className={`painel-acao${destaque ? " destaque" : ""}`} onClick={onClick} title={texto}>
       <span className="painel-acao-icone"><Icone nome={icone} tamanho={26} /></span>
       <span className="painel-acao-titulo">{titulo}</span>
-      <span className="painel-acao-texto">{texto}</span>
     </button>
   );
 }
@@ -37,10 +36,7 @@ export function Painel({ atividades, sessoes, arvores, aoAtividades, aoCriar, ao
 
   return (
     <main className="tela tela-painel" id="conteudo" tabIndex={-1}>
-      <header className="painel-cabecalho">
-        <h1>Árvore de possibilidades</h1>
-        <p>Investigue todas as possibilidades de um problema: monte com figurinhas, veja a árvore completa e pinte de vermelho as que valem.</p>
-      </header>
+      <h1 className="sr-only">Árvore de possibilidades</h1>
 
       <section className="painel-secao" aria-labelledby="p-comecar">
         <h2 id="p-comecar">Comece por aqui</h2>
@@ -60,14 +56,14 @@ export function Painel({ atividades, sessoes, arvores, aoAtividades, aoCriar, ao
             const figura = dela[0]?.convite.arquivo;
             return (
               <li key={sit.tipo}>
-                <button className="painel-situacao" onClick={() => aoAtividades(sit.tipo)}>
+                <button className="painel-situacao" onClick={() => aoAtividades(sit.tipo)} title={`${sit.formal}. ${sit.perguntas}`}>
                   <span className="painel-situacao-arte">
                     {figura ? <img src={urlAtividade(figura)} alt="" /> : <Icone nome="arvore" tamanho={30} />}
                   </span>
                   <span className="painel-situacao-titulo">{sit.titulo}</span>
                   <span className="painel-situacao-ideia">{sit.ideia}</span>
                   <span className="painel-situacao-meta">
-                    {sit.formal} · {plural(dela.length, "atividade", "atividades")} · {plural(exemplos, "exemplo", "exemplos")}
+                    {plural(dela.length + exemplos, "problema", "problemas")}
                   </span>
                 </button>
               </li>

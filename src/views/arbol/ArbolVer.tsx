@@ -47,7 +47,6 @@ export function ArbolVer({
   enunciado,
   marcadasIniciais,
   aoMudarMarcas,
-  aoInicio,
   aoModificar,
   aoApagar,
   aoGuardarNaBiblioteca,
@@ -105,8 +104,20 @@ export function ArbolVer({
   return (
     <main className="tela tela-arbol-ver" id="conteudo" tabIndex={-1}>
       <header className="arbol-barra nao-imprimir">
-        {incorporada ? <h1 className="arbol-titulo-menor">Todas as possibilidades</h1> : <h1>{def.nome}</h1>}
-        <div className="arbol-barra-acoes">
+        {incorporada ? <h1 className="arbol-titulo-menor sr-only">Todas as possibilidades</h1> : <h1>{def.nome}</h1>}
+        {incorporada && !grande && (
+        <div className="arbol-visoes nao-imprimir" role="group" aria-label="Ver como">
+          <button className="botao" aria-pressed={visao === "arvore"} onClick={() => setVisao("arvore")}>
+            <Icone nome="arvore" />
+            Árvore
+          </button>
+          <button className="botao" aria-pressed={visao === "tabela"} onClick={() => setVisao("tabela")}>
+            <Icone nome="tabela" />
+            Tabela
+          </button>
+        </div>
+        )}
+        <div className="arbol-barra-acoes" style={incorporada ? { marginLeft: "auto" } : undefined}>
           {!incorporada && aoModificar && (
             <button className="botao" onClick={aoModificar}>
               <Icone nome="editar" />
@@ -150,12 +161,6 @@ export function ArbolVer({
             <Icone nome="imprimir" />
             Imprimir
           </button>
-          {!incorporada && (
-            <button className="botao" onClick={aoInicio}>
-              <Icone nome="casa" />
-              Início
-            </button>
-          )}
         </div>
       </header>
 
@@ -191,7 +196,7 @@ export function ArbolVer({
 
       {enunciado && <p className="arbol-enunciado">{enunciado}</p>}
 
-      {!grande && (
+      {!grande && !incorporada && (
         <div className="arbol-visoes nao-imprimir" role="group" aria-label="Ver como">
           <button className="botao" aria-pressed={visao === "arvore"} onClick={() => setVisao("arvore")}>
             <Icone nome="arvore" />
@@ -235,8 +240,9 @@ export function ArbolVer({
         <div className="arbol-area" tabIndex={0} aria-label="Árvore de possibilidades. Role para ver todas as linhas.">
           {grande || !diagrama ? (
             <p className="arbol-excesso">
-              Esta árvore tem {total} possibilidades, mais do que cabe na tela. Modifique a árvore para
-              ter menos níveis ou menos elementos.
+              {incorporada
+                ? `Esta atividade tem ${total} possibilidades, mais do que cabe na tela. Use as abas Montar e Coleção para registrar as possibilidades.`
+                : `Esta árvore tem ${total} possibilidades, mais do que cabe na tela. Modifique a árvore para ter menos níveis ou menos elementos.`}
             </p>
           ) : visao === "tabela" ? (
             <table className="arbol-tabela">

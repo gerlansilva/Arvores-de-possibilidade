@@ -247,3 +247,11 @@ Depois de um período em que o Árbol fiel foi tratado à parte, as peças foram
 - **Botões**: um só estilo (`programa.css`) com ícones de traço (`Icone`), estados ativo, desativado legível e perigo.
 - **Paleta Papel e floresta** (marfim, areia, verde-folha, terra), com texto de contraste alto.
 - **Ainda não feito** (proposta do estudo com o ChatGPT, a validar com crianças): etapa Investigar com árvores incompletas, Transformar (mudar a condição do problema), construção direta dos ramos e registro de processo para pesquisa. Dependem de teste em sala e de aprovação ética.
+
+## Fechamento do fluxo (nov/2026)
+
+- Três agentes (fluxo, teste de ponta a ponta, auditoria de interface) revisaram o programa. Nenhuma falha bloqueava o uso.
+- Fluxo mantido: Montar, Coleção, Árvore e Registro. Ficam para depois: Investigar, Transformar, construção direta de ramos, leitura em voz alta, problemas condicionais e registro de processo para pesquisa (exige CEP, consentimento e assentimento).
+- Catálogo ampliado de 12 para 22 atividades (Pessoa e Borba, 2009 e 2010): 3 de produto cartesiano, 2 de arranjo, 2 de combinação e 3 de permutação (de 2, 3 e 4 etapas). Totais conferidos em `comb.test.ts` e classificação fixada em `situacoes.test.ts`.
+- Cada grupo de Atividades mostra as duas perguntas que distinguem a situação.
+- Interface: borda de controles `#8a7c57` (contraste ≥ 3:1), alvos de 44 px, abas e níveis legíveis em 390 px, aviso próprio para atividade com mais de 2000 possibilidades.
