@@ -1,0 +1,58 @@
+name: Gerar aplicativos (macOS e Windows)
+
+# Dispara ao empurrar uma tag "v*" (ex.: v0.1.0) ou manualmente, em Actions > Run workflow.
+# Cria um rascunho de release com os instaladores anexados.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - nome: macOS (Apple Silicon)
+            os: macos-latest
+            args: --target aarch64-apple-darwin
+          - nome: macOS (Intel)
+            os: macos-latest
+            args: --target x86_64-apple-darwin
+          - nome: Windows
+            os: windows-latest
+            args: ""
+    name: ${{ matrix.nome }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.os == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+
+      - uses: swatinem/rust-cache@v2
+        with:
+          workspaces: "./src-tauri -> target"
+
+      - run: npm ci
+      - run: npm test
+
+      - uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: app-v__VERSION__
+          releaseName: "Árvore de possibilidades v__VERSION__"
+          releaseBody: "Instaladores para macOS (Apple Silicon e Intel) e Windows. Veja o README para a primeira abertura."
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}
