@@ -1,6 +1,6 @@
 [package]
 name = "mesa-de-possibilidades"
-version = "0.1.0"
+version = "0.1.1"
 description = "Árvore de possibilidades — investigação combinatória nos anos iniciais"
 authors = ["Árvore de possibilidades"]
 edition = "2021"

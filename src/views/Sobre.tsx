@@ -49,7 +49,7 @@ export function Sobre({ aoVoltar, rotuloVoltar }: Props) {
 
         <section>
           <h2>Versão</h2>
-          <p>0.1.0. Sugestões e problemas podem ser enviados pela página do código, no GitHub.</p>
+          <p>0.1.1. Sugestões e problemas podem ser enviados pela página do código, no GitHub.</p>
         </section>
 
         <section>

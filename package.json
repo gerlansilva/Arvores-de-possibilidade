@@ -1,7 +1,7 @@
 {
   "name": "mesa-de-possibilidades",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Árvore de possibilidades — ambiente de investigação combinatória para os anos iniciais",
   "scripts": {
