@@ -2,45 +2,45 @@
   color-scheme: light;
 
   /* Papel de trabalho: marfim, areia e folha. Quatro planos, como antes. */
-  --fundo: #f6f8fb;
-  --painel: #ffffff;
-  --painel-2: #e8eef6;
-  --painel-3: #dbe4f0;
+  --fundo: #f5f0e6;
+  --painel: #fffdf8;
+  --painel-2: #eae2cf;
+  --painel-3: #ddd1b5;
 
-  --borda: #cdd7e5;
-  --borda-forte: #9fb0c7;
-  --linha: #dce3ee;
+  --borda: #d3c7a6;
+  --borda-forte: #a89a74;
+  --linha: #e2d8be;
 
-  --texto: #1b2a41;
-  --texto-2: #324560;
-  --texto-3: #4a5d78;
+  --texto: #1b2f25;
+  --texto-2: #2e4a3c;
+  --texto-3: #4a604f;
 
   /* Ação: verde-folha escuro. Folha e terra aparecem na árvore e na marca. */
-  --acento: #1f4e8c;
-  --acento-forte: #163b6b;
-  --acento-suave: #dfe9f6;
-  --acento-borda: #9db8dc;
+  --acento: #2f5a45;
+  --acento-forte: #1e3b2f;
+  --acento-suave: #e3e7d3;
+  --acento-borda: #9cab84;
   --sobre-acento: #ffffff;
-  --acento-fantasma: rgba(31, 78, 140, 0.1);
+  --acento-fantasma: rgba(47, 90, 69, 0.1);
 
-  --folha: #2f8f5b;
-  --folha-suave: #d9efe3;
-  --terra: #c2571a;
-  --terra-forte: #9c4313;
+  --folha: #5f7a4a;
+  --folha-suave: #e1e8d2;
+  --terra: #8f6a2e;
+  --terra-forte: #6e4f1f;
 
   --perigo: #a33a2a;
   --perigo-forte: #8b3022;
   --perigo-suave: #fbeae7;
 
   /* A moldura do programa agora é papel claro; os nomes antigos continuam valendo. */
-  --barra: #ffffff;
-  --barra-borda: #cdd7e5;
-  --barra-texto: #1b2a41;
-  --barra-texto-2: #4a5d78;
-  --barra-acento: #1f4e8c;
-  --barra-linha: #cdd7e5;
-  --barra-realce: #dfe9f6;
-  --barra-hover: rgba(27, 42, 65, 0.06);
+  --barra: #fffdf8;
+  --barra-borda: #d3c7a6;
+  --barra-texto: #1b2f25;
+  --barra-texto-2: #4a604f;
+  --barra-acento: #2f5a45;
+  --barra-linha: #d3c7a6;
+  --barra-realce: #e3e7d3;
+  --barra-hover: rgba(27, 47, 37, 0.06);
 
   --raio: 10px;
   --raio-painel: 16px;

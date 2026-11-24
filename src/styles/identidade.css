@@ -3,15 +3,15 @@
    de pontos, rótulos em caixa-alta) pela linguagem da árvore. */
 
 :root {
-  --fundo: #f6f8fb;
-  --painel: #ffffff;
-  --painel-2: #e8eef6;
+  --fundo: #f5f0e6;
+  --painel: #fffdf8;
+  --painel-2: #eae2cf;
   --raio: 8px;
   --raio-painel: 12px;
   --fonte-titulo: "Fraunces", Georgia, "Times New Roman", serif;
-  --ramo: #cb6b1d;
-  --ramo-apagado: #f0cfae;
-  --ramo-fino: #cb6b1d;
+  --ramo: #b08a4a;
+  --ramo-apagado: #e3d5b0;
+  --ramo-fino: #b08a4a;
 }
 
 ::selection { background: var(--folha-suave); color: var(--texto); }
@@ -188,11 +188,11 @@ h1, h2, .atividade-texto h2, .barra-ferramentas h1, .titulo-arvore, .marca {
 
 /* ---- Acessibilidade: contraste e alvos (auditoria WCAG 2.2) ------------- */
 .no.raiz, .no.raiz.no-caminho { background: #b94f14; }
-.campo, input.campo, textarea.campo, select.campo { border-color: #6b7f99; }
-.vazia.peca-img, button.vazia { border-color: #6b7f99; }
+.campo, input.campo, textarea.campo, select.campo { border-color: #8a7c57; }
+.vazia.peca-img, button.vazia { border-color: #8a7c57; }
 .decisao button { min-height: 36px; padding: 0 14px; }
 .editor-radio input[type="radio"], fieldset input[type="radio"] { width: 24px; height: 24px; }
-.botao:not(:disabled):not(.primario):not(.discreto):not(.texto) { border-color: #8a9bb3; }
+.botao:not(:disabled):not(.primario):not(.discreto):not(.texto) { border-color: #a39467; }
 
 /* ---- Telas estreitas (zoom alto e celulares): o cabeçalho cresce, nada some ---- */
 @media (max-width: 640px) {
