@@ -1,4 +1,4 @@
-# Roteiro de piloto: usabilidade e observação pedagógica — "Árvore de possibilidades"
+# Roteiro de piloto: usabilidade e observação pedagógica — "Quantos Jeitos"
 
 Uso: pesquisador sozinho em sala, 2–3 sessões de 30–40 min, crianças de ~6 a 9 anos.
 Referencial: o software se inspira nos Diagramas de Árbol (Aguirre, 2005). Demais referenciais: **a definir pelo pesquisador**.

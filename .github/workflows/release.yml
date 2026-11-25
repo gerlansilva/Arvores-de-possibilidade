@@ -51,7 +51,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: app-v__VERSION__
-          releaseName: "Árvore de possibilidades v__VERSION__"
+          releaseName: "Quantos Jeitos v__VERSION__"
           releaseBody: "Instaladores para macOS (Apple Silicon e Intel) e Windows. Veja o README para a primeira abertura."
           releaseDraft: true
           prerelease: false

@@ -192,7 +192,7 @@ completar o que falta.
 - Excluir uma sessão inteira fica no Registro, com aviso do que será apagado.
 - O mapa da árvore é reduzido na impressão para caber em A4 retrato.
 - Os tokens e papéis de componente estão em `DESIGN.md`.
-- O programa se chama **Árvore de possibilidades**; a marca é uma árvore de
+- O programa se chama **Quantos Jeitos** (subtítulo “árvores de possibilidades”; antes, “Árvore de possibilidades”); a marca é uma árvore de
   quatro folhas, três nós internos e uma raiz, que também é o ícone do
   aplicativo. A tela de entrada mostra só a marca, o nome e “Entrar”.
 

@@ -1,8 +1,8 @@
 [package]
 name = "mesa-de-possibilidades"
 version = "0.1.1"
-description = "Árvore de possibilidades — investigação combinatória nos anos iniciais"
-authors = ["Árvore de possibilidades"]
+description = "Quantos Jeitos — árvores de possibilidades: investigação combinatória nos anos iniciais"
+authors = ["Quantos Jeitos"]
 edition = "2021"
 rust-version = "1.77.2"
 

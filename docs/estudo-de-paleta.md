@@ -1,4 +1,4 @@
-# Estudo de paleta — Árvore de possibilidades
+# Estudo de paleta — Quantos Jeitos
 
 Cinco paletas testadas no próprio programa (telas reais de abertura, atividades e Interpretar), com contraste calculado e simulação de daltonismo. As figurinhas não mudam: têm contorno marrom-escuro e cores quentes, então o fundo precisa ser neutro e deixá-las saltar.
 

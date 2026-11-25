@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1760" height="1064" viewBox="0 0 1760 1064" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif">
   <rect width="1760" height="1064" fill="#e7eaed"/>
 
-  <text x="48" y="58" font-size="26" font-weight="650" fill="#1b232a" letter-spacing="-0.4">Árvore de possibilidades · mapa das telas</text>
+  <text x="48" y="58" font-size="26" font-weight="650" fill="#1b232a" letter-spacing="-0.4">Quantos Jeitos · mapa das telas</text>
   <text x="48" y="84" font-size="13.5" fill="#3f4a55">A entrada mostra o nome e a marca e leva direto às atividades; a partir daí, a sessão atravessa as quatro etapas e as abas trocam de etapa a qualquer momento.</text>
 
   <!-- hub: Atividades -->

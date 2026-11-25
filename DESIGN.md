@@ -1,4 +1,4 @@
-# Sistema de design — Árvore de possibilidades
+# Sistema de design — Quantos Jeitos
 
 Este documento registra as decisões visuais que o código já aplica. Ele não
 substitui `docs/decisoes.md` (pedagogia e arquitetura); serve para quem for mexer
