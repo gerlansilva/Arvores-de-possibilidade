@@ -53,6 +53,6 @@ jobs:
           tagName: app-v__VERSION__
           releaseName: "Quantos Jeitos v__VERSION__"
           releaseBody: "Instaladores para macOS (Apple Silicon e Intel) e Windows. Veja o README para a primeira abertura."
-          releaseDraft: true
+          releaseDraft: false
           prerelease: false
           args: ${{ matrix.args }}

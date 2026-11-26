@@ -1,7 +1,7 @@
 {
   "name": "mesa-de-possibilidades",
   "private": true,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "description": "Quantos Jeitos (árvores de possibilidades) — ambiente de investigação combinatória para os anos iniciais",
   "scripts": {
